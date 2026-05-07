@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Custom Neon Site</title>
+    <style>
+        /* --- CUSTOMIZE COLORS HERE --- */
+        :root {
+            --bg-color: #0d0118;        /* Background color */
+            --accent-color: #9d4edd;    /* Neon color (Purple) */
+            --text-color: #ffffff;      /* Main text color */
+            --button-bg: rgba(157, 78, 221, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Profile Picture Style */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 25px var(--accent-color);
+            margin: 30px auto;
+            background-image: url('https://via.placeholder.com/150'); /* Put your image link here */
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-shadow: 0 0 15px var(--accent-color);
+            margin: 10px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* Button Style */
+        .btn {
+            background: var(--button-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            color: white;
+            padding: 18px;
+            margin: 12px 0;
+            width: 100%;
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 30px var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Product/Store Card Style */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-preview {
+            background: #1a1a1a;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .price {
+            color: var(--accent-color);
+            font-size: 32px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 11px;
+            opacity: 0.4;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 1. YOUR PHOTO/LOGO -->
+        <div class="profile-img"></div>
+
+        <!-- 2. YOUR NAME AND TAGLINE -->
+        <h1>VORTX EDITOR</h1>
+        <p class="tagline">MASTER YOUR MOTION</p>
+
+        <!-- 3. YOUR SOCIAL LINKS (Add your links inside href="...") -->
+        <a href="YOUR_STORE_LINK" class="btn">🛒 ONLINE STORE</a>
+        <a href="YOUR_TIKTOK_LINK" class="btn">📱 TIKTOK</a>
+        <a href="YOUR_TELEGRAM_LINK" class="btn">✈️ TELEGRAM</a>
+
+        <!-- 4. PRODUCT SECTION -->
+        <div class="card">
+            <h3 style="margin-top:0; color:var(--accent-color);">🔥 NEW RELEASE</h3>
+            
+            <div class="product-preview">
+                <!-- You can replace this span with an <img> tag for your product -->
+                <span style="color:#555;">[ Product Preview Image/Video ]</span>
+            </div>
+
+            <p class="product-name">PREMIUM AE SHAKES PACK</p>
+            <div class="price">$0.00</div>
+
+            <!-- Buy Button -->
+            <a href="BUY_LINK" class="btn" style="background: var(--accent-color); border:none;">GET IT NOW</a>
+        </div>
+
+        <div class="footer">MADE WITH VORTX STYLE</div>
+
+    </div>
+
+</body>
+</html>
