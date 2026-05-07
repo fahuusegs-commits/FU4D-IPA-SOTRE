@@ -18,28 +18,30 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
         }
 
-        .container { width: 100%; max-width: 450px; text-align: center; }
+        .container { width: 100%; max-width: 480px; text-align: center; }
 
-        .profile-section { margin: 40px 0 20px; }
+        /* Profile Section */
+        .profile-section { margin: 30px 0 20px; }
         .profile-img {
-            width: 130px; height: 130px;
+            width: 120px; height: 120px;
             border-radius: 50%;
-            border: 4px solid var(--accent-color);
-            box-shadow: 0 0 30px var(--accent-color);
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-color);
             object-fit: cover;
         }
-        h1 { font-size: 26px; margin: 15px 0 5px; letter-spacing: 2px; }
-        .tagline { opacity: 0.6; font-size: 14px; margin-bottom: 30px; }
+        h1 { font-size: 24px; margin: 10px 0 5px; letter-spacing: 1px; }
+        .tagline { opacity: 0.6; font-size: 13px; margin-bottom: 25px; }
 
+        /* Social Links Card Style */
         .link-card {
             background: var(--glass-bg);
             border: 1px solid rgba(163, 73, 255, 0.3);
-            border-radius: 18px;
-            padding: 16px;
-            margin-bottom: 15px;
+            border-radius: 15px;
+            padding: 14px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -47,28 +49,50 @@
             font-weight: 500;
             transition: 0.3s;
         }
-        .link-card:hover { background: rgba(163, 73, 255, 0.15); transform: translateY(-2px); }
-        .link-icon { width: 32px; height: 32px; margin-right: 15px; border-radius: 8px; object-fit: cover; }
-        .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 20px var(--accent-color); }
+        .link-icon { width: 28px; height: 28px; margin-right: 15px; border-radius: 6px; }
+        .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 15px var(--accent-color); }
 
-        #storeSection { display: none; margin-top: 20px; }
-        .back-btn { background: none; border: none; color: var(--accent-color); cursor: pointer; margin-bottom: 20px; font-size: 16px; font-weight: bold; }
-        
+        /* Copy Link Box */
+        .copy-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--accent-color);
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin: 5px 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        .copy-btn { background: var(--accent-color); border: none; color: white; padding: 4px 10px; border-radius: 5px; cursor: pointer; }
+
+        /* STORE GRID SYSTEM (Scroll chara ekshathe dekhar jonno) */
+        #storeSection { display: none; margin-top: 10px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Ek line e 2 ti kore app */
+            gap: 12px;
+            padding-bottom: 30px;
+        }
+        .back-btn { background: none; border: none; color: var(--accent-color); cursor: pointer; margin-bottom: 15px; font-weight: bold; font-size: 16px; }
+
         .product-card {
             background: var(--glass-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
+            border-radius: 15px;
+            padding: 12px;
             border: 1px solid rgba(163, 73, 255, 0.2);
+            text-align: center;
         }
-        .product-img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
-        .price { color: #00ed64; font-size: 24px; font-weight: bold; margin: 10px 0; }
-        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 12px; width: 100%; border-radius: 12px; cursor: pointer; font-weight: bold; }
+        .product-img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 8px; }
+        .product-card h3 { font-size: 13px; margin: 5px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .price { color: #00ed64; font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 8px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: bold; }
 
+        /* Modal Style */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #1a0229; padding: 25px; border-radius: 25px; border: 2px solid var(--accent-color); width: 85%; max-width: 340px; text-align: center; }
+        .modal-content { background: #1a0229; padding: 25px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
         input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
-        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
     </style>
 </head>
 <body>
@@ -91,72 +115,64 @@
                 <img src="https://i.postimg.cc/L5Hz3rQx/IMG-3580.jpg" class="link-icon"> Telegram
             </a>
 
+            <div class="copy-box">
+                <span style="opacity: 0.7;">https://t.me/fahuu_xzzz</span>
+                <button class="copy-btn" onclick="copyLink()">Copy</button>
+            </div>
+
             <a href="https://www.facebook.com/fah.huu.2025" target="_blank" class="link-card">
                 <img src="https://i.postimg.cc/mD36p98P/fb-icon.png" class="link-icon"> Facebook
             </a>
-
-            <a href="#" onclick="openMore()" class="link-card">✨ MORE ITEMS (UPCOMING)</a>
         </div>
 
         <div id="storeSection">
             <button class="back-btn" onclick="hideStore()">← Back to Profile</button>
-            
-            <div class="product-card">
-                <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
-                <h3>CAPCUT PREMIUM</h3>
-                <div class="price">14$</div>
-                <button class="buy-btn" onclick="openPayment('CAPCUT')">BUY NOW</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
-                <h3>WINK PREMIUM</h3>
-                <div class="price">18$</div>
-                <button class="buy-btn" onclick="openPayment('WINK')">BUY NOW</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img">
-                <h3>NETFLIX PREMIUM</h3>
-                <div class="price">8$</div>
-                <button class="buy-btn" onclick="openPayment('NETFLIX')">BUY NOW</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img">
-                <h3>ALIGHT MOTION PREMIUM</h3>
-                <div class="price">5$</div>
-                <button class="buy-btn" onclick="openPayment('ALIGHT MOTION')">BUY NOW</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.postimg.cc/63ktnXHQ/IMG-3570.jpg" class="product-img">
-                <h3>ALL IN ONE</h3>
-                <div class="price">10$</div>
-                <button class="buy-btn" onclick="openPayment('ALL IN ONE')">BUY NOW</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img">
-                <h3>VIDEO STAR</h3>
-                <div class="price">30$</div>
-                <button class="buy-btn" onclick="openPayment('VIDEO STAR')">BUY NOW</button>
+            <div class="grid-container">
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
+                    <h3>CAPCUT</h3><div class="price">14$</div>
+                    <button class="buy-btn" onclick="openPayment('CAPCUT')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
+                    <h3>WINK</h3><div class="price">18$</div>
+                    <button class="buy-btn" onclick="openPayment('WINK')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img">
+                    <h3>NETFLIX</h3><div class="price">8$</div>
+                    <button class="buy-btn" onclick="openPayment('NETFLIX')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img">
+                    <h3>ALIGHT</h3><div class="price">5$</div>
+                    <button class="buy-btn" onclick="openPayment('ALIGHT')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img">
+                    <h3>VIDEO STAR</h3><div class="price">30$</div>
+                    <button class="buy-btn" onclick="openPayment('VIDEO STAR')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/63ktnXHQ/IMG-3570.jpg" class="product-img">
+                    <h3>ALL IN ONE</h3><div class="price">10$</div>
+                    <button class="buy-btn" onclick="openPayment('ALL IN ONE')">BUY</button>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <h2 style="color:#00ed64;">Confirm Payment</h2>
-            <p>Bikash (Send Money):<br><strong>01938908314</strong></p>
-            
-            <form action=xpqbjavv/f/YOUR_FORMSPREE_ID" method="POST">
+            <h2 style="color:#00ed64; margin-top:0;">Payment</h2>
+            <p style="font-size:14px;">Bikash (Send Money):<br><strong>01938908314</strong></p>
+            <form id="paymentForm" action="https://xpqbjavv/f/mqajenre" method="POST">
                 <input type="hidden" name="Product" id="selectedProduct">
-                <input type="text" name="TrxID" placeholder="Enter Transaction ID (TrxID)" required>
-                <input type="text" name="Phone" placeholder="Your Bikash Number" required>
-                <button type="submit" class="submit-btn">SUBMIT ORDER ✅</button>
+                <input type="text" name="TrxID" placeholder="Transaction ID" required>
+                <input type="text" name="Phone" placeholder="Your Number" required>
+                <button type="submit" class="submit-btn">SUBMIT ORDER</button>
             </form>
-            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:15px; cursor:pointer; opacity:0.6;">Cancel</button>
+            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:15px; opacity:0.5;">Cancel</button>
         </div>
     </div>
 
@@ -177,9 +193,29 @@
         function closePayment() {
             document.getElementById('paymentModal').style.display = 'none';
         }
-        function openMore() {
-            alert("Premium Shakes, XML, and CC are coming soon!");
+        function copyLink() {
+            navigator.clipboard.writeText('https://t.me/fahuu_xzzz');
+            alert('Link Copied! ✅');
         }
+
+        // Form Submission Fix
+        const form = document.getElementById('paymentForm');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                alert("Order Submitted Successfully! ✅");
+                form.reset();
+                closePayment();
+            } else {
+                alert("Submission Failed. Please try again.");
+            }
+        };
     </script>
 </body>
 </html>
