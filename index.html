@@ -34,22 +34,48 @@
             border-radius: 50%;
             border: 4px solid var(--accent-color);
             box-shadow: 0 0 25px var(--accent-color);
-            margin: 30px auto;
+            margin: 30px auto 15px auto;
             object-fit: cover;
         }
 
         h1 {
             font-size: 28px;
             text-shadow: 0 0 15px var(--accent-color);
-            margin: 10px 0;
+            margin: 5px 0;
             letter-spacing: 2px;
         }
 
         .tagline {
             font-size: 14px;
             opacity: 0.7;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             letter-spacing: 2px;
+        }
+
+        /* Social Links */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 13px;
+            border: 1px solid var(--accent-color);
+            transition: 0.3s;
+        }
+
+        .more-btn {
+            background: #ff9e00;
+            border-color: #ff9e00;
+            font-weight: bold;
         }
 
         /* Store Grid */
@@ -66,7 +92,6 @@
             border-radius: 25px;
             padding: 20px;
             backdrop-filter: blur(10px);
-            transition: 0.3s;
         }
 
         .item-img {
@@ -100,43 +125,51 @@
             font-weight: bold;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 0 15px var(--accent-color);
         }
 
-        /* Popup Box Style */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            padding: 20px;
         }
 
         .modal-content {
             background: #1a0229;
             padding: 30px;
-            border-radius: 20px;
+            border-radius: 25px;
             border: 2px solid var(--accent-color);
             text-align: center;
-            max-width: 300px;
+            width: 100%;
+            max-width: 320px;
             box-shadow: 0 0 30px var(--accent-color);
         }
 
-        .modal-content h2 { color: #00ed64; margin-bottom: 15px; }
-        .modal-content p { font-size: 18px; margin: 10px 0; }
         .close-btn {
             background: #ff4d4d;
             border: none; color: white;
-            padding: 8px 20px;
-            border-radius: 10px;
-            margin-top: 15px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
             cursor: pointer;
+            width: 100%;
         }
 
-        .footer { margin-top: 50px; opacity: 0.3; font-size: 11px; letter-spacing: 2px; }
+        .upcoming-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #ff9e00;
+        }
+
+        .footer { margin-top: 50px; opacity: 0.3; font-size: 11px; }
     </style>
 </head>
 <body>
@@ -147,50 +180,50 @@
         <h1>FU4D IPA STORE</h1>
         <p class="tagline">PREMIUM SERVICES & APPS</p>
 
+        <div class="social-container">
+            <a href="https://www.tiktok.com/@furd_f4huu4?_r=1&_t=ZS-96ACuqoVATo" target="_blank" class="social-btn">TikTok</a>
+            <a href="https://t.me/fahuu_xzzz" target="_blank" class="social-btn">Telegram</a>
+            <a href="https://www.facebook.com/fah.huu.2025?mibextid=wwXIfr" target="_blank" class="social-btn">Facebook</a>
+            <button onclick="openMore()" class="social-btn more-btn">MORE ITEMS</button>
+        </div>
+
         <div class="store-grid">
-            
             <div class="item-card">
                 <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="item-img">
                 <div class="item-title">CAPCUT PREMIUM</div>
                 <div class="price">14$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
             <div class="item-card">
                 <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="item-img">
                 <div class="item-title">WINK PREMIUM</div>
                 <div class="price">18$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
             <div class="item-card">
                 <img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="item-img">
                 <div class="item-title">NETFLIX PREMIUM</div>
                 <div class="price">8$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
             <div class="item-card">
                 <img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="item-img">
                 <div class="item-title">ALIGHT MOTION PREMIUM</div>
                 <div class="price">5$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
             <div class="item-card">
                 <img src="https://i.postimg.cc/63ktnXHQ/IMG-3570.jpg" class="item-img">
                 <div class="item-title">ALL IN ONE</div>
                 <div class="price">10$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
             <div class="item-card">
                 <img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="item-img">
                 <div class="item-title">VIDEO STAR</div>
                 <div class="price">30$</div>
                 <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
             </div>
-
         </div>
 
         <div class="footer">PAYMENT METHOD VIA BIKASH ✅</div>
@@ -198,25 +231,36 @@
 
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <h2>Payment Info</h2>
+            <h2 style="color:#00ed64;">Payment Info</h2>
             <p><strong>Bikash Number:</strong><br>01938908314</p>
             <p style="color:#00ed64; font-weight:bold;">(Send Money)</p>
-            <p style="font-size:12px; opacity:0.8;">Taka pathiye screenshot pathan</p>
+            <p style="font-size:12px; opacity:0.8;">Payment kore screenshot pathan</p>
             <button class="close-btn" onclick="closePayment()">Close</button>
         </div>
     </div>
 
+    <div id="moreModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color:#ff9e00;">Upcoming Items</h2>
+            <div class="upcoming-item">Premium Shakes</div>
+            <div class="upcoming-item">Premium XML</div>
+            <div class="upcoming-item">Premium CC</div>
+            <p style="font-size:12px; margin-top:15px; opacity:0.6;">Stay tuned for these items!</p>
+            <button class="close-btn" onclick="closeMore()" style="background:#555;">Back</button>
+        </div>
+    </div>
+
     <script>
-        function openPayment() {
-            document.getElementById("paymentModal").style.display = "flex";
-        }
-        function closePayment() {
-            document.getElementById("paymentModal").style.display = "none";
-        }
-        // Close modal when clicking outside
+        function openPayment() { document.getElementById("paymentModal").style.display = "flex"; }
+        function closePayment() { document.getElementById("paymentModal").style.display = "none"; }
+        
+        function openMore() { document.getElementById("moreModal").style.display = "flex"; }
+        function closeMore() { document.getElementById("moreModal").style.display = "none"; }
+
         window.onclick = function(event) {
-            if (event.target == document.getElementById("paymentModal")) {
+            if (event.target.className === "modal") {
                 closePayment();
+                closeMore();
             }
         }
     </script>
