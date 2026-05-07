@@ -6,264 +6,157 @@
     <title>FU4D IPA STORE</title>
     <style>
         :root {
-            --bg-color: #0d0118;
-            --accent-color: #9d4edd;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --bg-color: #0b0116;
+            --accent-color: #a349ff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
         }
 
         body {
             background-color: var(--bg-color);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
+            display: flex;
+            justify-content: center;
             padding: 20px;
         }
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
+        .container { width: 100%; max-width: 450px; text-align: center; }
 
+        /* Profile Style */
+        .profile-section { margin: 40px 0 20px; }
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 130px; height: 130px;
             border-radius: 50%;
             border: 4px solid var(--accent-color);
-            box-shadow: 0 0 25px var(--accent-color);
-            margin: 30px auto 15px auto;
+            box-shadow: 0 0 30px var(--accent-color);
             object-fit: cover;
         }
+        h1 { font-size: 26px; margin: 15px 0 5px; letter-spacing: 2px; }
+        .tagline { opacity: 0.6; font-size: 14px; margin-bottom: 30px; }
 
-        h1 {
-            font-size: 28px;
-            text-shadow: 0 0 15px var(--accent-color);
-            margin: 5px 0;
-            letter-spacing: 2px;
-        }
-
-        .tagline {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        /* Social Links */
-        .social-container {
+        /* Link Buttons Style */
+        .link-card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(163, 73, 255, 0.3);
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 15px;
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .social-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 50px;
+            align-items: center;
             text-decoration: none;
-            font-size: 13px;
-            border: 1px solid var(--accent-color);
+            color: white;
+            font-weight: 500;
             transition: 0.3s;
         }
+        .link-card:hover { background: rgba(163, 73, 255, 0.15); transform: translateY(-2px); }
+        .link-icon { width: 32px; height: 32px; margin-right: 15px; border-radius: 8px; }
+        .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 20px var(--accent-color); }
 
-        .more-btn {
-            background: #ff9e00;
-            border-color: #ff9e00;
-            font-weight: bold;
-        }
-
-        /* Store Grid */
-        .store-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            width: 100%;
-        }
-
-        .item-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 25px;
+        /* Store Section (Initially Hidden) */
+        #storeSection { display: none; margin-top: 20px; }
+        .back-btn { background: none; border: none; color: var(--accent-color); cursor: pointer; margin-bottom: 20px; font-size: 16px; }
+        
+        .product-card {
+            background: var(--glass-bg);
+            border-radius: 20px;
             padding: 20px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+            border: 1px solid rgba(163, 73, 255, 0.2);
         }
+        .product-img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .price { color: #00ed64; font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 12px; width: 100%; border-radius: 12px; cursor: pointer; font-weight: bold; }
 
-        .item-img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
-
-        .item-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: var(--accent-color);
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px var(--accent-color);
-        }
-
-        .buy-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #1a0229;
-            padding: 30px;
-            border-radius: 25px;
-            border: 2px solid var(--accent-color);
-            text-align: center;
-            width: 100%;
-            max-width: 320px;
-            box-shadow: 0 0 30px var(--accent-color);
-        }
-
-        .close-btn {
-            background: #ff4d4d;
-            border: none; color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .upcoming-item {
-            background: rgba(255,255,255,0.05);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border-left: 4px solid #ff9e00;
-        }
-
-        .footer { margin-top: 50px; opacity: 0.3; font-size: 11px; }
+        /* Payment Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #1a0229; padding: 25px; border-radius: 25px; border: 2px solid var(--accent-color); width: 85%; max-width: 340px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
+        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg" class="profile-img">
-        
-        <h1>FU4D IPA STORE</h1>
-        <p class="tagline">PREMIUM SERVICES & APPS</p>
+        <div id="homeSection">
+            <div class="profile-section">
+                <img src="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg" class="profile-img">
+                <h1>FU4D IPA STORE</h1>
+                <p class="tagline">PREMIUM SERVICES & APPS</p>
+            </div>
 
-        <div class="social-container">
-            <a href="https://www.tiktok.com/@furd_f4huu4?_r=1&_t=ZS-96ACuqoVATo" target="_blank" class="social-btn">TikTok</a>
-            <a href="https://t.me/fahuu_xzzz" target="_blank" class="social-btn">Telegram</a>
-            <a href="https://www.facebook.com/fah.huu.2025?mibextid=wwXIfr" target="_blank" class="social-btn">Facebook</a>
-            <button onclick="openMore()" class="social-btn more-btn">MORE ITEMS</button>
+            <a href="#" onclick="showStore()" class="link-card store-btn">🛒 ONLINE STORE</a>
+
+            <a href="https://www.tiktok.com/@furd_f4huu4?_r=1&_t=ZS-96ACuqoVATo" target="_blank" class="link-card">
+                <img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="link-icon"> TikTok
+            </a>
+
+            <a href="https://t.me/fahuu_xzzz" target="_blank" class="link-card">
+                <img src="https://i.postimg.cc/L5Hz3rQx/IMG-3580.jpg" class="link-icon"> Telegram
+            </a>
+
+            <a href="https://www.facebook.com/fah.huu.2025" target="_blank" class="link-card">
+                <img src="https://i.postimg.cc/mD36p98P/fb-icon.png" class="link-icon"> Facebook
+            </a>
+
+            <a href="#" onclick="openMore()" class="link-card">✨ MORE ITEMS (UPCOMING)</a>
         </div>
 
-        <div class="store-grid">
-            <div class="item-card">
-                <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="item-img">
-                <div class="item-title">CAPCUT PREMIUM</div>
+        <div id="storeSection">
+            <button class="back-btn" onclick="hideStore()">← Back to Profile</button>
+            
+            <div class="product-card">
+                <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
+                <h3>CAPCUT PREMIUM</h3>
                 <div class="price">14$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
+                <button class="buy-btn" onclick="openPayment('CAPCUT')">BUY NOW</button>
             </div>
-            <div class="item-card">
-                <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="item-img">
-                <div class="item-title">WINK PREMIUM</div>
-                <div class="price">18$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
-            </div>
-            <div class="item-card">
-                <img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="item-img">
-                <div class="item-title">NETFLIX PREMIUM</div>
-                <div class="price">8$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
-            </div>
-            <div class="item-card">
-                <img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="item-img">
-                <div class="item-title">ALIGHT MOTION PREMIUM</div>
-                <div class="price">5$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
-            </div>
-            <div class="item-card">
-                <img src="https://i.postimg.cc/63ktnXHQ/IMG-3570.jpg" class="item-img">
-                <div class="item-title">ALL IN ONE</div>
-                <div class="price">10$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
-            </div>
-            <div class="item-card">
-                <img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="item-img">
-                <div class="item-title">VIDEO STAR</div>
-                <div class="price">30$</div>
-                <button class="buy-btn" onclick="openPayment()">BUY NOW</button>
-            </div>
-        </div>
 
-        <div class="footer">PAYMENT METHOD VIA BIKASH ✅</div>
+            <div class="product-card">
+                <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
+                <h3>WINK PREMIUM</h3>
+                <div class="price">18$</div>
+                <button class="buy-btn" onclick="openPayment('WINK')">BUY NOW</button>
+            </div>
+
+            </div>
     </div>
 
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <h2 style="color:#00ed64;">Payment Info</h2>
-            <p><strong>Bikash Number:</strong><br>01938908314</p>
-            <p style="color:#00ed64; font-weight:bold;">(Send Money)</p>
-            <p style="font-size:12px; opacity:0.8;">Payment kore screenshot pathan</p>
-            <button class="close-btn" onclick="closePayment()">Close</button>
-        </div>
-    </div>
-
-    <div id="moreModal" class="modal">
-        <div class="modal-content">
-            <h2 style="color:#ff9e00;">Upcoming Items</h2>
-            <div class="upcoming-item">Premium Shakes</div>
-            <div class="upcoming-item">Premium XML</div>
-            <div class="upcoming-item">Premium CC</div>
-            <p style="font-size:12px; margin-top:15px; opacity:0.6;">Stay tuned for these items!</p>
-            <button class="close-btn" onclick="closeMore()" style="background:#555;">Back</button>
+            <h2 style="color:#00ed64;">Confirm Payment</h2>
+            <p>Bikash (Send Money):<br><strong>01938908314</strong></p>
+            
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <input type="hidden" name="Product" id="selectedProduct">
+                <input type="text" name="TrxID" placeholder="Enter Transaction ID (TrxID)" required>
+                <input type="text" name="Phone" placeholder="Your Bikash Number" required>
+                <button type="submit" class="submit-btn">SUBMIT ORDER ✅</button>
+            </form>
+            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:15px; cursor:pointer; opacity:0.6;">Cancel</button>
         </div>
     </div>
 
     <script>
-        function openPayment() { document.getElementById("paymentModal").style.display = "flex"; }
-        function closePayment() { document.getElementById("paymentModal").style.display = "none"; }
-        
-        function openMore() { document.getElementById("moreModal").style.display = "flex"; }
-        function closeMore() { document.getElementById("moreModal").style.display = "none"; }
-
-        window.onclick = function(event) {
-            if (event.target.className === "modal") {
-                closePayment();
-                closeMore();
-            }
+        function showStore() { 
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('storeSection').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+        function hideStore() { 
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('storeSection').style.display = 'none';
+        }
+        function openPayment(name) {
+            document.getElementById('selectedProduct').value = name;
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+        function closePayment() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        function openMore() {
+            alert("Premium Shakes, XML, and CC are coming soon!");
         }
     </script>
-
 </body>
 </html>
