@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FU4D IPA STORE</title>
+    <title>FU4D IPA STORE - MANUAL VERIFICATION</title>
     <style>
         :root { --bg-color: #0b0116; --accent-color: #a349ff; --glass-bg: rgba(255, 255, 255, 0.05); }
         body { background-color: var(--bg-color); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
@@ -22,7 +22,7 @@
         .modal-content { background: #1a0229; padding: 25px; border-radius: 15px; border: 2px solid var(--accent-color); width: 85%; max-width: 300px; }
         input { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
         .submit-btn { background: #00ed64; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
-        #timerBox { display: none; margin-top: 15px; padding: 10px; background: rgba(0,237,100,0.1); border-radius: 10px; }
+        #pendingBox { display: none; margin-top: 15px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-radius: 10px; border: 1px solid #ffc107; }
     </style>
 </head>
 <body>
@@ -40,18 +40,18 @@
         <div id="storeSection">
             <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; margin-bottom:10px;">← Back</button>
             <div class="grid-container">
-                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa&name=CapCut%20Video%20Editor')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="price">18$</div><button class="buy-btn" onclick="openPayment('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa&name=Wink%20-%20Video%20Enhancing%20Tool%20IPA')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="price">4$</div><button class="buy-btn" onclick="openPayment('Vasco Pro', 'https://t.me/fahuu_xzzz')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="price">6$</div><button class="buy-btn" onclick="openPayment('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('Vmake Pro', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="price">30$</div><button class="buy-btn" onclick="openPayment('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Shadowrocket', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="price">10$</div><button class="buy-btn" onclick="openPayment('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/10in1')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('CapCut')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="price">18$</div><button class="buy-btn" onclick="openPayment('Wink')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="price">4$</div><button class="buy-btn" onclick="openPayment('Vasco Pro')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="price">6$</div><button class="buy-btn" onclick="openPayment('Node Video')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Minecraft')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('Vmake Pro')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Roblox VIP')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="price">30$</div><button class="buy-btn" onclick="openPayment('Video Star')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Shadowrocket')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Alight')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="price">10$</div><button class="buy-btn" onclick="openPayment('All in One')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Netflix')">BUY</button></div>
             </div>
         </div>
     </div>
@@ -64,47 +64,40 @@
                 <input type="hidden" name="Product" id="selectedProduct">
                 <input type="text" name="TrxID" placeholder="TrxID" required>
                 <input type="text" name="Number" placeholder="Bikash Number" required>
-                <button type="submit" class="submit-btn" id="submitBtn">VERIFY & DOWNLOAD</button>
+                <button type="submit" class="submit-btn" id="submitBtn">SUBMIT FOR VERIFY</button>
             </form>
-            <div id="timerBox">
-                <p style="font-size:13px; color:#00ed64;">Verifying Payment... Please wait</p>
-                <h2 id="countdown">30</h2>
+            <div id="pendingBox">
+                <h3 style="color:#ffc107; margin:0;">PENDING...</h3>
+                <p style="font-size:12px;">Apnar payment-ti check kora hoche. Verification shesh hole 5-10 min-er moddhe apnar number/mail-e link pathano hobe.</p>
+                <a href="https://t.me/fahuu_xzzz" style="color:#00ed64; text-decoration:none; font-weight:bold; font-size:13px;">Contact Telegram</a>
             </div>
-            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:10px; opacity:0.5; font-size:12px;">Cancel</button>
+            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:10px; opacity:0.5; font-size:12px;">Close</button>
         </div>
     </div>
 
     <script>
-        let currentDownloadLink = "";
         function showStore() { document.getElementById('homeSection').style.display='none'; document.getElementById('storeSection').style.display='block'; }
         function hideStore() { document.getElementById('homeSection').style.display='block'; document.getElementById('storeSection').style.display='none'; }
-        function openPayment(name, link) { currentDownloadLink = link; document.getElementById('selectedProduct').value=name; document.getElementById('paymentModal').style.display='flex'; }
+        function openPayment(name) { document.getElementById('selectedProduct').value=name; document.getElementById('paymentModal').style.display='flex'; }
         function closePayment() { document.getElementById('paymentModal').style.display='none'; }
 
         document.getElementById('paymentForm').onsubmit = async (e) => {
             e.preventDefault();
             const form = e.target;
             const submitBtn = document.getElementById('submitBtn');
-            const timerBox = document.getElementById('timerBox');
-            const countdownEl = document.getElementById('countdown');
+            const pendingBox = document.getElementById('pendingBox');
             submitBtn.disabled = true;
-            submitBtn.innerText = "Checking...";
+            submitBtn.innerText = "Sending...";
             try {
                 const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
                 if (response.ok) {
                     form.style.display = 'none';
-                    timerBox.style.display = 'block';
-                    let timeLeft = 30;
-                    let timer = setInterval(() => {
-                        timeLeft--;
-                        countdownEl.innerText = timeLeft;
-                        if (timeLeft <= 0) { clearInterval(timer); window.location.href = currentDownloadLink; }
-                    }, 1000);
+                    pendingBox.style.display = 'block';
                 } else { throw new Error('Error'); }
             } catch (err) {
-                alert("Failed! Internet connection ba Formspree ID check korun.");
+                alert("Failed! Try again.");
                 submitBtn.disabled = false;
-                submitBtn.innerText = "VERIFY & DOWNLOAD";
+                submitBtn.innerText = "SUBMIT FOR VERIFY";
             }
         };
     </script>
