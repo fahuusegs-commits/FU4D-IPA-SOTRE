@@ -4,41 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FU4D IPA STORE</title>
+    <!-- Stylish Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    
     <style>
         :root { --bg-color: #0b0116; --accent-color: #a349ff; --glass-bg: rgba(255, 255, 255, 0.05); }
         body { background-color: var(--bg-color); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 480px; text-align: center; }
         
-        /* Neon Glow Style for Name */
+        /* EXACT GLOW STYLE FOR NAME */
         .neon-name { 
-            font-size: 45px; 
+            font-family: 'Orbitron', sans-serif; /* Stylish Sci-fi Font */
+            font-size: 50px; 
             font-weight: 900; 
             color: #fff; 
             text-transform: uppercase; 
-            margin: 10px 0;
-            text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
-            letter-spacing: 5px;
+            margin: 15px 0 5px 0;
+            letter-spacing: 8px;
+            /* Multiple shadow layers for intense glow */
+            text-shadow: 
+                0 0 7px #fff,
+                0 0 10px var(--accent-color),
+                0 0 21px var(--accent-color),
+                0 0 42px var(--accent-color),
+                0 0 82px var(--accent-color),
+                0 0 92px var(--accent-color);
         }
         
-        .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 20px var(--accent-color); object-fit: cover; margin-top: 20px; }
+        .sub-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #fff;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .profile-img { width: 115px; height: 115px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 25px var(--accent-color); object-fit: cover; margin-top: 20px; }
         .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 10px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; font-size: 14px; transition: 0.3s; }
-        .link-card:hover { background: rgba(163, 73, 255, 0.15); transform: scale(1.02); }
+        .link-card:hover { background: rgba(163, 73, 255, 0.2); transform: scale(1.02); box-shadow: 0 0 15px rgba(163, 73, 255, 0.4); }
         .link-icon { width: 25px; height: 25px; margin-right: 12px; border-radius: 5px; }
-        .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 15px var(--accent-color); }
+        .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 20px var(--accent-color); }
         
         #storeSection { display: none; margin-top: 10px; }
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px 0; }
-        .product-card { background: var(--glass-bg); border-radius: 12px; padding: 10px; border: 1px solid rgba(163, 73, 255, 0.2); }
-        .product-img { width: 100%; height: 80px; object-fit: contain; }
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
+        .product-card { background: var(--glass-bg); border-radius: 15px; padding: 12px; border: 1px solid rgba(163, 73, 255, 0.2); }
+        .product-img { width: 100%; height: 85px; object-fit: contain; }
         .price { color: #00ed64; font-weight: bold; margin: 5px 0; }
-        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 8px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: bold; }
+        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 9px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: bold; }
         
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #1a0229; padding: 25px; border-radius: 15px; border: 2px solid var(--accent-color); width: 85%; max-width: 300px; text-align: center; }
-        input { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
-        .submit-btn { background: #00ed64; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #1a0229; padding: 30px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
+        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 14px; }
         
-        #pendingBox { display: none; margin-top: 15px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-radius: 10px; border: 1px solid #ffc107; }
+        #pendingBox { display: none; margin-top: 20px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-radius: 12px; border: 1px solid #ffc107; }
     </style>
 </head>
 <body>
@@ -46,7 +67,7 @@
         <div id="homeSection">
             <img src="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg" class="profile-img">
             <div class="neon-name">FU4D</div>
-            <p style="opacity:0.6; font-size: 12px; letter-spacing: 2px; margin-bottom: 25px;">PREMIUM SERVICES & APPS</p>
+            <div class="sub-text">PREMIUM SERVICES & APPS</div>
             
             <a href="#" onclick="showStore()" class="link-card store-btn">🛒 ONLINE STORE</a>
             <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card"><img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="link-icon"> TikTok</a>
@@ -55,7 +76,7 @@
         </div>
 
         <div id="storeSection">
-            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; margin-bottom:10px;">← Back</button>
+            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px;">← Back to Home</button>
             <div class="grid-container">
                 <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('CapCut')">BUY</button></div>
                 <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="price">18$</div><button class="buy-btn" onclick="openPayment('Wink')">BUY</button></div>
@@ -85,10 +106,10 @@
             </form>
             <div id="pendingBox">
                 <h3 style="color:#ffc107; margin:0;">PENDING...</h3>
-                <p style="font-size:12px;">Payment check kora hoche. 5-10 min por link pathano hobe.</p>
+                <p style="font-size:12px;">Payment check kora hoche. Verification shesh hole link pathano hobe.</p>
                 <a href="https://t.me/fahuu_xzzz" style="color:#00ed64; text-decoration:none; font-weight:bold;">Contact Telegram</a>
             </div>
-            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:15px; opacity:0.5; font-size:12px; cursor:pointer;">Close</button>
+            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:20px; opacity:0.5; font-size:12px; cursor:pointer;">Close</button>
         </div>
     </div>
 
