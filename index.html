@@ -7,8 +7,8 @@
     
     <!-- Home Screen Icon Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
-    <link rel="shortcut icon" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <style>
@@ -16,29 +16,14 @@
         body { background-color: var(--bg-color); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 480px; text-align: center; }
         
-        /* NEON NAME STYLE */
         .neon-name { font-family: 'Orbitron', sans-serif; font-size: 42px; font-weight: 900; color: #fff; text-transform: uppercase; margin: 15px 0 5px 0; letter-spacing: 6px; text-shadow: 0 0 7px #fff, 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); }
         .sub-text { font-family: 'Orbitron', sans-serif; font-size: 9px; letter-spacing: 2px; color: #fff; opacity: 0.8; margin-bottom: 30px; text-transform: uppercase; }
-        
         .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 20px var(--accent-color); object-fit: cover; margin-top: 20px; }
         
-        /* FIXED LINK CARDS & ICON SIZE */
-        .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 12px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; font-size: 15px; overflow: hidden; }
-        
-        /* ICON SIZE FIX - STRICT WIDTH/HEIGHT */
-        .link-icon { 
-            width: 30px !important; 
-            height: 30px !important; 
-            min-width: 30px;
-            max-width: 30px;
-            margin-right: 15px; 
-            border-radius: 6px; 
-            object-fit: cover;
-        }
-
+        .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 12px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; font-size: 15px; transition: 0.3s; }
+        .link-icon { width: 30px !important; height: 30px !important; margin-right: 15px; border-radius: 6px; object-fit: cover; }
         .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 15px var(--accent-color); }
         
-        /* STORE SECTION */
         #storeSection { display: none; margin-top: 10px; }
         .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
         .product-card { background: var(--glass-bg); border-radius: 15px; padding: 12px; border: 1px solid rgba(163, 73, 255, 0.2); }
@@ -46,16 +31,21 @@
         .price { color: #00ed64; font-weight: bold; margin: 5px 0; }
         .buy-btn { background: var(--accent-color); color: white; border: none; padding: 9px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: bold; }
 
-        /* MODAL & PAYMENT */
+        /* Modal & Payment Status */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #1a0229; padding: 30px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
+        .modal-content { background: #1a0229; padding: 25px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
         input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
-        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
-        #pendingBox { display: none; margin-top: 20px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-radius: 12px; border: 1px solid #ffc107; }
+        
+        .status-box { display: none; margin-top: 15px; padding: 15px; border-radius: 12px; }
+        .pending { background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; color: #ffc107; }
+        .approved { background: rgba(0, 237, 100, 0.1); border: 1px solid #00ed64; color: #00ed64; }
+        .dl-btn { display: inline-block; background: #00ed64; color: black; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 100%; box-sizing: border-box; }
     </style>
 </head>
 <body>
+
     <div class="container">
+        <!-- HOME SECTION -->
         <div id="homeSection">
             <img src="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg" class="profile-img">
             <div class="neon-name">FU4D</div>
@@ -63,33 +53,29 @@
             
             <a href="#" onclick="showStore()" class="link-card store-btn">🛒 ONLINE STORE</a>
             
-            <!-- FIXED SOCIAL LINKS -->
-            <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card">
-                <img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="link-icon"> TikTok
-            </a>
-            <a href="https://t.me/fahuu_xzzz" class="link-card">
-                <img src="https://i.postimg.cc/L5Hz3rQx/IMG-3580.jpg" class="link-icon"> Telegram
-            </a>
-            <a href="https://www.facebook.com/fah.huu.2025" class="link-card">
-                <img src="https://i.postimg.cc/mD36p98P/fb-icon.png" class="link-icon"> Facebook
-            </a>
+            <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card"><img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="link-icon"> TikTok</a>
+            <a href="https://t.me/fahuu_xzzz" class="link-card"><img src="https://i.postimg.cc/L5Hz3rQx/IMG-3580.jpg" class="link-icon"> Telegram</a>
+            <a href="https://www.facebook.com/fah.huu.2025" class="link-card"><img src="https://i.postimg.cc/mD36p98P/fb-icon.png" class="link-icon"> Facebook</a>
         </div>
 
+        <!-- STORE SECTION -->
         <div id="storeSection">
-            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px;">← Back to Home</button>
+            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px;">← Back</button>
             <div class="grid-container">
-                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('CapCut')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="price">18$</div><button class="buy-btn" onclick="openPayment('Wink')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="price">4$</div><button class="buy-btn" onclick="openPayment('Vasco Pro')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="price">6$</div><button class="buy-btn" onclick="openPayment('Node Video')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Minecraft')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('Vmake Pro')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Roblox VIP')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="price">30$</div><button class="buy-btn" onclick="openPayment('Video Star')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Shadowrocket')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Alight')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="price">10$</div><button class="buy-btn" onclick="openPayment('All in One')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Netflix')">BUY</button></div>
+                <!-- PRODUCT EXAMPLES - Link e download link bosiye diben -->
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
+                    <h3>CapCut</h3>
+                    <div class="price">14$</div>
+                    <button class="buy-btn" onclick="openPayment('CapCut', 'https://your-download-link-here.com')">BUY</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
+                    <h3>Wink</h3>
+                    <div class="price">18$</div>
+                    <button class="buy-btn" onclick="openPayment('Wink', 'https://your-download-link-here.com')">BUY</button>
+                </div>
+                <!-- Baki product gulo eivhabe add korun -->
             </div>
         </div>
     </div>
@@ -97,48 +83,93 @@
     <!-- PAYMENT MODAL -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <h3 style="color:#00ed64; margin:0;">Bikash: 01938908314</h3>
-            <p style="font-size:11px; margin-bottom:15px; opacity:0.8;">Send Money kore TrxID Details din</p>
-            <form id="paymentForm" action="https://formspree.io/f/xpqbjavv" method="POST">
-                <input type="hidden" name="Product" id="selectedProduct">
-                <input type="text" name="TrxID" placeholder="TrxID" required>
-                <input type="text" name="Number" placeholder="Bikash Number" required>
-                <button type="submit" class="submit-btn" id="submitBtn">SUBMIT FOR VERIFY</button>
-            </form>
-            <div id="pendingBox">
-                <h3 style="color:#ffc107; margin:0;">PENDING...</h3>
-                <p style="font-size:12px;">Payment check kora hoche. Verification shesh hole link pathano hobe.</p>
-                <a href="https://t.me/fahuu_xzzz" style="color:#00ed64; text-decoration:none; font-weight:bold;">Contact Telegram</a>
+            <h3 id="modalTitle" style="color:var(--accent-color); margin-top:0;">Payment</h3>
+            <p style="color:#00ed64; font-weight:bold;">Bikash: 01938908314</p>
+            
+            <div id="inputForm">
+                <input type="text" id="userNumber" placeholder="Bikash Number" required>
+                <input type="text" id="userTrx" placeholder="Transaction ID (TrxID)" required>
+                <button onclick="submitPayment()" class="buy-btn" style="background:#00ed64; color:black; font-size:14px; padding:12px;">SUBMIT FOR VERIFY</button>
             </div>
-            <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:20px; opacity:0.5; font-size:12px; cursor:pointer;">Close</button>
+
+            <div id="statusBox" class="status-box">
+                <div id="statusText"></div>
+                <div id="downloadArea"></div>
+            </div>
+
+            <button onclick="closeModal()" style="background:none; border:none; color:white; margin-top:20px; opacity:0.5; cursor:pointer;">Close</button>
         </div>
     </div>
 
-    <script>
-        function showStore() { document.getElementById('homeSection').style.display='none'; document.getElementById('storeSection').style.display='block'; }
-        function hideStore() { document.getElementById('homeSection').style.display='block'; document.getElementById('storeSection').style.display='none'; }
-        function openPayment(name) { document.getElementById('selectedProduct').value=name; document.getElementById('paymentModal').style.display='flex'; }
-        function closePayment() { document.getElementById('paymentModal').style.display='none'; }
+    <!-- FIREBASE SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-        document.getElementById('paymentForm').onsubmit = async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = document.getElementById('submitBtn');
-            const pendingBox = document.getElementById('pendingBox');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Sending...";
-            try {
-                const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-                if (response.ok) {
-                    form.style.display = 'none';
-                    pendingBox.style.display = 'block';
-                } else { throw new Error('Error'); }
-            } catch (err) {
-                alert("Failed! Internet check korun.");
-                submitBtn.disabled = false;
-                submitBtn.innerText = "SUBMIT FOR VERIFY";
-            }
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBDqxKX8BirBB_3OEUyU0r_kWPQKAAO-c",
+            authDomain: "fu4d-ipa-store.firebaseapp.com",
+            projectId: "fu4d-ipa-store",
+            storageBucket: "fu4d-ipa-store.firebasestorage.app",
+            messagingSenderId: "432935248847",
+            appId: "1:432935248847:web:aaf0cb756a25b04b15a8ba"
         };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        let currentProduct = "";
+        let currentDL = "";
+
+        window.showStore = () => { document.getElementById('homeSection').style.display='none'; document.getElementById('storeSection').style.display='block'; }
+        window.hideStore = () => { document.getElementById('homeSection').style.display='block'; document.getElementById('storeSection').style.display='none'; }
+        
+        window.openPayment = (name, dlLink) => {
+            currentProduct = name;
+            currentDL = dlLink;
+            document.getElementById('modalTitle').innerText = "Buy " + name;
+            document.getElementById('paymentModal').style.display = 'flex';
+            document.getElementById('inputForm').style.display = 'block';
+            document.getElementById('statusBox').style.display = 'none';
+        }
+
+        window.closeModal = () => { document.getElementById('paymentModal').style.display = 'none'; }
+
+        window.submitPayment = () => {
+            const num = document.getElementById('userNumber').value;
+            const trx = document.getElementById('userTrx').value;
+            if(!num || !trx) return alert("Information fill-up korun!");
+
+            const orderId = "order_" + Date.now();
+            set(ref(db, 'orders/' + orderId), {
+                product: currentProduct,
+                number: num,
+                trxid: trx,
+                status: "pending",
+                downloadLink: currentDL
+            });
+
+            document.getElementById('inputForm').style.display = 'none';
+            listenForApproval(orderId);
+        }
+
+        function listenForApproval(orderId) {
+            const statusBox = document.getElementById('statusBox');
+            const statusText = document.getElementById('statusText');
+            statusBox.style.display = 'block';
+
+            onValue(ref(db, 'orders/' + orderId), (snapshot) => {
+                const data = snapshot.val();
+                if(data.status === "pending") {
+                    statusBox.className = "status-box pending";
+                    statusText.innerHTML = "<b>STATUS: PENDING</b><br>Verification-er jonno ektu opekkha korun...";
+                } else if(data.status === "approved") {
+                    statusBox.className = "status-box approved";
+                    statusText.innerHTML = "<b>STATUS: VERIFIED!</b><br>Payment confirmed.";
+                    document.getElementById('downloadArea').innerHTML = `<a href="${data.downloadLink}" class="dl-btn" target="_blank">DOWNLOAD NOW</a>`;
+                }
+            });
+        }
     </script>
 </body>
 </html>
