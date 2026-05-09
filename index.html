@@ -14,26 +14,21 @@
         :root { --bg-color: #0b0116; --accent-color: #a349ff; --glass-bg: rgba(255, 255, 255, 0.05); }
         body { background-color: var(--bg-color); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 480px; text-align: center; }
-        
         .neon-name { font-family: 'Orbitron', sans-serif; font-size: 42px; font-weight: 900; color: #fff; text-transform: uppercase; margin: 15px 0 5px 0; letter-spacing: 6px; text-shadow: 0 0 7px #fff, 0 0 10px var(--accent-color); }
         .sub-text { font-family: 'Orbitron', sans-serif; font-size: 9px; letter-spacing: 2px; color: #fff; opacity: 0.8; margin-bottom: 30px; text-transform: uppercase; }
         .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 20px var(--accent-color); object-fit: cover; margin-top: 20px; }
-        
         .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 12px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
         .link-icon { width: 30px; height: 30px; margin-right: 15px; border-radius: 6px; object-fit: cover; }
         .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 15px var(--accent-color); }
-        
         #storeSection { display: none; margin-top: 10px; }
         .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
         .product-card { background: var(--glass-bg); border-radius: 15px; padding: 12px; border: 1px solid rgba(163, 73, 255, 0.2); }
-        .product-img { width: 100%; height: 85px; object-fit: contain; }
+        .product-img { width: 70px; height: 70px; border-radius: 15px; object-fit: cover; margin-bottom: 5px; }
         .price { color: #00ed64; font-weight: bold; margin: 5px 0; font-size: 14px; }
         .buy-btn { background: var(--accent-color); color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: bold; }
-
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; }
         .modal-content { background: #1a0229; padding: 25px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
         input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
-        
         .status-box { display: none; margin-top: 15px; padding: 15px; border-radius: 12px; }
         .pending { background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; color: #ffc107; }
         .approved { background: rgba(0, 237, 100, 0.1); border: 1px solid #00ed64; color: #00ed64; }
@@ -48,12 +43,9 @@
             <img src="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg" class="profile-img">
             <div class="neon-name">FU4D</div>
             <div class="sub-text">PREMIUM SERVICES & APPS</div>
-            
             <a href="#" onclick="showStore()" class="link-card store-btn">🛒 ONLINE STORE</a>
-            
-            <a href="https://www.tiktok.com/@furd_f4huu4?_r=1&_t=ZS-96DSgG1HOuG" class="link-card"><img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="link-icon"> TikTok</a>
-            <a href="https://t.me/f4huu_xzzz" class="link-card"><img src="https://i.postimg.cc/L5Hz3rQx/IMG-3580.jpg" class="link-icon"> Telegram</a>
-            <a href="https://www.facebook.com/fah.huu.2025" class="link-card"><img src="https://i.postimg.cc/mD36p98P/fb-icon.png" class="link-icon"> Facebook</a>
+            <a href="https://www.tiktok.com/@furd_f4huu4?_r=1&_t=ZS-96DSgG1HOuG" class="link-card"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1200px-TikTok_logo.svg.png" class="link-icon"> TikTok</a>
+            <a href="https://t.me/f4huu_xzzz" class="link-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" class="link-icon"> Telegram</a>
         </div>
 
         <!-- STORE SECTION -->
@@ -62,51 +54,51 @@
             <div class="grid-container">
                 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/CapCut_logo.png" class="product-img">
                     <h3>CapCut</h3><div class="price">14$</div>
                     <button class="buy-btn" onclick="openPayment('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa&name=CapCut%20Video%20Editor')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/7d/50/4a7d5073-f931-e8e0-1698-500e57209930/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg" class="product-img">
                     <h3>Wink Pro</h3><div class="price">18$</div>
                     <button class="buy-btn" onclick="openPayment('Wink Pro', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa&name=Wink%20-%20Video%20Enhancing%20Tool%20IPA')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/kXfytmS8/IMG-3571.jpg" class="product-img">
-                    <h3>Video Star Pro</h3><div class="price">22$</div>
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/e1/93/37e19395-6549-3665-983b-9a8414436940/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" class="product-img">
+                    <h3>Video Star</h3><div class="price">22$</div>
                     <button class="buy-btn" onclick="openPayment('Video Star Pro', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/3a/e8/393ae88d-e6b8-c31a-e87a-42283995876d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" class="product-img">
                     <h3>Alight Motion</h3><div class="price">15$</div>
                     <button class="buy-btn" onclick="openPayment('Alight Motion', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/52/63/0f52636d-d922-0d19-49be-d06950293630/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" class="product-img">
                     <h3>Vmake AI</h3><div class="price">12$</div>
                     <button class="buy-btn" onclick="openPayment('Vmake AI', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="product-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png" class="product-img">
                     <h3>Netflix</h3><div class="price">10$</div>
                     <button class="buy-btn" onclick="openPayment('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="product-img">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/11/02/75/11027581-9f93-0164-984e-030a210f9227/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" class="product-img">
                     <h3>Minecraft</h3><div class="price">15$</div>
                     <button class="buy-btn" onclick="openPayment('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft')">BUY</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://i.postimg.cc/NjGzjngd/IMG-3578.jpg" class="product-img">
-                    <h3>Roblox Delta</h3><div class="price">10$</div>
-                    <button class="buy-btn" onclick="openPayment('Roblox', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">BUY</button>
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/c0/82/9ac08287-1785-3006-2591-62058b76722d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" class="product-img">
+                    <h3>Shadowrocket</h3><div class="price">10$</div>
+                    <button class="buy-btn" onclick="openPayment('Shadowrocket', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">BUY</button>
                 </div>
 
             </div>
@@ -118,18 +110,12 @@
         <div class="modal-content">
             <h3 id="modalTitle" style="color:var(--accent-color); margin-top:0;">Payment</h3>
             <p style="color:#00ed64; font-weight:bold;">Bikash: 01938908314</p>
-            
             <div id="inputForm">
                 <input type="text" id="userNumber" placeholder="Bikash Number">
                 <input type="text" id="userTrx" placeholder="Transaction ID (TrxID)">
                 <button onclick="submitPayment()" class="buy-btn" style="background:#00ed64; color:black; padding:12px;">SUBMIT FOR VERIFY</button>
             </div>
-
-            <div id="statusBox" class="status-box">
-                <div id="statusText"></div>
-                <div id="downloadArea"></div>
-            </div>
-
+            <div id="statusBox" class="status-box"><div id="statusText"></div><div id="downloadArea"></div></div>
             <button onclick="closeModal()" style="background:none; border:none; color:white; margin-top:20px; opacity:0.5; cursor:pointer;">Close</button>
         </div>
     </div>
@@ -150,12 +136,9 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        let currentProduct = "";
-        let currentDL = "";
-
+        let currentProduct = ""; let currentDL = "";
         window.showStore = () => { document.getElementById('homeSection').style.display='none'; document.getElementById('storeSection').style.display='block'; }
         window.hideStore = () => { document.getElementById('homeSection').style.display='block'; document.getElementById('storeSection').style.display='none'; }
-        
         window.openPayment = (name, dlLink) => {
             currentProduct = name; currentDL = dlLink;
             document.getElementById('modalTitle').innerText = "Buy " + name;
@@ -163,28 +146,19 @@
             document.getElementById('inputForm').style.display = 'block';
             document.getElementById('statusBox').style.display = 'none';
         }
-
         window.closeModal = () => { document.getElementById('paymentModal').style.display = 'none'; }
-
         window.submitPayment = () => {
             const num = document.getElementById('userNumber').value;
             const trx = document.getElementById('userTrx').value;
             if(!num || !trx) return alert("Sothik tatthyo din!");
-
             const orderId = "order_" + Date.now();
-            set(ref(db, 'orders/' + orderId), {
-                product: currentProduct, number: num, trxid: trx, status: "pending", downloadLink: currentDL
-            });
-
+            set(ref(db, 'orders/' + orderId), { product: currentProduct, number: num, trxid: trx, status: "pending", downloadLink: currentDL });
             document.getElementById('inputForm').style.display = 'none';
             listenForApproval(orderId);
         }
-
         function listenForApproval(orderId) {
-            const statusBox = document.getElementById('statusBox');
-            const statusText = document.getElementById('statusText');
+            const statusBox = document.getElementById('statusBox'); const statusText = document.getElementById('statusText');
             statusBox.style.display = 'block';
-
             onValue(ref(db, 'orders/' + orderId), (snapshot) => {
                 const data = snapshot.val();
                 if(data.status === "pending") {
