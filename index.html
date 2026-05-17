@@ -9,35 +9,82 @@
     <link rel="apple-touch-icon" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
     <link rel="shortcut icon" href="https://i.postimg.cc/MKvBZKy6/A16AE392-5288-4234-8BA7-2C676F44A169.jpg">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    
     <style>
         :root { --bg-color: #0b0116; --accent-color: #a349ff; --glass-bg: rgba(255, 255, 255, 0.05); }
-        body { background-color: var(--bg-color); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
-        .container { width: 100%; max-width: 480px; text-align: center; }
-        .neon-name { font-family: 'Orbitron', sans-serif; font-size: 42px; font-weight: 900; color: #fff; text-transform: uppercase; margin: 15px 0 5px 0; letter-spacing: 6px; text-shadow: 0 0 7px #fff, 0 0 10px var(--accent-color); }
+        body { background-color: #000000; color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 0; }
+        .container { width: 100%; max-width: 480px; text-align: center; box-sizing: border-box; }
+        
+        #homeSection { padding: 15px; }
+
+        /* NEON NAME STYLE */
+        .neon-name { font-family: 'Orbitron', sans-serif; font-size: 42px; font-weight: 900; color: #fff; text-transform: uppercase; margin: 15px 0 5px 0; letter-spacing: 6px; text-shadow: 0 0 7px #fff, 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); }
         .sub-text { font-family: 'Orbitron', sans-serif; font-size: 9px; letter-spacing: 2px; color: #fff; opacity: 0.8; margin-bottom: 30px; text-transform: uppercase; }
+        
         .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 20px var(--accent-color); object-fit: cover; margin-top: 20px; }
-        .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 12px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; font-size: 15px; }
-        .link-icon { width: 30px !important; height: 30px !important; margin-right: 15px; border-radius: 6px; object-fit: cover; }
+        
+        .link-card { background: var(--glass-bg); border: 1px solid rgba(163, 73, 255, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 12px; display: flex; align-items: center; text-decoration: none; color: white; font-weight: 500; font-size: 15px; overflow: hidden; }
+        
+        .link-icon { 
+            width: 30px !important; 
+            height: 30px !important; 
+            min-width: 30px;
+            max-width: 30px;
+            margin-right: 15px; 
+            border-radius: 6px; 
+            object-fit: cover;
+        }
+
         .store-btn { background: var(--accent-color); justify-content: center; font-weight: bold; box-shadow: 0 0 15px var(--accent-color); }
-        #storeSection { display: none; margin-top: 10px; }
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
-        .product-card { background: var(--glass-bg); border-radius: 15px; padding: 12px; border: 1px solid rgba(163, 73, 255, 0.2); }
-        .product-img { width: 100%; height: 85px; object-fit: contain; border-radius: 10px; margin-bottom: 5px; }
-        .price { color: #00ed64; font-weight: bold; margin: 5px 0; }
-        .buy-btn { background: var(--accent-color); color: white; border: none; padding: 9px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: bold; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; overflow-y: auto; }
-        .modal-content { background: #1a0229; padding: 30px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; margin: auto; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; font-family: inherit; }
-        input[type="file"] { padding: 8px; font-size: 11px; background: rgba(255,255,255,0.05); }
-        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px; }
+        
+        /* STORE SECTION UPDATES (SCREENSHOT STYLE) */
+        #storeSection { display: none; text-align: left; padding: 15px 15px 100px 15px; background: #000000; min-height: 100vh; box-sizing: border-box; }
+        .store-title { font-size: 24px; font-weight: bold; color: white; margin: 10px 0; text-align: center; font-family: 'Segoe UI', sans-serif; }
+        
+        /* Search Bar & Tabs */
+        .search-container { padding: 10px 0; display: flex; justify-content: center; }
+        .search-bar { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #2c2c2e; background-color: #1c1c1e; color: white; font-size: 15px; outline: none; }
+        
+        .filter-tabs { display: flex; gap: 10px; padding: 10px 0; overflow-x: auto; white-space: nowrap; }
+        .filter-tabs::-webkit-scrollbar { display: none; }
+        .tab { background-color: #1c1c1e; color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; cursor: pointer; border: none; }
+        .tab.active { background-color: #ffffff; color: #000000; font-weight: bold; }
+
+        /* Grid Layout matching Screenshot */
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px 0; }
+        .product-card { background: #121212; border-radius: 25px; padding: 20px 15px; border: none; text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .product-img { width: 75px; height: 75px; border-radius: 20px; object-fit: cover; margin-bottom: 12px; }
+        .product-card h3 { font-size: 16px; font-weight: bold; margin: 4px 0; color: white; }
+        .purchuse-lbl { color: #8e8e93; font-size: 13px; margin-bottom: 12px; font-weight: normal; }
+        .buy-btn { background: #ffffff; color: black; border: none; padding: 8px 0; width: 85%; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background 0.2s; }
+        .buy-btn:hover { background: #e5e5ea; }
+
+        /* BOTTOM CUSTOM NAVIGATION */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #121212; display: none; justify-content: space-around; padding: 12px 0 25px 0; border-top: 1px solid #1c1c1e; z-index: 999; box-sizing: border-box; }
+        .nav-item { color: #8e8e93; text-decoration: none; font-size: 11px; text-align: center; flex: 1; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .nav-item i { font-size: 20px; }
+        .nav-item.active { color: #00cc96; }
+
+        /* LOCK / UPCOMING MODAL POPUP */
+        .lock-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; }
+        .lock-modal-content { background-color: #1c1c1e; padding: 30px; border-radius: 20px; text-align: center; max-width: 280px; width: 80%; border: 1px solid #2c2c2e; }
+        .lock-modal-content i { font-size: 45px; color: #ff9500; margin-bottom: 15px; }
+        .lock-modal-content h3 { margin: 5px 0; font-size: 18px; color: white; }
+        .lock-modal-content p { color: #8e8e93; font-size: 14px; margin: 10px 0 20px 0; }
+        .lock-close-btn { background-color: #ffffff; color: #000000; border: none; padding: 8px 25px; border-radius: 15px; font-weight: bold; cursor: pointer; }
+
+        /* MODAL & PAYMENT ORIGINAL STYLES */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #1a0229; padding: 30px; border-radius: 20px; border: 2px solid var(--accent-color); width: 85%; max-width: 320px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--accent-color); background: #0b0116; color: white; box-sizing: border-box; }
+        .submit-btn { background: #00ed64; color: black; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
+        
         .status-box { display: none; margin-top: 15px; padding: 15px; border-radius: 12px; }
         .pending { background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; color: #ffc107; }
         .approved { background: rgba(0, 237, 100, 0.1); border: 1px solid #00ed64; color: #00ed64; }
         .dl-btn { display: inline-block; background: #00ed64; color: black; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 100%; box-sizing: border-box; }
-        .pay-info-box { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: left; }
-        .hidden { display: none; }
-        .binance-btn { background: #FCD535; color: black; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; display: block; text-align: center; margin-top: 10px; font-size: 13px; box-shadow: 0 4px 10px rgba(252, 213, 53, 0.3); }
     </style>
 </head>
 <body>
@@ -53,66 +100,86 @@
         </div>
 
         <div id="storeSection">
-            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; margin-bottom:15px;">← Back to Home</button>
+            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px; padding:0;">← Back to Home</button>
+            
+            <div class="store-title">IPA Library</div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search by App name...">
+            </div>
+
+            <div class="filter-tabs">
+                <button class="tab active">All</button>
+                <button class="tab">Emulator</button>
+                <button class="tab">Jailbreak</button>
+                <button class="tab">Tweak</button>
+            </div>
+
             <div class="grid-container">
-                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="price">18$</div><button class="buy-btn" onclick="openPayment('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="price">4$</div><button class="buy-btn" onclick="openPayment('Vasco Pro', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/VSCO.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="price">6$</div><button class="buy-btn" onclick="openPayment('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="price">14$</div><button class="buy-btn" onclick="openPayment('Vmake Pro', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Roblox.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="price">30$</div><button class="buy-btn" onclick="openPayment('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Shadowrocket', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="price">5$</div><button class="buy-btn" onclick="openPayment('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="price">10$</div><button class="buy-btn" onclick="openPayment('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">BUY</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="price">8$</div><button class="buy-btn" onclick="openPayment('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa')">BUY</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">PURCHASE</button></div>
+                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="purchuse-lbl">Purchuse</div><button class="buy-btn" onclick="openPayment('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">PURCHASE</button></div>
             </div>
         </div>
     </div>
 
-    <!-- PAYMENT MODAL -->
+    <div id="bottomNavBar" class="bottom-nav">
+        <div class="nav-item active">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>VSP CC 😍</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-bolt"></i>
+            <span>VSP SHAKE 🔥</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-fire"></i>
+            <span>AM CC 😍</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AM SHAKE 🔥</span>
+        </div>
+    </div>
+
+    <div id="lockModal" class="lock-modal">
+        <div class="lock-modal-content">
+            <i class="fa-solid fa-lock"></i>
+            <h3>🔒 Upcoming</h3>
+            <p>This section is locked & coming soon!</p>
+            <button class="lock-close-btn" onclick="closeLockAlert()">OK</button>
+        </div>
+    </div>
+
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <h3 id="modalTitle" style="color:var(--accent-color); margin:0 0 15px 0;">Payment Details</h3>
-            
+            <h3 id="modalTitle" style="color:#00ed64; margin:0;">Bikash: 01938908314</h3>
+            <p style="font-size:11px; margin-bottom:15px; opacity:0.8;">Send Money kore TrxID Details din</p>
             <div id="inputForm">
-                <select id="payMethod" onchange="toggleMethod()">
-                    <option value="bKash">bKash Payment</option>
-                    <option value="Binance">Binance Pay</option>
-                </select>
-
-                <!-- bKash Box -->
-                <div id="bkashBox" class="pay-info-box">
-                    <p style="color:#00ed64; margin:5px 0; font-size:14px;">🟢 <b>bKash Number:</b> 01310442750</p>
-                </div>
-
-                <!-- Binance Box -->
-                <div id="binanceBox" class="pay-info-box hidden">
-                    <p style="color:#f3ba2f; margin:5px 0; font-size:14px;">🟡 <b>Binance Pay ID:</b> 1127345480</p>
-                    <a href="binance://pay" class="binance-btn">📲 OPEN BINANCE APP</a>
-                </div>
-
-                <input type="text" id="userNumber" placeholder="bKash Number / Binance Sender ID">
+                <input type="text" id="userNumber" placeholder="Bikash Number">
                 <input type="text" id="userTrx" placeholder="Transaction ID (TrxID)">
-                
-                <div style="text-align: left; margin-top: 10px;">
-                    <label style="font-size: 12px; color: #a349ff; font-weight: bold;">Upload Screenshot:</label>
-                    <input type="file" id="payScreenshot" accept="image/*">
-                </div>
-
-                <button id="submitBtn" onclick="submitPayment()" class="submit-btn">SUBMIT FOR VERIFY</button>
+                <button onclick="submitPayment()" class="submit-btn" id="submitBtn">SUBMIT FOR VERIFY</button>
             </div>
-            
-            <div id="statusBox" class="status-box"><div id="statusText"></div><div id="downloadArea"></div></div>
+            <div id="statusBox" class="status-box">
+                <div id="statusText"></div>
+                <div id="downloadArea"></div>
+            </div>
             <button onclick="closePayment()" style="background:none; border:none; color:white; margin-top:20px; opacity:0.5; font-size:12px; cursor:pointer;">Close</button>
         </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getDatabase, ref as dbRef, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCBDqxKX8BirBB_3OEUyU0r_kWPQKAAO-c",
@@ -125,89 +192,54 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        const storage = getStorage(app);
-
         let currentProduct = ""; let currentDL = "";
 
-        window.showStore = () => { document.getElementById('homeSection').style.display='none'; document.getElementById('storeSection').style.display='block'; }
-        window.hideStore = () => { document.getElementById('homeSection').style.display='block'; document.getElementById('storeSection').style.display='none'; }
+        // UI View Controlling Logics
+        window.showStore = () => { 
+            document.getElementById('homeSection').style.display='none'; 
+            document.getElementById('storeSection').style.display='block'; 
+            document.getElementById('bottomNavBar').style.display='flex'; 
+        }
+        window.hideStore = () => { 
+            document.getElementById('homeSection').style.display='block'; 
+            document.getElementById('storeSection').style.display='none'; 
+            document.getElementById('bottomNavBar').style.display='none'; 
+        }
         
-        window.openPayment = (name, dl) => { 
-            currentProduct = name; currentDL = dl; 
-            document.getElementById('inputForm').style.display = 'block'; 
-            document.getElementById('statusBox').style.display = 'none'; 
+        // Upcoming/Lock Popup Alerts
+        window.openLockAlert = () => { document.getElementById('lockModal').style.display = 'flex'; }
+        window.closeLockAlert = () => { document.getElementById('lockModal').style.display = 'none'; }
+
+        window.openPayment = (name, dlLink) => { 
+            currentProduct = name; currentDL = dlLink;
+            document.getElementById('inputForm').style.display = 'block';
+            document.getElementById('statusBox').style.display = 'none';
             document.getElementById('paymentModal').style.display='flex'; 
         }
         window.closePayment = () => { document.getElementById('paymentModal').style.display='none'; }
 
-        // Dropdown System
-        window.toggleMethod = () => {
-            const method = document.getElementById('payMethod').value;
-            if(method === "Binance") {
-                document.getElementById('binanceBox').classList.remove('hidden');
-                document.getElementById('bkashBox').classList.add('hidden');
-            } else {
-                document.getElementById('binanceBox').classList.add('hidden');
-                document.getElementById('bkashBox').classList.remove('hidden');
-            }
-        }
-
-        window.submitPayment = async () => {
-            const method = document.getElementById('payMethod').value;
+        window.submitPayment = () => {
             const num = document.getElementById('userNumber').value;
             const trx = document.getElementById('userTrx').value;
-            const fileInput = document.getElementById('payScreenshot');
-            
-            if(!num || !trx) return alert("Doya kore shob tatthyo din!");
-
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "UPLOADING... WAIT";
-            btn.disabled = true;
-
-            let screenshotUrl = "No Image Provided";
-
-            // Upload Screenshot if selected
-            if(fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                const sRef = storageRef(storage, 'screenshots/' + Date.now() + '_' + file.name);
-                try {
-                    await uploadBytes(sRef, file);
-                    screenshotUrl = await getDownloadURL(sRef);
-                } catch(e) {
-                    console.error(e);
-                    alert("Image upload fail hoyeche. Firebase Storage rules thik korun.");
-                }
-            }
-            
+            if(!num || !trx) return alert("Sothik tatthyo din!");
             const orderId = "order_" + Date.now();
-            
-            set(dbRef(db, 'orders/' + orderId), { 
-                product: currentProduct, 
-                method: method,
-                number: num, 
-                trxid: trx, 
-                screenshotURL: screenshotUrl,
-                status: "pending", 
-                downloadLink: currentDL 
-            });
-            
+            set(ref(db, 'orders/' + orderId), { product: currentProduct, number: num, trxid: trx, status: "pending", downloadLink: currentDL });
             document.getElementById('inputForm').style.display = 'none';
-            btn.innerText = "SUBMIT FOR VERIFY";
-            btn.disabled = false;
             listenForApproval(orderId);
         }
 
         function listenForApproval(orderId) {
-            const statusBox = document.getElementById('statusBox'); const statusText = document.getElementById('statusText');
+            const statusBox = document.getElementById('statusBox'); 
+            const statusText = document.getElementById('statusText');
             statusBox.style.display = 'block';
-            onValue(dbRef(db, 'orders/' + orderId), (snapshot) => {
+            onValue(ref(db, 'orders/' + orderId), (snapshot) => {
                 const data = snapshot.val();
                 if(data.status === "pending") {
                     statusBox.className = "status-box pending";
-                    statusText.innerHTML = "<b>STATUS: PENDING</b><br>Verification cholche... Screenshot check kora hoche.";
+                    statusText.innerHTML = "<b>STATUS: PENDING...</b><br>Payment check kora hoche.";
                 } else if(data.status === "approved") {
                     statusBox.className = "status-box approved";
-                    statusText.innerHTML = "<b>PAYMENT VERIFIED!</b>";
+                    statusText.innerHTML = "<b>STATUS: SUCCESS!</b>";
                     document.getElementById('downloadArea').innerHTML = `<a href="${data.downloadLink}" class="dl-btn" target="_blank">DOWNLOAD NOW</a>`;
                 }
             });
