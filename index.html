@@ -10,67 +10,66 @@
     <link rel="shortcut icon" href="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --bg-color: #05020c; 
-            --accent-color: #701fff; 
-            --glass-bg: rgba(255, 255, 255, 0.03); 
-            --neon-purple: #a349ff;
-            --neon-blue: #00f0ff;
+            --bg-color: #030107; 
+            --accent-color: #a349ff; 
+            --store-purple: #7821ef;
+            --neon-glow: 0 0 20px rgba(163, 73, 255, 0.6);
         }
         
         body { 
             background-color: var(--bg-color); 
             color: white; 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            font-family: 'Segoe UI', -apple-system, sans-serif; 
             margin: 0; 
             display: flex; 
             justify-content: center; 
             padding: 0; 
             overflow-x: hidden;
             position: relative;
-            min-height: 100vh;
         }
 
-        /* FLOATING BACKGROUND SWINGING ICONS */
-        .bg-floating-icon {
+        /* PREMIUM APP BACKGROUND AM & VIDEO STAR FLOATING EFFECT */
+        body::before, body::after {
+            content: '';
             position: fixed;
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            opacity: 0.25;
-            filter: drop-shadow(0 0 15px rgba(163, 73, 255, 0.6));
-            z-index: 0;
+            width: 90px;
+            height: 90px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15;
             pointer-events: none;
+            z-index: 0;
         }
-        .icon-am-top {
+        /* Alight Motion Background Swing Upper Left */
+        body::before {
+            background-image: url('https://i.postimg.cc/ryHTDGK6/Project-Name-107.png');
             top: 10%;
-            right: -10px;
-            animation: swingMotion 6s ease-in-out infinite alternate;
+            left: 5%;
+            animation: floatingSwing 7s ease-in-out infinite alternate;
         }
-        .icon-am-mid {
-            top: 40%;
-            left: -15px;
-            animation: swingMotion 7s ease-in-out infinite alternate-reverse;
-        }
-        .icon-vs-bottom {
-            bottom: 8%;
-            left: 20px;
-            animation: swingMotion 5s ease-in-out infinite alternate;
+        /* Video Star Background Swing Lower Right */
+        body::after {
+            background-image: url('https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg');
+            bottom: 12%;
+            right: 5%;
+            border-radius: 20px;
+            animation: floatingSwing 6s ease-in-out infinite alternate-reverse;
         }
 
-        @keyframes swingMotion {
-            0% { transform: translateY(0) rotate(0deg) scale(0.95); }
-            100% { transform: translateY(-20px) rotate(12deg) scale(1.05); filter: drop-shadow(0 0 25px rgba(163, 73, 255, 0.8)); opacity: 0.4; }
+        @keyframes floatingSwing {
+            0% { transform: translateY(0) rotate(-10deg); filter: drop-shadow(0 0 5px rgba(163, 73, 255, 0.3)); }
+            100% { transform: translateY(-20px) rotate(10deg); filter: drop-shadow(0 0 15px rgba(163, 73, 255, 0.6)); }
         }
         
         .container { width: 100%; max-width: 480px; text-align: center; box-sizing: border-box; position: relative; z-index: 1; }
         
-        #homeSection { padding: 30px 20px; }
+        #homeSection { padding: 30px 22px; }
 
-        /* PREMIUM DYNAMIC AVATAR LOGO */
+        /* AVATAR GLOW DESIGN */
         .profile-container {
             position: relative;
             display: inline-block;
@@ -81,155 +80,160 @@
             height: 125px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 3px solid #9d4edd;
-            box-shadow: 0 0 25px #9d4edd;
+            border: 3px solid #bc73ff;
+            box-shadow: 0 0 25px rgba(163, 73, 255, 0.85);
         }
 
-        /* VORTX STYLE CHROME METALLIC TEXTURED TEXT EFFECT */
+        /* VORTX STYLE HIGH-END TEXTURED FU4D NAME */
         .neon-name { 
             font-family: 'Montserrat', sans-serif; 
             font-size: 46px; 
             font-weight: 900; 
             text-transform: uppercase; 
-            margin: 25px 0 0 0; 
-            letter-spacing: 5px; 
-            background: linear-gradient(135deg, #ffffff 0%, #b894ff 45%, #5916cc 75%, #a349ff 100%);
+            margin: 25px 0 0px 0; 
+            letter-spacing: 4px; 
+            background: linear-gradient(to bottom, #ffffff 20%, #dbbfff 50%, #7e26e2 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 12px rgba(163, 73, 255, 0.85)) drop-shadow(0 4px 6px rgba(0,0,0,0.9));
-            position: relative;
+            filter: drop-shadow(0 0 12px rgba(163, 73, 255, 0.8)) drop-shadow(0 4px 5px rgba(0,0,0,0.9));
         }
         
         .sub-text { 
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 6px 16px;
-            border-radius: 20px;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px; 
-            font-weight: 900;
-            letter-spacing: 2px; 
+            font-family: 'Rajdhani', sans-serif; 
+            font-size: 14px; 
+            font-weight: 700;
+            letter-spacing: 3px; 
             color: #ffffff; 
             opacity: 0.9;
-            margin-top: 12px;
-            margin-bottom: 35px; 
+            margin: 8px 0 35px 0; 
             text-transform: uppercase; 
         }
         
-        /* PREMIUM PNG LINK CARDS WITH SHADOW GLOW */
+        /* STORE BUTTON WITH PROVIDED ICON */
+        .store-btn { 
+            background: linear-gradient(135deg, #7c1df0 0%, #4b06a3 100%); 
+            border: 1px solid rgba(188, 115, 255, 0.4);
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 19px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 20px rgba(124, 29, 240, 0.5);
+            transition: all 0.3s ease;
+        }
+        .store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(124, 29, 240, 0.8);
+            border-color: rgba(188, 115, 255, 0.7);
+        }
+        .store-custom-icon {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.6));
+        }
+
+        /* PREMIUM DYNAMIC SOCIAL PREMIUM CARDS */
         .link-card { 
-            background: rgba(10, 5, 18, 0.75); 
-            border: 1px solid rgba(163, 73, 255, 0.15); 
-            border-radius: 14px; 
-            padding: 14px 20px; 
-            margin-bottom: 14px; 
+            background: rgba(13, 7, 22, 0.75); 
+            border: 1px solid rgba(255, 255, 255, 0.04); 
+            border-radius: 16px; 
+            padding: 15px 22px; 
+            margin-bottom: 15px; 
             display: flex; 
             align-items: center; 
             text-decoration: none; 
             color: white; 
+            font-family: 'Segoe UI', sans-serif;
             font-weight: 600; 
-            font-size: 16px; 
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            font-size: 17px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
         .link-card:hover {
             transform: translateY(-2px);
-            background: rgba(18, 10, 32, 0.85);
-        }
-
-        .link-card.tiktok-btn:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 0 18px rgba(255, 255, 255, 0.25); }
-        .link-card.tg-btn:hover { border-color: #00f0ff; box-shadow: 0 0 18px rgba(0, 240, 255, 0.3); }
-        .link-card.insta-btn:hover { border-color: #ff007f; box-shadow: 0 0 18px rgba(255, 0, 127, 0.3); }
-        .link-card.fb-btn:hover { border-color: #1877f2; box-shadow: 0 0 18px rgba(24, 119, 242, 0.3); }
-
-        /* Transparent Custom PNG Icons */
-        .link-icon { 
-            width: 32px; 
-            height: 32px; 
-            margin-right: 18px; 
-            object-fit: contain; 
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-        }
-
-        /* Custom Store Button Layout */
-        .store-btn { 
-            background: linear-gradient(90deg, #6200ea 0%, #a349ff 100%); 
-            justify-content: center; 
-            font-weight: bold; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(163, 73, 255, 0.5); 
-        }
-        .store-btn:hover {
-            box-shadow: 0 0 30px rgba(163, 73, 255, 0.8);
-        }
-        .store-png-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            margin-right: 10px;
+            background: rgba(22, 12, 36, 0.9);
         }
         
-        /* STORE SECTION UI */
-        #storeSection { display: none; text-align: left; padding: 15px 15px 120px 15px; min-height: 100vh; box-sizing: border-box; }
+        /* Custom Clean Soft Glowing Hover Overlays */
+        .link-card.tiktok-card:hover { border-color: rgba(255,255,255,0.2); box-shadow: 0 0 15px rgba(255, 255, 255, 0.15); }
+        .link-card.tg-card:hover { border-color: rgba(0, 136, 204, 0.4); box-shadow: 0 0 15px rgba(0, 136, 204, 0.3); }
+        .link-card.insta-card:hover { border-color: rgba(225, 48, 108, 0.4); box-shadow: 0 0 15px rgba(225, 48, 108, 0.3); }
+        .link-card.fb-card:hover { border-color: rgba(24, 119, 242, 0.4); box-shadow: 0 0 15px rgba(24, 119, 242, 0.3); }
+
+        /* Transparent Custom PNG Image Wrappers */
+        .link-png-img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            margin-right: 18px;
+            border-radius: 6px;
+        }
+
+        /* ONLINE STORE VIEW COMPONENT UPDATES */
+        #storeSection { display: none; text-align: left; padding: 20px 20px 120px 20px; background: #000000; min-height: 100vh; box-sizing: border-box; }
         .store-title { font-size: 24px; font-weight: bold; color: white; margin: 10px 0; text-align: center; }
         
         .search-container { padding: 10px 0; display: flex; justify-content: center; }
-        .search-bar { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #1c1c1e; background-color: #121212; color: white; font-size: 15px; outline: none; }
+        .search-bar { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #1c1c1e; background-color: #0f0f11; color: white; font-size: 15px; outline: none; }
         
-        /* UPDATED STORE FILTER TABS */
+        /* Updated Filters with Custom Glowing Icons & Names */
         .filter-tabs { display: flex; gap: 10px; padding: 10px 0; overflow-x: auto; white-space: nowrap; align-items: center; }
         .filter-tabs::-webkit-scrollbar { display: none; }
         
-        .tab { background-color: #121212; color: #8e8e93; padding: 8px 16px; border-radius: 20px; font-size: 14px; cursor: pointer; border: 1px solid #1c1c1e; display: flex; align-items: center; gap: 6px; font-weight: 500; }
-        .tab.active { background-color: #ffffff; color: #000000; font-weight: bold; border-color: #ffffff; }
+        .tab { background-color: #0f0f11; color: #a2a2a7; padding: 10px 18px; border-radius: 25px; font-size: 14px; cursor: pointer; border: 1px solid rgba(255,255,255,0.02); display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .tab img { width: 16px; height: 16px; object-fit: contain; opacity: 0.6; }
         
-        .home-tab-icon {
-            width: 16px;
-            height: 16px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 5px #a349ff);
-        }
+        .tab.active { background-color: #ffffff; color: #000000; font-weight: bold; }
+        .tab.active img { opacity: 1; filter: drop-shadow(0 0 4px rgba(0,0,0,0.4)); }
 
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px 0; }
-        .product-card { background: #0e0a16; border-radius: 25px; padding: 20px 15px; border: 1px solid rgba(163, 73, 255, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px 0; }
+        .product-card { background: #0a0a0c; border-radius: 25px; padding: 20px 15px; border: 1px solid rgba(255,255,255,0.02); text-align: center; display: flex; flex-direction: column; align-items: center; }
         .product-img { width: 75px; height: 75px; border-radius: 20px; object-fit: cover; margin-bottom: 12px; }
         .product-card h3 { font-size: 16px; font-weight: bold; margin: 4px 0; color: white; }
         .purchuse-lbl { color: #8e8e93; font-size: 13px; margin-bottom: 12px; }
-        .buy-btn { background: #ffffff; color: black; border: none; padding: 8px 0; width: 85%; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background 0.2s; }
+        .buy-btn { background: #ffffff; color: black; border: none; padding: 9px 0; width: 85%; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background 0.2s; }
 
-        /* FIXED BOTTOM NAVIGATION BAR */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #0b0714; display: none; justify-content: space-around; padding: 12px 0 25px 0; border-top: 1px solid #1a1226; z-index: 999; box-sizing: border-box; }
+        /* BOTTOM NAV BAR */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #0a0a0c; display: none; justify-content: space-around; padding: 12px 0 25px 0; border-top: 1px solid #141417; z-index: 999; box-sizing: border-box; }
         .nav-item { color: #8e8e93; text-decoration: none; font-size: 10px; text-align: center; flex: 1; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .nav-item i { font-size: 18px; }
-        .nav-item.active { color: #00ff88; }
+        .nav-item.active { color: #00cc96; }
 
         /* LOCK MODAL POPUP */
         .lock-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; }
-        .lock-modal-content { background-color: #121212; padding: 30px; border-radius: 20px; text-align: center; max-width: 280px; width: 80%; border: 1px solid #1c1c1e; }
+        .lock-modal-content { background-color: #1c1c1e; padding: 30px; border-radius: 20px; text-align: center; max-width: 280px; width: 80%; border: 1px solid #2c2c2e; }
         .lock-modal-content i { font-size: 45px; color: #ff9500; margin-bottom: 15px; }
         .lock-modal-content h3 { margin: 5px 0; font-size: 18px; color: white; }
         .lock-modal-content p { color: #8e8e93; font-size: 14px; margin: 10px 0 20px 0; }
         .lock-close-btn { background-color: #ffffff; color: #000000; border: none; padding: 8px 25px; border-radius: 15px; font-weight: bold; cursor: pointer; }
 
-        /* ULTRA PREMIUM VERIFY WINDOW MODAL */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 2, 10, 0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); justify-content: center; align-items: center; z-index: 1000; }
+        /* PREMIUM GLASSMORPHIC PAYMENT MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 1, 7, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); justify-content: center; align-items: center; z-index: 1000; }
         .modal-content { 
-            background: linear-gradient(135deg, #130725 0%, #06020c 100%); 
+            background: linear-gradient(135deg, #120524 0%, #06020c 100%); 
             padding: 30px 25px; 
             border-radius: 28px; 
-            border: 1px solid rgba(163, 73, 255, 0.35); 
+            border: 1px solid rgba(163, 73, 255, 0.4); 
             width: 85%; 
             max-width: 340px; 
             text-align: center; 
-            box-shadow: 0 25px 50px rgba(163, 73, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(163, 73, 255, 0.3), inset 0 1px 2px rgba(255,255,255,0.1);
         }
         .bkash-badge {
             background: #e2136e;
             color: white;
             display: inline-block;
-            padding: 6px 16px;
+            padding: 6px 15px;
             border-radius: 50px;
             font-size: 11px;
             font-weight: bold;
@@ -237,6 +241,8 @@
             margin-bottom: 12px;
             box-shadow: 0 0 12px rgba(226, 19, 110, 0.5);
         }
+        #modalTitle { font-size: 22px; font-weight: 800; color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.2); margin:0; }
+        .payment-subtext { font-size: 12px; margin: 8px 0 22px 0; color: #b3a1ca; font-weight: 500; }
         
         .input-group { position: relative; margin-bottom: 18px; }
         .input-group i { position: absolute; left: 16px; top: 16px; color: #a349ff; font-size: 16px; }
@@ -244,17 +250,17 @@
             width: 100%; 
             padding: 15px 15px 15px 48px; 
             border-radius: 14px; 
-            border: 1px solid rgba(163, 73, 255, 0.2); 
-            background: rgba(15, 6, 30, 0.6); 
+            border: 1px solid rgba(163, 73, 255, 0.25); 
+            background: rgba(15, 6, 30, 0.65); 
             color: white; 
             box-sizing: border-box; 
             font-size: 14px;
             outline: none;
         }
-        .premium-input:focus { border-color: #a349ff; box-shadow: 0 0 12px rgba(163, 73, 255, 0.4); }
+        .premium-input:focus { border-color: var(--accent-color); box-shadow: 0 0 12px rgba(163, 73, 255, 0.4); }
         
         .submit-btn { 
-            background: #00ff88; 
+            background: linear-gradient(90deg, #00ff88 0%, #00e5ff 100%); 
             color: black; 
             border: none; 
             padding: 15px; 
@@ -269,16 +275,11 @@
         .status-box { display: none; margin-top: 15px; padding: 15px; border-radius: 14px; font-size: 14px; font-weight: 600; }
         .pending { background: rgba(255, 153, 0, 0.1); border: 1px solid #ff9500; color: #ff9500; }
         .approved { background: rgba(0, 255, 136, 0.1); border: 1px solid #00ff88; color: #00ff88; }
-        .dl-btn { display: inline-block; background: #00ff88; color: black; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 100%; box-sizing: border-box; }
-        .close-modal-txt { background: none; border: none; color: #8e8e93; margin-top: 22px; font-size: 13px; cursor: pointer; }
+        .dl-btn { display: inline-block; background: linear-gradient(90deg, #00ff88 0%, #00e5ff 100%); color: black; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 100%; box-sizing: border-box; }
+        .close-modal-txt { background: none; border: none; color: #8e8e93; margin-top: 22px; font-size: 13px; font-weight: 600; cursor: pointer; }
     </style>
 </head>
 <body>
-
-    <img src="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png" class="bg-floating-icon icon-am-top">
-    <img src="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png" class="bg-floating-icon icon-am-mid">
-    <img src="https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star" onerror="this.src='https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg'" class="bg-floating-icon icon-vs-bottom">
-
     <div class="container">
         <div id="homeSection">
             <div class="profile-container">
@@ -286,28 +287,28 @@
             </div>
             
             <div class="neon-name">FU4D</div>
-            <div><span class="sub-text">MASTER YOUR MOTION</span></div>
+            <div class="sub-text">MASTER YOUR MOTION</div>
             
-            <a href="#" onclick="showStore()" class="link-card store-btn">
-                <img src="https://i.postimg.cc/FH5w5DnL/IMG-4186.jpg" class="store-png-icon"> Online Store
+            <a href="#" onclick="showStore()" class="store-btn">
+                <img src="https://i.postimg.cc/FH5w5DnL/IMG-4186.jpg" class="store-custom-icon"> Online Store
             </a>
             
-            <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card tiktok-btn">
-                <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg" class="link-icon"> TikTok
+            <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card tiktok-card">
+                <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg" class="link-png-img"> TikTok
             </a>
-            <a href="https://t.me/f4huu_xzzz" class="link-card tg-btn">
-                <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg" class="link-icon"> Telegram
+            <a href="https://t.me/f4huu_xzzz" class="link-card tg-card">
+                <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg" class="link-png-img"> Telegram
             </a>
-            <a href="https://www.instagram.com/" class="link-card insta-btn">
-                <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg" class="link-icon"> Instagram
+            <a href="https://v_ortx" class="link-card insta-card">
+                <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg" class="link-png-img"> Instagram
             </a>
-            <a href="https://www.facebook.com/fah.huu.2025" class="link-card fb-btn">
-                <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg" class="link-icon"> Facebook
+            <a href="https://www.facebook.com/fah.huu.2025" class="link-card fb-card">
+                <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg" class="link-png-img"> Facebook
             </a>
         </div>
 
         <div id="storeSection">
-            <button onclick="hideStore()" style="background:none; border:none; color:#a349ff; cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px; padding:0;">← Back to Home</button>
+            <button onclick="hideStore()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px; padding:0;">← Back to Home</button>
             
             <div class="store-title">IPA Library</div>
 
@@ -317,9 +318,9 @@
 
             <div class="filter-tabs">
                 <button class="tab active">
-                    <img src="https://i.postimg.cc/J0gVk8qq/IMG-4185.jpg" class="home-tab-icon"> All
+                    <img src="https://i.postimg.cc/J0gVk8qq/IMG-4185.jpg" style="border-radius: 50%;"> All
                 </button>
-                <button class="tab">PRO APPS V2 ⚡️</button>
+                <button class="tab">PRO APPS v2 ⚡️</button>
                 <button class="tab">CC PACK 💥</button>
                 <button class="tab">SHAKE PACK 🔥</button>
             </div>
@@ -342,11 +343,26 @@
     </div>
 
     <div id="bottomNavBar" class="bottom-nav">
-        <div class="nav-item active"><i class="fa-solid fa-bolt-lightning"></i><span>PRO APPS ⚡️</span></div>
-        <div class="nav-item" onclick="openLockAlert()"><i class="fa-solid fa-layer-group"></i><span>VSP CC 😍</span></div>
-        <div class="nav-item" onclick="openLockAlert()"><i class="fa-solid fa-bolt"></i><span>VSP SHAKE 🔥</span></div>
-        <div class="nav-item" onclick="openLockAlert()"><i class="fa-solid fa-fire"></i><span>AM CC 😍</span></div>
-        <div class="nav-item" onclick="openLockAlert()"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AM SHAKE 🔥</span></div>
+        <div class="nav-item active">
+            <i class="fa-solid fa-bolt-lightning"></i>
+            <span>PRO APPS ⚡️</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>VSP CC 😍</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-bolt"></i>
+            <span>VSP SHAKE 🔥</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-fire"></i>
+            <span>AM CC 😍</span>
+        </div>
+        <div class="nav-item" onclick="openLockAlert()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>AM SHAKE 🔥</span>
+        </div>
     </div>
 
     <div id="lockModal" class="lock-modal">
@@ -361,7 +377,7 @@
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <div class="bkash-badge">bKash Personal</div>
-            <h3 id="modalTitle" style="color:#00ff88; margin:0; font-family:'Orbitron',sans-serif;">01938908314</h3>
+            <h3 id="modalTitle">01938908314</h3>
             <p class="payment-subtext">Send Money complete kore TrxID details submit korun</p>
             
             <div id="inputForm">
@@ -437,4 +453,19 @@
         function listenForApproval(orderId) {
             const statusBox = document.getElementById('statusBox'); 
             const statusText = document.getElementById('statusText');
-            statusBox.style.display
+            statusBox.style.display = 'block';
+            onValue(ref(db, 'orders/' + orderId), (snapshot) => {
+                const data = snapshot.val();
+                if(data.status === "pending") {
+                    statusBox.className = "status-box pending";
+                    statusText.innerHTML = "<b>STATUS: PENDING...</b><br>Payment check kora hoche.";
+                } else if(data.status === "approved") {
+                    statusBox.className = "status-box approved";
+                    statusText.innerHTML = "<b>STATUS: SUCCESS!</b>";
+                    document.getElementById('downloadArea').innerHTML = `<a href="${data.downloadLink}" class="dl-btn" target="_blank">DOWNLOAD NOW</a>`;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
