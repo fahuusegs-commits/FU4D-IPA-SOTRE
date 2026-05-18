@@ -6,409 +6,414 @@
     <title>FU4D PREMIUM STORE</title>
     
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png">
-    <link rel="shortcut icon" href="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png">
+    <link rel="shortcut icon" href="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --bg-dark: #06020f;
-            --cyber-purple: #9d4edd;
-            --electric-cyan: #00f5d4;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.06);
+            --bg-main: #0b0c10;
+            --bg-card: #12141c;
+            --accent-glow: #00f5d4;
+            --accent-neon: #4361ee;
+            --text-muted: #8F9CAE;
+            --glass-nav: rgba(18, 20, 28, 0.75);
         }
         
         body { 
-            background: radial-gradient(circle at 50% 20%, #1a0933 0%, var(--bg-dark) 70%);
-            color: white; 
-            font-family: 'Rajdhani', sans-serif; 
+            background-color: var(--bg-main);
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             margin: 0; 
             display: flex; 
             justify-content: center; 
             padding: 0; 
             overflow-x: hidden;
-            position: relative;
             min-height: 100vh;
         }
 
-        /* ULTRA UNIQUE BACKGROUND GRID ANIMATION */
+        /* PREMIUM APP-STYLE BACKGROUND GRID EFFECT */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(157, 78, 221, 0.05) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(157, 78, 221, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-image: linear-gradient(rgba(67, 97, 238, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(67, 97, 238, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* STREAMING FLOATING GLOW BALLS */
-        .glow-sphere {
+        /* AMBIENT RADIAL LIGHT GLOW */
+        .ambient-glow {
             position: fixed;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
-            top: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.08) 0%, transparent 70%);
+            top: -100px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 0;
             pointer-events: none;
-            animation: pulseGlow 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.2); }
         }
         
         .container { 
             width: 100%; 
-            max-width: 440px; 
-            text-align: center; 
+            max-width: 430px; 
             box-sizing: border-box; 
             position: relative; 
             z-index: 1; 
+            padding-bottom: 100px; /* Cushion for the floating bottom nav */
         }
         
-        #homeSection { padding: 40px 24px; }
+        #homeSection { padding: 40px 20px; }
 
-        /* UNIQUE AVATAR NEON HALO FRAME */
-        .profile-container {
+        /* UNIFIED PRESTIGE AVATAR ENGINE */
+        .profile-wrapper {
             position: relative;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
         }
-        .profile-container::after {
+        .profile-wrapper::after {
             content: '';
             position: absolute;
-            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
             border-radius: 50%;
-            border: 2px dashed var(--cyber-purple);
-            animation: rotateHalo 20s linear infinite;
-        }
-        @keyframes rotateHalo {
-            100% { transform: rotate(360deg); }
+            border: 2px solid var(--accent-glow);
+            opacity: 0.4;
         }
         .profile-img { 
-            width: 115px; 
-            height: 115px; 
+            width: 110px; 
+            height: 110px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 3px solid #ffffff;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.6);
+            border: 3px solid #1f2330;
+            box-shadow: 0 10px 30px rgba(0, 245, 212, 0.2);
         }
 
-        /* OUR OWN UNIQUE CYBERPUNK TYPOGRAPHY */
-        .neon-name { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 42px; 
-            font-weight: 900; 
+        /* BRAND SYSTEM TITLES */
+        .brand-title { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 38px; 
+            font-weight: 700; 
             text-transform: uppercase; 
-            margin: 25px 0 0px 0; 
-            letter-spacing: 4px;
+            margin: 20px 0 2px 0; 
+            letter-spacing: 2px;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                         0 0 20px var(--cyber-purple),
-                         0 0 40px var(--cyber-purple);
+            text-shadow: 0 4px 12px rgba(255,255,255,0.1);
         }
         
-        .sub-text { 
-            font-size: 13px; 
+        .brand-subtitle { 
+            font-size: 12px; 
             font-weight: 700;
             letter-spacing: 5px; 
-            color: var(--electric-cyan);
-            margin: 10px 0 40px 0; 
+            color: var(--accent-glow);
+            margin: 0 0 40px 0; 
             text-transform: uppercase; 
-            text-shadow: 0 0 8px rgba(0, 245, 212, 0.4);
         }
         
-        /* SLEEK PREMIUM CORE ACTION BUTTON */
-        .store-btn { 
-            background: linear-gradient(90deg, #7b2cbf 0%, #9d4edd 100%);
-            border: none;
-            border-radius: 14px;
-            padding: 16px 20px;
-            margin-bottom: 25px;
+        /* EXQUISITE APP CARDS UI - MATCHING IMAGE #1 SYSTEM */
+        .app-action-card { 
+            background: linear-gradient(135deg, var(--accent-neon) 0%, #1e3a8a 100%);
+            border-radius: 20px;
+            padding: 18px 24px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             text-decoration: none;
             color: white;
             font-weight: 700;
             font-size: 18px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 25px rgba(157, 78, 221, 0.4);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .store-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 35px rgba(157, 78, 221, 0.7);
-            filter: brightness(1.1);
+        .app-action-card:active {
+            transform: scale(0.98);
         }
-        .store-custom-icon {
-            width: 22px;
-            height: 22px;
-            object-fit: contain;
-            margin-right: 12px;
-        }
-
-        /* MODERNISED GLASSMORPHISM CARDS */
-        .link-card { 
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px; 
-            padding: 15px 20px; 
-            margin-bottom: 15px; 
+        .card-meta { display: flex; align-items: center; gap: 15px; }
+        .card-meta img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+        
+        /* SOCIAL CONTAINER TILES */
+        .social-link-tile { 
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 18px; 
+            padding: 16px 20px; 
+            margin-bottom: 14px; 
             display: flex; 
             align-items: center; 
+            justify-content: space-between;
             text-decoration: none; 
-            color: rgba(255, 255, 255, 0.9); 
-            font-weight: 600; 
-            font-size: 17px; 
-            letter-spacing: 1px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            color: #ffffff; 
+            transition: background 0.2s ease, border 0.2s ease;
         }
-        
-        .link-card:hover {
-            transform: scale(1.02);
-            background: rgba(157, 78, 221, 0.08);
-            border-color: rgba(157, 78, 221, 0.4);
-            color: #ffffff;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .social-link-tile:hover {
+            background: #181b26;
+            border-color: rgba(255, 255, 255, 0.08);
         }
+        .social-info { display: flex; align-items: center; gap: 16px; }
+        .social-info img { width: 28px; height: 28px; object-fit: contain; border-radius: 8px; }
+        .social-info span { font-size: 16px; font-weight: 600; letter-spacing: 0.3px; }
+        .arrow-right-icon { color: var(--text-muted); font-size: 13px; }
 
-        .link-png-img {
-            width: 26px;
-            height: 26px;
-            object-fit: contain;
-            margin-right: 16px;
-            border-radius: 6px;
-        }
-
-        /* ONLINE STORE SYSTEM VIEW */
-        #storeSection { display: none; text-align: left; padding: 20px 20px 120px 20px; background: #04010a; min-height: 100vh; box-sizing: border-box; }
-        .store-title { font-size: 24px; font-weight: bold; color: white; margin: 10px 0; text-align: center; letter-spacing: 1px; }
+        /* APP PLATFORM/STORE LAYOUT CONFIGURATION */
+        #storeSection { display: none; padding: 25px 20px 100px 20px; }
+        .store-header-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: white; margin: 10px 0 20px 0; text-align: center; }
         
-        .search-container { padding: 10px 0; display: flex; justify-content: center; }
-        .search-bar { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #140e21; background-color: #0d081a; color: white; font-size: 15px; outline: none; }
+        /* PREMIUM SEARCH ENGINE CONTAINER */
+        .search-box-wrapper { margin-bottom: 22px; position: relative; }
+        .search-box-wrapper i { position: absolute; left: 18px; top: 16px; color: var(--text-muted); font-size: 15px; }
+        .search-input-field { width: 100%; padding: 15px 15px 15px 48px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.04); background-color: var(--bg-card); color: white; font-size: 15px; outline: none; box-sizing: border-box; }
+        .search-input-field::placeholder { color: #526071; }
         
-        .filter-tabs { display: flex; gap: 10px; padding: 10px 0; overflow-x: auto; white-space: nowrap; align-items: center; }
-        .filter-tabs::-webkit-scrollbar { display: none; }
+        /* APP LEVEL HORIZONTAL TABS CONTROLLER */
+        .category-tab-scroller { display: flex; gap: 10px; padding-bottom: 10px; overflow-x: auto; white-space: nowrap; margin-bottom: 15px; }
+        .category-tab-scroller::-webkit-scrollbar { display: none; }
         
-        .tab { background-color: #0d081a; color: #a2a2a7; padding: 10px 18px; border-radius: 25px; font-size: 14px; cursor: pointer; border: 1px solid rgba(255,255,255,0.02); display: flex; align-items: center; gap: 8px; font-weight: 600; }
-        .tab img { width: 16px; height: 16px; object-fit: contain; border-radius: 50%; }
-        
-        .tab.active { background-color: #ffffff; color: #000000; font-weight: bold; }
+        .cat-tab { background-color: var(--bg-card); color: var(--text-muted); padding: 10px 20px; border-radius: 50px; font-size: 14px; cursor: pointer; border: 1px solid transparent; font-weight: 600; transition: all 0.2s ease; }
+        .cat-tab.active { background-color: #ffffff; color: #000000; font-weight: 700; }
 
-        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px 0; }
-        .product-card { background: #0c0717; border-radius: 20px; padding: 20px 15px; border: 1px solid rgba(157, 78, 221, 0.05); text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .product-img { width: 75px; height: 75px; border-radius: 20px; object-fit: cover; margin-bottom: 12px; }
-        .product-card h3 { font-size: 16px; font-weight: bold; margin: 4px 0; color: white; }
-        .purchuse-lbl { color: #8e8e93; font-size: 13px; margin-bottom: 12px; }
-        .buy-btn { background: #ffffff; color: black; border: none; padding: 9px 0; width: 85%; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; }
+        /* GRID PACKS AS SHOWN IN IMAGE #1 */
+        .apps-grid-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .app-item-card { background: var(--bg-card); border-radius: 22px; padding: 20px 16px; border: 1px solid rgba(255,255,255,0.02); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .app-item-avatar { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .app-item-card h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px 0; color: white; }
+        .app-item-subtext { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
+        .app-dl-trigger { background: #ffffff; color: #000000; border: none; padding: 10px 0; width: 85%; border-radius: 50px; cursor: pointer; font-size: 13px; font-weight: 700; transition: transform 0.1s ease; }
+        .app-dl-trigger:active { transform: scale(0.95); }
 
-        /* BOTTOM NAVIGATION FOOTER */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #070312; display: none; justify-content: space-around; padding: 12px 0 25px 0; border-top: 1px solid #150d2a; z-index: 999; box-sizing: border-box; }
-        .nav-item { color: #8e8e93; text-decoration: none; font-size: 10px; text-align: center; flex: 1; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .nav-item i { font-size: 18px; }
-        .nav-item.active { color: var(--electric-cyan); }
-
-        /* ALERT MODALS */
-        .lock-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; }
-        .lock-modal-content { background-color: #120c1f; padding: 30px; border-radius: 20px; text-align: center; max-width: 280px; width: 80%; border: 1px solid #25193d; }
-        .lock-modal-content i { font-size: 45px; color: #ff9500; margin-bottom: 15px; }
-        .lock-modal-content h3 { margin: 5px 0; font-size: 18px; color: white; }
-        .lock-modal-content p { color: #8e8e93; font-size: 14px; margin: 10px 0 20px 0; }
-        .lock-close-btn { background-color: #ffffff; color: #000000; border: none; padding: 8px 25px; border-radius: 15px; font-weight: bold; cursor: pointer; }
-
-        /* DYNAMIC POPUP BOX ENGINE */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 2, 10, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { 
-            background: linear-gradient(135deg, #160a2c 0%, #06020f 100%); 
-            padding: 30px 25px; 
+        /* ADVANCED ULTRA-MODERN BLURRED FLOATING NAVIGATION BOTTOM BAR */
+        .floating-dock { 
+            position: fixed; 
+            bottom: 24px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 90%; 
+            max-width: 380px; 
+            background: var(--glass-nav); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            display: none; 
+            justify-content: space-around; 
+            padding: 10px 8px; 
             border-radius: 24px; 
-            border: 1px solid rgba(157, 78, 221, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.06); 
+            z-index: 999; 
+            box-sizing: border-box; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .dock-element { color: var(--text-muted); text-decoration: none; font-size: 11px; text-align: center; flex: 1; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-weight: 500; transition: color 0.2s ease; }
+        .dock-element i { font-size: 18px; }
+        .dock-element.active { color: var(--accent-glow); }
+
+        /* NEW MODAL SYSTEM FROM IMAGE #2 DESIGN */
+        .lock-alert-window { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
+        .lock-alert-box { background-color: var(--bg-card); padding: 30px 24px; border-radius: 24px; text-align: center; max-width: 290px; width: 80%; border: 1px solid rgba(255,255,255,0.05); }
+        .lock-alert-box i { font-size: 40px; color: #ffb703; margin-bottom: 15px; }
+        .lock-alert-box h3 { margin: 0 0 8px 0; font-size: 18px; color: white; }
+        .lock-alert-box p { color: var(--text-muted); font-size: 14px; margin: 0 0 20px 0; line-height: 1.4; }
+        .lock-ack-button { background-color: #ffffff; color: #000000; border: none; padding: 10px 30px; border-radius: 50px; font-weight: 700; cursor: pointer; }
+
+        /* IMAGE #2 INSPIRED BKASH TRANSACTIONS SYSTEM UI */
+        .checkout-layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); justify-content: center; align-items: center; z-index: 1000; }
+        .checkout-window { 
+            background: #13111c; 
+            padding: 32px 24px; 
+            border-radius: 28px; 
+            border: 1px solid rgba(0, 245, 212, 0.15); 
             width: 85%; 
-            max-width: 340px; 
+            max-width: 330px; 
             text-align: center; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
-        .bkash-badge {
-            background: #e2136e;
-            color: white;
+        .provider-pill {
+            color: #00f5d4;
             display: inline-block;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
-        #modalTitle { font-size: 22px; font-weight: 800; color: var(--electric-cyan); margin:0; }
-        .payment-subtext { font-size: 12px; margin: 8px 0 22px 0; color: #a499b8; }
+        #checkoutNumberTitle { font-size: 22px; font-weight: 700; color: #ffffff; margin: 0 0 6px 0; }
+        .checkout-hint-msg { font-size: 13px; margin: 0 0 25px 0; color: var(--text-muted); line-height: 1.4; }
         
-        .input-group { position: relative; margin-bottom: 18px; }
-        .input-group i { position: absolute; left: 16px; top: 16px; color: var(--cyber-purple); font-size: 16px; }
-        .premium-input { 
+        .checkout-input-group { position: relative; margin-bottom: 16px; }
+        .checkout-input-group i { position: absolute; left: 16px; top: 16px; color: var(--text-muted); font-size: 14px; }
+        .checkout-field-input { 
             width: 100%; 
-            padding: 15px 15px 15px 48px; 
-            border-radius: 12px; 
-            border: 1px solid rgba(157, 78, 221, 0.2); 
-            background: rgba(13, 7, 24, 0.7); 
+            padding: 15px 15px 15px 44px; 
+            border-radius: 14px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            background: #0b0a10; 
             color: white; 
             box-sizing: border-box; 
             font-size: 14px;
             outline: none;
         }
-        .premium-input:focus { border-color: var(--cyber-purple); }
+        .checkout-field-input:focus { border-color: var(--accent-glow); }
         
-        .submit-btn { 
-            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
-            color: black; 
+        .checkout-cta-trigger { 
+            background: #00f5d4; 
+            color: #000000; 
             border: none; 
             padding: 15px; 
-            border-radius: 12px; 
+            border-radius: 14px; 
             cursor: pointer; 
-            font-weight: 800; 
+            font-weight: 700; 
             font-size: 14px;
             width: 100%; 
+            letter-spacing: 0.5px;
+            margin-top: 5px;
         }
         
-        .status-box { display: none; margin-top: 15px; padding: 15px; border-radius: 12px; font-size: 14px; font-weight: 600; }
-        .pending { background: rgba(255, 153, 0, 0.1); border: 1px solid #ff9500; color: #ff9500; }
-        .approved { background: rgba(0, 245, 212, 0.1); border: 1px solid #00f5d4; color: #00f5d4; }
-        .dl-btn { display: inline-block; background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); color: black; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 10px; width: 100%; box-sizing: border-box; }
-        .close-modal-txt { background: none; border: none; color: #8e8e93; margin-top: 22px; font-size: 13px; cursor: pointer; }
+        .flow-status-card { display: none; margin-top: 15px; padding: 15px; border-radius: 14px; font-size: 14px; font-weight: 600; line-height: 1.4; }
+        .flow-status-card.pending { background: rgba(255, 183, 3, 0.1); border: 1px solid #ffb703; color: #ffb703; }
+        .flow-status-card.approved { background: rgba(0, 245, 212, 0.1); border: 1px solid #00f5d4; color: #00f5d4; }
+        .dynamic-dl-anchor { display: inline-block; background: #00f5d4; color: #000000; padding: 12px 20px; border-radius: 14px; text-decoration: none; font-weight: 700; margin-top: 12px; width: 100%; box-sizing: border-box; text-align: center; }
+        .checkout-dismiss-lbl { background: none; border: none; color: var(--text-muted); margin-top: 20px; font-size: 13px; cursor: pointer; font-weight: 500; }
     </style>
 </head>
 <body>
-    <div class="glow-sphere"></div>
+    <div class="ambient-glow"></div>
 
     <div class="container">
         <div id="homeSection">
-            <div class="profile-container">
-                <img src="https://i.postimg.cc/ryHTDGK6/Project-Name-107.png" class="profile-img">
+            <div class="profile-wrapper">
+                <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" class="profile-img">
             </div>
             
-            <div class="neon-name">FU4D</div>
-            <div class="sub-text">MASTER YOUR MOTION</div>
+            <div class="brand-title">FU4D</div>
+            <div class="brand-subtitle">MASTER YOUR MOTION</div>
             
-            <a href="#" onclick="showStore()" class="store-btn">
-                <img src="https://i.postimg.cc/FH5w5DnL/IMG-4186.jpg" class="store-custom-icon"> Online Store
+            <a href="#" onclick="displayStore()" class="app-action-card">
+                <div class="card-meta">
+                    <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png">
+                    <span>Online Store</span>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="font-size: 14px; opacity: 0.7;"></i>
             </a>
             
-            <a href="https://www.tiktok.com/@furd_f4huu4" class="link-card">
-                <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg" class="link-png-img"> TikTok
+            <a href="https://www.tiktok.com/@furd_f4huu4" class="social-link-tile">
+                <div class="social-info">
+                    <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg">
+                    <span>TikTok</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
             </a>
-            <a href="https://t.me/f4huu_xzzz" class="link-card">
-                <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg" class="link-png-img"> Telegram
+            <a href="https://t.me/f4huu_xzzz" class="social-link-tile">
+                <div class="social-info">
+                    <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg">
+                    <span>Telegram</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
             </a>
-            <a href="https://v_ortx" class="link-card">
-                <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg" class="link-png-img"> Instagram
+            <a href="https://v_ortx" class="social-link-tile">
+                <div class="social-info">
+                    <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg">
+                    <span>Instagram</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
             </a>
-            <a href="https://www.facebook.com/fah.huu.2025" class="link-card">
-                <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg" class="link-png-img"> Facebook
+            <a href="https://www.facebook.com/fah.huu.2025" class="social-link-tile">
+                <div class="social-info">
+                    <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg">
+                    <span>Facebook</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
             </a>
         </div>
 
         <div id="storeSection">
-            <button onclick="hideStore()" style="background:none; border:none; color:var(--cyber-purple); cursor:pointer; font-weight:bold; font-size: 16px; margin-bottom:15px; padding:0;">← Back to Home</button>
+            <button onclick="dismissStore()" style="background:none; border:none; color:var(--accent-glow); cursor:pointer; font-weight:700; font-size: 15px; margin-bottom:20px; padding:0; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
             
-            <div class="store-title">IPA Library</div>
+            <div class="store-header-title">IPA Library</div>
 
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search by App name...">
+            <div class="search-box-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search-input-field" placeholder="Search by App name...">
             </div>
 
-            <div class="filter-tabs">
-                <button class="tab active">
-                    <img src="https://i.postimg.cc/J0gVk8qq/IMG-4185.jpg"> All
-                </button>
-                <button class="tab">PRO APPS v2 ⚡️</button>
-                <button class="tab">CC PACK 💥</button>
-                <button class="tab">SHAKE PACK 🔥</button>
+            <div class="category-tab-scroller">
+                <button class="cat-tab active">All</button>
+                <button class="cat-tab">Emulator</button>
+                <button class="cat-tab">Jailbreak</button>
+                <button class="cat-tab">Tweak</button>
             </div>
 
-            <div class="grid-container">
-                <div class="product-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="product-img"><h3>CapCut</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="product-img"><h3>Wink</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="product-img"><h3>Vasco Pro</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="product-img"><h3>Node Video</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="product-img"><h3>Minecraft</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="product-img"><h3>Vmake Pro</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="product-img"><h3>Roblox VIP</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="product-img"><h3>Video Star</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="product-img"><h3>Shadowrocket</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="product-img"><h3>Alight</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="product-img"><h3>All in One</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">PURCHASE</button></div>
-                <div class="product-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="product-img"><h3>Netflix</h3><div class="purchuse-lbl">Purchase</div><button class="buy-btn" onclick="openPayment('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">PURCHASE</button></div>
+            <div class="apps-grid-box">
+                <div class="app-item-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="app-item-avatar"><h3>Vasco Pro</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">Official Paid</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="app-item-avatar"><h3>Roblox VIP</h3><div class="app-item-subtext">Mod Menu</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Unlocked Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Official Tool</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight</h3><div class="app-item-subtext">Premium Motion</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="app-item-avatar"><h3>All in One</h3><div class="app-item-subtext">Mega Pack</div><button class="app-dl-trigger" onclick="triggerCheckout('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Download</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Premium Unlocked</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">Download</button></div>
             </div>
         </div>
     </div>
 
-    <div id="bottomNavBar" class="bottom-nav">
-        <div class="nav-item active">
-            <i class="fa-solid fa-bolt-lightning"></i>
-            <span>PRO APPS ⚡️</span>
+    <div id="appBottomFloatingDock" class="floating-dock">
+        <div class="dock-element">
+            <i class="fa-solid fa-download"></i>
+            <span>Installer</span>
         </div>
-        <div class="nav-item" onclick="openLockAlert()">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>VSP CC 😍</span>
+        <div class="dock-element active">
+            <i class="fa-solid fa-box-archive"></i>
+            <span>Library</span>
         </div>
-        <div class="nav-item" onclick="openLockAlert()">
-            <i class="fa-solid fa-bolt"></i>
-            <span>VSP SHAKE 🔥</span>
+        <div class="dock-element" onclick="triggerLockView()">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Signer</span>
         </div>
-        <div class="nav-item" onclick="openLockAlert()">
-            <i class="fa-solid fa-fire"></i>
-            <span>AM CC 😍</span>
-        </div>
-        <div class="nav-item" onclick="openLockAlert()">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <span>AM SHAKE 🔥</span>
+        <div class="dock-element" onclick="triggerLockView()">
+            <i class="fa-solid fa-unlock-keyhole"></i>
+            <span>Jailbreak</span>
         </div>
     </div>
 
-    <div id="lockModal" class="lock-modal">
-        <div class="lock-modal-content">
-            <i class="fa-solid fa-lock"></i>
-            <h3>🔒 Upcoming</h3>
-            <p>This section is locked & coming soon!</p>
-            <button class="lock-close-btn" onclick="closeLockAlert()">OK</button>
+    <div id="lockSystemAlert" class="lock-alert-window">
+        <div class="lock-alert-box">
+            <i class="fa-solid fa-circle-nodes"></i>
+            <h3>Section Sealed</h3>
+            <p>This dynamic pipeline is currently locked and undergoing integration.</p>
+            <button class="lock-ack-button" onclick="dismissLockView()">Acknowledge</button>
         </div>
     </div>
 
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <div class="bkash-badge">bKash Personal</div>
-            <h3 id="modalTitle">01938908314</h3>
-            <p class="payment-subtext">Send Money complete kore TrxID details submit korun</p>
+    <div id="checkoutSystemModal" class="checkout-layer">
+        <div class="checkout-window">
+            <div class="provider-pill">Bikash: 01938908314</div>
+            <p class="checkout-hint-msg">Send Money kore TrxID Details din</p>
             
-            <div id="inputForm">
-                <div class="input-group">
-                    <input type="text" id="userNumber" class="premium-input" placeholder="Bikash Number">
-                    <i class="fa-solid fa-phone"></i>
+            <div id="gatewayForm">
+                <div class="checkout-input-group">
+                    <input type="text" id="billingPhone" class="checkout-field-input" placeholder="Bikash Number">
+                    <i class="fa-solid fa-mobile-button"></i>
                 </div>
-                <div class="input-group">
-                    <input type="text" id="userTrx" class="premium-input" placeholder="Transaction ID (TrxID)">
-                    <i class="fa-solid fa-receipt"></i>
+                <div class="checkout-input-group">
+                    <input type="text" id="billingTrxId" class="checkout-field-input" placeholder="Transaction ID (TrxID)">
+                    <i class="fa-solid fa-fingerprint"></i>
                 </div>
-                <button onclick="submitPayment()" class="submit-btn" id="submitBtn">SUBMIT FOR VERIFY</button>
+                <button onclick="processOrderPayload()" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
             </div>
             
-            <div id="statusBox" class="status-box">
-                <div id="statusText"></div>
-                <div id="downloadArea"></div>
+            <div id="flowStatusPanel" class="flow-status-card">
+                <div id="flowStatusText"></div>
+                <div id="flowDownloadContainer"></div>
             </div>
             
-            <button onclick="closePayment()" class="close-modal-txt">Close</button>
+            <button onclick="dismissCheckout()" class="checkout-dismiss-lbl">Close</button>
         </div>
     </div>
 
@@ -427,53 +432,53 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        let currentProduct = ""; let currentDL = "";
+        let activeProductPayload = ""; let activeDownloadPayload = "";
 
-        window.showStore = () => { 
+        window.displayStore = () => { 
             document.getElementById('homeSection').style.display='none'; 
             document.getElementById('storeSection').style.display='block'; 
-            document.getElementById('bottomNavBar').style.display='flex'; 
+            document.getElementById('appBottomFloatingDock').style.display='flex'; 
         }
-        window.hideStore = () => { 
+        window.dismissStore = () => { 
             document.getElementById('homeSection').style.display='block'; 
             document.getElementById('storeSection').style.display='none'; 
-            document.getElementById('bottomNavBar').style.display='none'; 
+            document.getElementById('appBottomFloatingDock').style.display='none'; 
         }
         
-        window.openLockAlert = () => { document.getElementById('lockModal').style.display = 'flex'; }
-        window.closeLockAlert = () => { document.getElementById('lockModal').style.display = 'none'; }
+        window.triggerLockView = () => { document.getElementById('lockSystemAlert').style.display = 'flex'; }
+        window.dismissLockView = () => { document.getElementById('lockSystemAlert').style.display = 'none'; }
 
-        window.openPayment = (name, dlLink) => { 
-            currentProduct = name; currentDL = dlLink;
-            document.getElementById('inputForm').style.display = 'block';
-            document.getElementById('statusBox').style.display = 'none';
-            document.getElementById('paymentModal').style.display='flex'; 
+        window.triggerCheckout = (name, dlLink) => { 
+            activeProductPayload = name; activeDownloadPayload = dlLink;
+            document.getElementById('gatewayForm').style.display = 'block';
+            document.getElementById('flowStatusPanel').style.display = 'none';
+            document.getElementById('checkoutSystemModal').style.display='flex'; 
         }
-        window.closePayment = () => { document.getElementById('paymentModal').style.display='none'; }
+        window.dismissCheckout = () => { document.getElementById('checkoutSystemModal').style.display='none'; }
 
-        window.submitPayment = () => {
-            const num = document.getElementById('userNumber').value;
-            const trx = document.getElementById('userTrx').value;
-            if(!num || !trx) return alert("Sothik tatthyo din!");
-            const orderId = "order_" + Date.now();
-            set(ref(db, 'orders/' + orderId), { product: currentProduct, number: num, trxid: trx, status: "pending", downloadLink: currentDL });
-            document.getElementById('inputForm').style.display = 'none';
-            listenForApproval(orderId);
+        window.processOrderPayload = () => {
+            const clientPhone = document.getElementById('billingPhone').value;
+            const clientTrx = document.getElementById('billingTrxId').value;
+            if(!clientPhone || !clientTrx) return alert("Sothik tatthyo submit korun!");
+            const generatedOrderId = "order_" + Date.now();
+            set(ref(db, 'orders/' + generatedOrderId), { product: activeProductPayload, number: clientPhone, trxid: clientTrx, status: "pending", downloadLink: activeDownloadPayload });
+            document.getElementById('gatewayForm').style.display = 'none';
+            attachPayloadListener(generatedOrderId);
         }
 
-        function listenForApproval(orderId) {
-            const statusBox = document.getElementById('statusBox'); 
-            const statusText = document.getElementById('statusText');
-            statusBox.style.display = 'block';
+        function attachPayloadListener(orderId) {
+            const flowStatusPanel = document.getElementById('flowStatusPanel'); 
+            const flowStatusText = document.getElementById('flowStatusText');
+            flowStatusPanel.style.display = 'block';
             onValue(ref(db, 'orders/' + orderId), (snapshot) => {
                 const data = snapshot.val();
                 if(data.status === "pending") {
-                    statusBox.className = "status-box pending";
-                    statusText.innerHTML = "<b>STATUS: PENDING...</b><br>Payment check kora hoche.";
+                    flowStatusPanel.className = "flow-status-card pending";
+                    flowStatusText.innerHTML = "<b>STATUS: PENDING</b><br>Payment validation running. Wait krun...";
                 } else if(data.status === "approved") {
-                    statusBox.className = "status-box approved";
-                    statusText.innerHTML = "<b>STATUS: SUCCESS!</b>";
-                    document.getElementById('downloadArea').innerHTML = `<a href="${data.downloadLink}" class="dl-btn" target="_blank">DOWNLOAD NOW</a>`;
+                    flowStatusPanel.className = "flow-status-card approved";
+                    flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
+                    document.getElementById('flowDownloadContainer').innerHTML = `<a href="${data.downloadLink}" class="dynamic-dl-anchor" target="_blank">DOWNLOAD NOW</a>`;
                 }
             });
         }
