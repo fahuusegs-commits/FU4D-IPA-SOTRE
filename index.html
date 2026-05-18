@@ -235,57 +235,7 @@
         .tool-panel-card h4 { margin: 0 0 10px 0; font-size: 17px; color: var(--accent-glow); font-weight: 700; }
         .tool-panel-card p { margin: 0 0 16px 0; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
         
-        .tool-input-
-         .custom-installer-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 22px;
-            margin: 25px 20px;
-            border: 1px dashed rgba(0, 245, 212, 0.25);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-        }
-        .installer-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        .installer-icon-box {
-            background: rgba(0, 245, 212, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-glow);
-        }
-        .installer-title-set {
-            text-align: left;
-        }
-        .installer-title-set h4 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-        }
-        .installer-title-set p {
-            margin: 2px 0 0 0;
-            font-size: 11.5px;
-            color: var(--text-muted);
-        }
-        .installer-field-wrap {
-            position: relative;
-            margin-bottom: 14px;
-        }
-        .installer-field-wrap i {
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        .custom-signer-input {
+         .tool-input-field {
             width: 100%;
             padding: 14px 14px 14px 40px;
             border-radius: 14px;
@@ -295,8 +245,39 @@
             box-sizing: border-box;
             font-size: 13px;
             outline: none;
+            margin-bottom: 14px;
         }
-        .trigger-install-btn {
+        .tool-panel-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 22px;
+            border: 1px dashed rgba(0, 245, 212, 0.25);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            text-align: left;
+            margin-top: 10px;
+        }
+        .tool-panel-card h4 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+        }
+        .tool-panel-card p {
+            margin: 0 0 16px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .input-icon-wrap {
+            position: relative;
+        }
+        .input-icon-wrap i {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .tool-action-btn {
             background: linear-gradient(135deg, #00f5d4 0%, #00bbf9 100%);
             color: #000000;
             border: none;
@@ -321,7 +302,6 @@
 
     <div class="container">
         <div id="homeSection">
-            
             <div class="cover-banner-wrapper">
                 <div class="glass-banner-overlay"></div>
             </div>
@@ -378,7 +358,7 @@
             </div>
         </div>
 
-        <div id="storeSection">
+        <div id="storeSection" style="display: none;">
             <button onclick="dismissStore()" style="background:none; border:none; color:var(--accent-glow); cursor:pointer; font-weight:700; font-size: 15px; margin-bottom:20px; padding:0; display:flex; align-items:center; gap:8px;">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </button>
@@ -391,47 +371,48 @@
             </div>
 
             <div class="category-tab-scroller">
-                <button class="cat-tab active"><i class="fa-solid fa-house-chimney" style="font-size:12px;"></i> All</button>
-                <button class="cat-tab">PRO APPS v2 ⚡</button>
-                <button class="cat-tab">CC PACK 💥</button>
+                <button class="cat-tab active" onclick="switchStoreTab('all', this)"><i class="fa-solid fa-house-chimney" style="font-size:12px;"></i> All</button>
+                <button class="cat-tab" onclick="switchStoreTab('apps', this)">PRO APPS v2 ⚡</button>
+                <button class="cat-tab" onclick="switchStoreTab('cc', this)">CC PACK 💥</button>
+                <button class="cat-tab" style="color: #00f5d4; font-weight: 800;" onclick="switchStoreTab('signtools', this)">SIGN TOOLS ⚡</button>
             </div>
 
-            <div class="apps-grid-box">
-                <div class="app-item-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="app-item-avatar"><h3>Vasco Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="app-item-avatar"><h3>Roblox VIP</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="app-item-avatar"><h3>All in One</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Purchase</button></div>
-                <div class="app-item-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">Purchase</button></div>
+            <div class="apps-grid-box" id="storeAppsGridContainer">
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://file.ipaomtk.com/ipa/Wink.ipa')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="app-item-avatar"><h3>Vasco Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="app-item-avatar"><h3>Roblox VIP</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="app-item-avatar"><h3>All in One</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">Purchase</button></div>
+            </div>
+
+            <div id="signToolsView" style="display: none;">
+                <div class="tool-panel-card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <i class="fa-solid fa-shield-halved" style="color: #00f5d4; font-size: 20px;"></i>
+                        <h4>OTA IPA Installer Engine</h4>
+                    </div>
+                    <p>Apnar direct iOS app package link (.ipa URL) niche paste korun ebong kono computer chara sorasori iPhone-e install korun.</p>
+                    
+                    <div class="input-icon-wrap">
+                        <input type="text" id="customIpaUrlInput" class="tool-input-field" placeholder="https://domain.com/your-app.ipa">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    
+                    <button onclick="triggerDirectIosEngine()" class="tool-action-btn">
+                        <i class="fa-solid fa-bolt"></i> Direct Install In iPhone
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div class="custom-installer-card" id="customInstallerCard">
-            <div class="installer-header">
-                <div class="installer-icon-box">
-                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 18px;"></i>
-                </div>
-                <div class="installer-title-set">
-                    <h4>Custom IPA Installer</h4>
-                    <p>Paste your IPA link & install directly</p>
-                </div>
-            </div>
-            <div class="installer-field-wrap">
-                <input type="text" id="customIpaUrlInput" class="custom-signer-input" placeholder="https://domain.com/yourfile.ipa">
-                <i class="fa-solid fa-link"></i>
-            </div>
-            <button onclick="triggerDirectIosEngine()" class="trigger-install-btn">
-                <i class="fa-solid fa-bolt"></i> Direct Install In iPhone
-            </button>
-        </div>
-
-        <div id="storeBottomNav" class="store-bottom-menu">
+        <div id="storeBottomNav" class="store-bottom-menu" style="display: none;">
             <button class="nav-item-btn active">
                 <i class="fa-solid fa-bolt"></i>
                 <span>PRO APPS ⚡</span>
@@ -455,7 +436,7 @@
         </div>
     </div>
 
-    <div id="upcomingAlertLayer" class="upcoming-modal-layer">
+    <div id="upcomingAlertLayer" class="upcoming-modal-layer" style="display: none;">
         <div class="upcoming-modal-box">
             <i class="fa-solid fa-lock"></i>
             <h3 id="upcomingTitle">Feature Locked</h3>
@@ -464,7 +445,7 @@
         </div>
     </div>
 
-    <div id="checkoutSystemModal" class="checkout-layer">
+    <div id="checkoutSystemModal" class="checkout-layer" style="display: none;">
         <div class="checkout-window">
             <div class="provider-pill">Bikash: 01938908314</div>
             <p class="checkout-hint-msg">Send Money kore TrxID Details din</p>
@@ -481,7 +462,7 @@
                 <button onclick="processOrderPayload()" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
             </div>
             
-            <div id="flowStatusPanel" class="flow-status-card">
+            <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
                 <div id="flowStatusText"></div>
                 <div id="flowDownloadContainer"></div>
             </div>
@@ -512,14 +493,39 @@
             document.getElementById('homeSection').style.display = 'none'; 
             document.getElementById('storeSection').style.display = 'block'; 
             document.getElementById('storeBottomNav').style.display = 'flex'; 
-            document.getElementById('storeSection').appendChild(document.getElementById('customInstallerCard'));
         }
         
         window.dismissStore = () => { 
             document.getElementById('homeSection').style.display = 'block'; 
             document.getElementById('storeSection').style.display = 'none'; 
             document.getElementById('storeBottomNav').style.display = 'none'; 
-            document.getElementById('homeSection').appendChild(document.getElementById('customInstallerCard'));
+        }
+
+        // DYNAMIC TAB NAVIGATION WITH BALANCED RE-MAPPING RULES
+        window.switchStoreTab = (targetCategory, clickTarget) => {
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            clickTarget.classList.add('active');
+
+            const appsGrid = document.getElementById('storeAppsGridContainer');
+            const toolView = document.getElementById('signToolsView');
+
+            if (targetCategory === 'signtools') {
+                appsGrid.style.display = 'none';
+                toolView.style.display = 'block';
+            } else {
+                toolView.style.display = 'none';
+                appsGrid.style.display = 'grid';
+
+                const appCards = document.querySelectorAll('.app-item-card');
+                appCards.forEach(card => {
+                    const catAttr = card.getAttribute('data-category');
+                    if (targetCategory === 'all' || catAttr === targetCategory) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
         }
 
         window.openUpcomingView = (tabName) => {
