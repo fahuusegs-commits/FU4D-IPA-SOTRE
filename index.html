@@ -236,18 +236,264 @@
         .tool-panel-card p { margin: 0 0 16px 0; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
         
         .tool-input-
-                    <i class="fa-solid fa-link" style="position: absolute; left: 15px; top: 15px; color: var(--text-muted); font-size: 13px;"></i>
+         .custom-installer-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 22px;
+            margin: 25px 20px;
+            border: 1px dashed rgba(0, 245, 212, 0.25);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .installer-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .installer-icon-box {
+            background: rgba(0, 245, 212, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-glow);
+        }
+        .installer-title-set {
+            text-align: left;
+        }
+        .installer-title-set h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+        }
+        .installer-title-set p {
+            margin: 2px 0 0 0;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+        .installer-field-wrap {
+            position: relative;
+            margin-bottom: 14px;
+        }
+        .installer-field-wrap i {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .custom-signer-input {
+            width: 100%;
+            padding: 14px 14px 14px 40px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: #05060a;
+            color: white;
+            box-sizing: border-box;
+            font-size: 13px;
+            outline: none;
+        }
+        .trigger-install-btn {
+            background: linear-gradient(135deg, #00f5d4 0%, #00bbf9 100%);
+            color: #000000;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0,245,212,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <div id="homeSection">
+            
+            <div class="cover-banner-wrapper">
+                <div class="glass-banner-overlay"></div>
+            </div>
+
+            <div class="profile-container">
+                <div class="glass-avatar-shield"></div>
+                <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" class="profile-img">
+            </div>
+            
+            <div class="brand-title">FU4D</div>
+            <div class="brand-subtitle">MASTER YOUR MOTION</div>
+            
+            <div class="store-desc">
+                Wellcome to my store you can purchuse your own premium apps for life time and enjoy the premium & vip benefits 🔥.
+            </div>
+            
+            <a href="#" onclick="displayStore()" class="app-action-card">
+                <div class="card-meta">
+                    <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png">
+                    <span>Online Store</span>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="font-size: 14px; opacity: 0.7;"></i>
+            </a>
+            
+            <div class="social-link-tiles-wrapper">
+                <a href="https://www.tiktok.com/@furd_f4huu4" class="social-link-tile">
+                    <div class="social-info">
+                        <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg">
+                        <span>TikTok</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
+                </a>
+                <a href="https://t.me/f4huu_xzzz" class="social-link-tile">
+                    <div class="social-info">
+                        <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg">
+                        <span>Telegram</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
+                </a>
+                <a href="https://v_ortx" class="social-link-tile">
+                    <div class="social-info">
+                        <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg">
+                        <span>Instagram</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
+                </a>
+                <a href="https://www.facebook.com/fah.huu.2025" class="social-link-tile">
+                    <div class="social-info">
+                        <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg">
+                        <span>Facebook</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
+                </a>
+            </div>
         </div>
-        <button onclick="triggerDirectIosEngine()" style="background: linear-gradient(135deg, #00f5d4 0%, #00bbf9 100%); color: #000000; border: none; padding: 14px; width: 100%; border-radius: 14px; font-weight: 800; font-size: 13px; cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(0,245,212,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <i class="fa-solid fa-bolt"></i> Direct Install In iPhone
-        </button>
+
+        <div id="storeSection">
+            <button onclick="dismissStore()" style="background:none; border:none; color:var(--accent-glow); cursor:pointer; font-weight:700; font-size: 15px; margin-bottom:20px; padding:0; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            
+            <div class="store-header-title">APP Library</div>
+
+            <div class="search-box-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search-input-field" placeholder="Search by App name...">
+            </div>
+
+            <div class="category-tab-scroller">
+                <button class="cat-tab active"><i class="fa-solid fa-house-chimney" style="font-size:12px;"></i> All</button>
+                <button class="cat-tab">PRO APPS v2 ⚡</button>
+                <button class="cat-tab">CC PACK 💥</button>
+            </div>
+
+            <div class="apps-grid-box">
+                <div class="app-item-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="app-item-avatar"><h3>Vasco Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink - ')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/NodeVideo.ipa&name=Node%20Video)')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa&name=Minecraft)')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa&name=Vmake:%20AI%20Photo%20&%20Video%20Editor')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="app-item-avatar"><h3>Roblox VIP</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox VIP', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa&name=Roblox')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa&name=Video%20Star')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', ' https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Shadow-rocket.ipa&name=Shadowrocket')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa&name=Alight%20Motion%20IPA')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="app-item-avatar"><h3>All in One</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Purchase</button></div>
+                <div class="app-item-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">Purchase</button></div>
+            </div>
+        </div>
+
+        <div class="custom-installer-card" id="customInstallerCard">
+            <div class="installer-header">
+                <div class="installer-icon-box">
+                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 18px;"></i>
+                </div>
+                <div class="installer-title-set">
+                    <h4>Custom IPA Installer</h4>
+                    <p>Paste your IPA link & install directly</p>
+                </div>
+            </div>
+            <div class="installer-field-wrap">
+                <input type="text" id="customIpaUrlInput" class="custom-signer-input" placeholder="https://domain.com/yourfile.ipa">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            <button onclick="triggerDirectIosEngine()" class="trigger-install-btn">
+                <i class="fa-solid fa-bolt"></i> Direct Install In iPhone
+            </button>
+        </div>
+
+        <div id="storeBottomNav" class="store-bottom-menu">
+            <button class="nav-item-btn active">
+                <i class="fa-solid fa-bolt"></i>
+                <span>PRO APPS ⚡</span>
+            </button>
+            <button class="nav-item-btn" onclick="openUpcomingView('VSP CC 😍')">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>VSP CC 😍</span>
+            </button>
+            <button class="nav-item-btn" onclick="openUpcomingView('VSP SHAKE 🔥')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>VSP SHAKE 🔥</span>
+            </button>
+            <button class="nav-item-btn" onclick="openUpcomingView('AM CC 😍')">
+                <i class="fa-solid fa-clapperboard"></i>
+                <span>AM CC 😍</span>
+            </button>
+            <button class="nav-item-btn" onclick="openUpcomingView('AM SHAKE 🔥')">
+                <i class="fa-solid fa-fire"></i>
+                <span>AM SHAKE 🔥</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="upcomingAlertLayer" class="upcoming-modal-layer">
+        <div class="upcoming-modal-box">
+            <i class="fa-solid fa-lock"></i>
+            <h3 id="upcomingTitle">Feature Locked</h3>
+            <p>This exclusive content pack is currently undergoing development and will be available soon!</p>
+            <button class="upcoming-close-btn" onclick="closeUpcomingView()">Close</button>
+        </div>
+    </div>
+
+    <div id="checkoutSystemModal" class="checkout-layer">
+        <div class="checkout-window">
+            <div class="provider-pill">Bikash: 01938908314</div>
+            <p class="checkout-hint-msg">Send Money kore TrxID Details din</p>
+            
+            <div id="gatewayForm">
+                <div class="checkout-input-group">
+                    <input type="text" id="billingPhone" class="checkout-field-input" placeholder="Bikash Number">
+                    <i class="fa-solid fa-mobile-button"></i>
+                </div>
+                <div class="checkout-input-group">
+                    <input type="text" id="billingTrxId" class="checkout-field-input" placeholder="Transaction ID (TrxID)">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </div>
+                <button onclick="processOrderPayload()" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
+            </div>
+            
+            <div id="flowStatusPanel" class="flow-status-card">
+                <div id="flowStatusText"></div>
+                <div id="flowDownloadContainer"></div>
+            </div>
+            
+            <button onclick="dismissCheckout()" class="checkout-dismiss-lbl">Close</button>
+        </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-        // Firebase Core Cloud Architecture Bundle Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCBDqxKX8BirBB_3OEUyU0r_kWPQKAAO-c",
             authDomain: "fu4d-ipa-store.firebaseapp.com",
@@ -262,12 +508,10 @@
         let activeProductPayload = ""; 
         let activeDownloadPayload = "";
 
-        // UI Management Control Functions
         window.displayStore = () => { 
             document.getElementById('homeSection').style.display = 'none'; 
             document.getElementById('storeSection').style.display = 'block'; 
             document.getElementById('storeBottomNav').style.display = 'flex'; 
-            // Custom Installer display tracking rules inside store view layout
             document.getElementById('storeSection').appendChild(document.getElementById('customInstallerCard'));
         }
         
@@ -275,7 +519,6 @@
             document.getElementById('homeSection').style.display = 'block'; 
             document.getElementById('storeSection').style.display = 'none'; 
             document.getElementById('storeBottomNav').style.display = 'none'; 
-            // Move back structural dynamic nodes safely to root tracking layout
             document.getElementById('homeSection').appendChild(document.getElementById('customInstallerCard'));
         }
 
@@ -300,7 +543,6 @@
             document.getElementById('checkoutSystemModal').style.display = 'none'; 
         }
 
-        // Firebase Payment Order Record Engine
         window.processOrderPayload = () => {
             const clientPhone = document.getElementById('billingPhone').value;
             const clientTrx = document.getElementById('billingTrxId').value;
@@ -319,7 +561,6 @@
             attachPayloadListener(generatedOrderId);
         }
 
-        // Realtime Database Event Tracking Thread Listener
         function attachPayloadListener(orderId) {
             const flowStatusPanel = document.getElementById('flowStatusPanel'); 
             const flowStatusText = document.getElementById('flowStatusText');
@@ -336,14 +577,12 @@
                     flowStatusPanel.className = "flow-status-card approved";
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
                     
-                    // Direct dynamic mapping of OTA architecture via Signtools distribution layer
                     const finalOtaSignerUrl = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(data.downloadLink);
                     document.getElementById('flowDownloadContainer').innerHTML = `<a href="${finalOtaSignerUrl}" class="dynamic-dl-anchor">INSTALL NOW ON IPHONE</a>`;
                 }
             });
         }
 
-        // CLIENTSIDE OTA SIGNER INTEGRATION PROTOCOL MACHINE ENGINE 
         window.triggerDirectIosEngine = () => {
             const externalUserIpaUrl = document.getElementById('customIpaUrlInput').value.trim();
             if(!externalUserIpaUrl) {
@@ -355,14 +594,10 @@
                 return;
             }
             
-            // Generate standard manifest runtime pointer package structure automatically 
             const interactiveOtaLinkPayload = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(externalUserIpaUrl);
-            
-            // Trigger automatic runtime native OS application pop-up installation call thread
             window.location.href = interactiveOtaLinkPayload;
         }
 
-        // Live Realtime UI Search filtering subsystem layer module engine code
         const searchInput = document.querySelector('.search-input-field');
         if(searchInput) {
             searchInput.addEventListener('input', function(e) {
