@@ -66,10 +66,10 @@
             box-sizing: border-box; 
             position: relative; 
             z-index: 1; 
-            padding-bottom: 100px; /* Cushion for the floating bottom nav */
+            padding-bottom: 40px;
         }
         
-        #homeSection { padding: 40px 20px; }
+        #homeSection { padding: 40px 20px; text-align: center; }
 
         /* UNIFIED PRESTIGE AVATAR ENGINE */
         .profile-wrapper {
@@ -111,8 +111,18 @@
             font-weight: 700;
             letter-spacing: 5px; 
             color: var(--accent-glow);
-            margin: 0 0 40px 0; 
+            margin: 0 0 15px 0; 
             text-transform: uppercase; 
+        }
+
+        /* NEW CUSTOM STORE DESCRIPTION BLOCK */
+        .store-desc {
+            font-size: 14px;
+            color: #b3c2d4;
+            line-height: 1.5;
+            margin: 0 auto 35px auto;
+            max-width: 320px;
+            font-weight: 500;
         }
         
         /* EXQUISITE APP CARDS UI - MATCHING IMAGE #1 SYSTEM */
@@ -130,6 +140,7 @@
             font-size: 18px;
             box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: left;
         }
         .app-action-card:active {
             transform: scale(0.98);
@@ -150,6 +161,7 @@
             text-decoration: none; 
             color: #ffffff; 
             transition: background 0.2s ease, border 0.2s ease;
+            text-align: left;
         }
         .social-link-tile:hover {
             background: #181b26;
@@ -161,7 +173,7 @@
         .arrow-right-icon { color: var(--text-muted); font-size: 13px; }
 
         /* APP PLATFORM/STORE LAYOUT CONFIGURATION */
-        #storeSection { display: none; padding: 25px 20px 100px 20px; }
+        #storeSection { display: none; padding: 25px 20px 40px 20px; }
         .store-header-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: white; margin: 10px 0 20px 0; text-align: center; }
         
         /* PREMIUM SEARCH ENGINE CONTAINER */
@@ -169,15 +181,8 @@
         .search-box-wrapper i { position: absolute; left: 18px; top: 16px; color: var(--text-muted); font-size: 15px; }
         .search-input-field { width: 100%; padding: 15px 15px 15px 48px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.04); background-color: var(--bg-card); color: white; font-size: 15px; outline: none; box-sizing: border-box; }
         .search-input-field::placeholder { color: #526071; }
-        
-        /* APP LEVEL HORIZONTAL TABS CONTROLLER */
-        .category-tab-scroller { display: flex; gap: 10px; padding-bottom: 10px; overflow-x: auto; white-space: nowrap; margin-bottom: 15px; }
-        .category-tab-scroller::-webkit-scrollbar { display: none; }
-        
-        .cat-tab { background-color: var(--bg-card); color: var(--text-muted); padding: 10px 20px; border-radius: 50px; font-size: 14px; cursor: pointer; border: 1px solid transparent; font-weight: 600; transition: all 0.2s ease; }
-        .cat-tab.active { background-color: #ffffff; color: #000000; font-weight: 700; }
 
-        /* GRID PACKS AS SHOWN IN IMAGE #1 */
+        /* UNIQUE GRID PACKS STYLE - ULTRA MODERN UNIQUE LOOK */
         .apps-grid-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
         .app-item-card { background: var(--bg-card); border-radius: 22px; padding: 20px 16px; border: 1px solid rgba(255,255,255,0.02); text-align: center; display: flex; flex-direction: column; align-items: center; }
         .app-item-avatar { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
@@ -185,38 +190,6 @@
         .app-item-subtext { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
         .app-dl-trigger { background: #ffffff; color: #000000; border: none; padding: 10px 0; width: 85%; border-radius: 50px; cursor: pointer; font-size: 13px; font-weight: 700; transition: transform 0.1s ease; }
         .app-dl-trigger:active { transform: scale(0.95); }
-
-        /* ADVANCED ULTRA-MODERN BLURRED FLOATING NAVIGATION BOTTOM BAR */
-        .floating-dock { 
-            position: fixed; 
-            bottom: 24px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 90%; 
-            max-width: 380px; 
-            background: var(--glass-nav); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); 
-            display: none; 
-            justify-content: space-around; 
-            padding: 10px 8px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255, 255, 255, 0.06); 
-            z-index: 999; 
-            box-sizing: border-box; 
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
-        .dock-element { color: var(--text-muted); text-decoration: none; font-size: 11px; text-align: center; flex: 1; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-weight: 500; transition: color 0.2s ease; }
-        .dock-element i { font-size: 18px; }
-        .dock-element.active { color: var(--accent-glow); }
-
-        /* NEW MODAL SYSTEM FROM IMAGE #2 DESIGN */
-        .lock-alert-window { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
-        .lock-alert-box { background-color: var(--bg-card); padding: 30px 24px; border-radius: 24px; text-align: center; max-width: 290px; width: 80%; border: 1px solid rgba(255,255,255,0.05); }
-        .lock-alert-box i { font-size: 40px; color: #ffb703; margin-bottom: 15px; }
-        .lock-alert-box h3 { margin: 0 0 8px 0; font-size: 18px; color: white; }
-        .lock-alert-box p { color: var(--text-muted); font-size: 14px; margin: 0 0 20px 0; line-height: 1.4; }
-        .lock-ack-button { background-color: #ffffff; color: #000000; border: none; padding: 10px 30px; border-radius: 50px; font-weight: 700; cursor: pointer; }
 
         /* IMAGE #2 INSPIRED BKASH TRANSACTIONS SYSTEM UI */
         .checkout-layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); justify-content: center; align-items: center; z-index: 1000; }
@@ -238,7 +211,6 @@
             letter-spacing: 0.5px;
             margin-bottom: 6px;
         }
-        #checkoutNumberTitle { font-size: 22px; font-weight: 700; color: #ffffff; margin: 0 0 6px 0; }
         .checkout-hint-msg { font-size: 13px; margin: 0 0 25px 0; color: var(--text-muted); line-height: 1.4; }
         
         .checkout-input-group { position: relative; margin-bottom: 16px; }
@@ -288,6 +260,10 @@
             
             <div class="brand-title">FU4D</div>
             <div class="brand-subtitle">MASTER YOUR MOTION</div>
+            
+            <div class="store-desc">
+                Wellcome to my store you can purchuse your own premium apps for life time and enjoy the premium & vip benefits 🔥.
+            </div>
             
             <a href="#" onclick="displayStore()" class="app-action-card">
                 <div class="card-meta">
@@ -339,13 +315,6 @@
                 <input type="text" class="search-input-field" placeholder="Search by App name...">
             </div>
 
-            <div class="category-tab-scroller">
-                <button class="cat-tab active">All</button>
-                <button class="cat-tab">Emulator</button>
-                <button class="cat-tab">Jailbreak</button>
-                <button class="cat-tab">Tweak</button>
-            </div>
-
             <div class="apps-grid-box">
                 <div class="app-item-card"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Download</button></div>
                 <div class="app-item-card"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium Pro</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/ipa/Wink.ipa')">Download</button></div>
@@ -360,34 +329,6 @@
                 <div class="app-item-card"><img src="https://i.postimg.cc/9XPBXxZf/IMG-3606.jpg" class="app-item-avatar"><h3>All in One</h3><div class="app-item-subtext">Mega Pack</div><button class="app-dl-trigger" onclick="triggerCheckout('All in One', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Download</button></div>
                 <div class="app-item-card"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Premium Unlocked</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://signtools.ipaomtk.com/?ipa=https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa&name=Netflix%20IPA')">Download</button></div>
             </div>
-        </div>
-    </div>
-
-    <div id="appBottomFloatingDock" class="floating-dock">
-        <div class="dock-element">
-            <i class="fa-solid fa-download"></i>
-            <span>Installer</span>
-        </div>
-        <div class="dock-element active">
-            <i class="fa-solid fa-box-archive"></i>
-            <span>Library</span>
-        </div>
-        <div class="dock-element" onclick="triggerLockView()">
-            <i class="fa-solid fa-pen-nib"></i>
-            <span>Signer</span>
-        </div>
-        <div class="dock-element" onclick="triggerLockView()">
-            <i class="fa-solid fa-unlock-keyhole"></i>
-            <span>Jailbreak</span>
-        </div>
-    </div>
-
-    <div id="lockSystemAlert" class="lock-alert-window">
-        <div class="lock-alert-box">
-            <i class="fa-solid fa-circle-nodes"></i>
-            <h3>Section Sealed</h3>
-            <p>This dynamic pipeline is currently locked and undergoing integration.</p>
-            <button class="lock-ack-button" onclick="dismissLockView()">Acknowledge</button>
         </div>
     </div>
 
@@ -437,16 +378,11 @@
         window.displayStore = () => { 
             document.getElementById('homeSection').style.display='none'; 
             document.getElementById('storeSection').style.display='block'; 
-            document.getElementById('appBottomFloatingDock').style.display='flex'; 
         }
         window.dismissStore = () => { 
             document.getElementById('homeSection').style.display='block'; 
             document.getElementById('storeSection').style.display='none'; 
-            document.getElementById('appBottomFloatingDock').style.display='none'; 
         }
-        
-        window.triggerLockView = () => { document.getElementById('lockSystemAlert').style.display = 'flex'; }
-        window.dismissLockView = () => { document.getElementById('lockSystemAlert').style.display = 'none'; }
 
         window.triggerCheckout = (name, dlLink) => { 
             activeProductPayload = name; activeDownloadPayload = dlLink;
