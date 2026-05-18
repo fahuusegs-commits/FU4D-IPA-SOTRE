@@ -15,13 +15,13 @@
     
     <style>
         :root { 
-            --bg-main: #07080d;
-            --bg-card: #11131e;
+            --bg-main: #05060a;
+            --bg-card: #0d0f17;
             --accent-glow: #00f5d4;
             --accent-neon: #2d00f7;
             --accent-gradient: linear-gradient(135deg, #2d00f7 0%, #8900f2 100%);
             --text-muted: #8F9CAE;
-            --glass-nav: rgba(17, 19, 30, 0.85);
+            --glass-nav: rgba(13, 15, 23, 0.85);
         }
         
         body { 
@@ -41,8 +41,8 @@
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(45, 0, 247, 0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(45, 0, 247, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(45, 0, 247, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(45, 0, 247, 0.02) 1px, transparent 1px);
             background-size: 35px 35px;
             z-index: 0;
             pointer-events: none;
@@ -52,7 +52,7 @@
             position: fixed;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.05) 0%, transparent 65%);
             top: -150px;
             left: 50%;
             transform: translateX(-50%);
@@ -66,43 +66,42 @@
             box-sizing: border-box; 
             position: relative; 
             z-index: 1; 
-            padding-bottom: 110px; /* Space for the persistent bottom menu */
+            padding-bottom: 110px;
         }
         
         #homeSection { padding: 40px 20px; text-align: center; }
 
-        /* MEDIUM MOTION COLOR GRADIENT BACKDROP FOR AVATAR */
+        /* AESTHETIC GRADIENT & SIDE ANIMATED GLOW COVERS BLACK SPACES */
         .profile-container {
             position: relative;
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 15px;
         }
         .motion-bg-glow {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 135px;
-            height: 135px;
-            background: linear-gradient(0deg, #00f5d4, #2d00f7, #8900f2, #00f5d4);
-            background-size: 100% 400%;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, #00f5d4 0%, #2d00f7 40%, transparent 70%);
             border-radius: 50%;
             z-index: -1;
-            filter: blur(8px);
-            animation: fluidGradientMotion 6s linear infinite;
-            opacity: 0.75;
+            filter: blur(12px);
+            animation: aestheticWave 4s ease-in-out infinite alternate;
+            opacity: 0.85;
         }
-        @keyframes fluidGradientMotion {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 0% 100%; }
-            100% { background-position: 0% 0%; }
+        @keyframes aestheticWave {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; filter: blur(10px); }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; filter: blur(16px); }
         }
         .profile-img { 
-            width: 110px; 
-            height: 110px; 
+            width: 115px; 
+            height: 115px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 4px solid #07080d;
+            border: 3px solid #00f5d4;
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
             display: block;
         }
 
@@ -136,7 +135,7 @@
             font-weight: 500;
         }
         
-        /* ACTION ROW ELEMENTS */
+        /* ACTION ROW ELEMENTS - CLEAN NO WHITE BORDERS */
         .app-action-card { 
             background: var(--accent-gradient);
             border-radius: 20px;
@@ -157,9 +156,10 @@
         .card-meta { display: flex; align-items: center; gap: 15px; }
         .card-meta img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
         
+        /* PURE APP ICON TILE DESIGNS WITHOUT WHITE GLOW BLOCKS */
         .social-link-tile { 
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 18px; 
             padding: 16px 20px; 
             margin-bottom: 14px; 
@@ -171,10 +171,10 @@
             transition: background 0.2s ease;
             text-align: left;
         }
-        .social-link-tile:hover { background: #171a28; }
+        .social-link-tile:hover { background: #141724; }
         .social-info { display: flex; align-items: center; gap: 16px; }
-        .social-info img { width: 26px; height: 26px; object-fit: contain; border-radius: 6px; }
-        .social-info span { font-size: 16px; font-weight: 600; }
+        .social-info img { width: 28px; height: 28px; object-fit: contain; border-radius: 0px; filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.3)); }
+        .social-info span { font-size: 16px; font-weight: 600; color: #ffffff; }
         .arrow-right-icon { color: var(--text-muted); font-size: 13px; }
 
         /* STORE VIEW LAYOUT */
@@ -198,7 +198,6 @@
         .app-item-card h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 4px 0; color: white; }
         .app-item-subtext { color: var(--text-muted); font-size: 12px; margin-bottom: 16px; }
         
-        /* EXTREMELY UNIQUE AND CLEAN PURCHASE CTA TRIGGER */
         .app-dl-trigger { 
             background: #ffffff; 
             color: #000000; 
@@ -216,7 +215,7 @@
         }
         .app-dl-trigger:active { transform: scale(0.94); }
 
-        /* EXACT IMAGE #5 BOTTOM MENU PATTERN */
+        /* BOTTOM MENU PATTERN */
         .store-bottom-menu {
             position: fixed;
             bottom: 0; left: 50%;
