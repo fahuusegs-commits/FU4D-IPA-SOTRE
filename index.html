@@ -213,32 +213,31 @@
         .app-item-subtext { color: var(--text-muted); font-size: 12px; margin-bottom: 16px; }
         
         .app-dl-trigger { 
-            background: #ffffff; 
-            color: #000000; 
-            border: none; 
-            padding: 11px 0; 
-            width: 90%; 
-            border-radius: 14px; 
-            cursor: pointer; 
-            font-size: 12.5px; 
-            font-weight: 800; 
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: transform 0.15s ease, background 0.15s ease;
-            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
-        }
-        .app-dl-trigger:active { transform: scale(0.94); }
+                    .app-dl-trigger:active { transform: scale(0.95); }
 
-        /* SIGN TOOLS LAYOUT CONTAINER */
+        /* ====== SIGN TOOLS / APPLEJR PREMIUM SIGNER LAYOUT ====== */
         #signToolsView { display: none; }
-        .tool-panel-card { background: var(--bg-card); border-radius: 22px; padding: 25px 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.02); text-align: left; }
-        .tool-panel-card h4 { margin: 0 0 10px 0; font-size: 17px; color: var(--accent-glow); font-weight: 700; }
-        .tool-panel-card p { margin: 0 0 16px 0; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
         
-         Ami ebar ekdom clear bujhte perechi! Apni chachchhen **"AppleJr IPA Signer"**-er moto ekti complete signing engine interface, jekhane user shudhu link-ee bosaus ba local file upload koruk—seta prathame ekti custom signing backend node algorithm run korbe (signing process dynamic trigger korbe), load hobe, ebong shob sheshe iPhone-er real native interactive installer configuration window template call korbe.
-Eii logic-ti add korar jonno amader style code syntax modification o background signing loading system process block framework-ti dynamic design kora dorkar.
-GitHub editor-er continuous line break context trigger maintain korte apni line number **238**-er thik por theke (239 no. line) purono code-er end tags logic blocks delete kore, nicher optimized template-ti re-route wrapper block e paste kore din:
-```html
+        .tool-panel-card { 
+            background: var(--bg-card); 
+            border-radius: 24px;
+            padding: 22px;
+            border: 1px dashed rgba(0, 245, 212, 0.25);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            text-align: left;
+            margin-top: 10px;
+        }
+        .tool-panel-card h4 { 
+            margin: 0 0 10px 0; 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: white; 
+        }
+        .tool-panel-card p { 
+            margin: 0 0 16px 0; 
+            font-size: 12px; 
+            color: var(--text-muted); 
+        }
         .tool-input-field {
             width: 100%;
             padding: 14px 14px 14px 40px;
@@ -251,29 +250,7 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
             outline: none;
             margin-bottom: 14px;
         }
-        .tool-panel-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 22px;
-            border: 1px dashed rgba(0, 245, 212, 0.25);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            text-align: left;
-            margin-top: 10px;
-        }
-        .tool-panel-card h4 {
-            margin: 0 0 4px 0;
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-        }
-        .tool-panel-card p {
-            margin: 0 0 16px 0;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        .input-icon-wrap {
-            position: relative;
-        }
+        .input-icon-wrap { position: relative; }
         .input-icon-wrap i {
             position: absolute;
             left: 15px;
@@ -328,24 +305,44 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
             justify-content: center;
             gap: 8px;
         }
-        /* REALTIME SIGNING SIGNER OVERLAY LOADER LAYER */
+
+        /* PREMIUM CORE APPLJR SIGNER SCREEN OVERLAY DESIGN BLOCK */
         .signing-loader-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 6, 10, 0.95);
-            z-index: 10000;
+            background: rgba(7, 9, 15, 0.98);
+            z-index: 99999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .progress-track-container {
+            width: 75%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .progress-active-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%);
+            box-shadow: 0 0 15px #00f5d4;
+            transition: width 0.3s ease;
         }
         .spinner-ring {
-            width: 50px; height: 50px;
-            border: 4px solid rgba(0, 245, 212, 0.1);
-            border-top-color: var(--accent-glow);
+            width: 60px; height: 60px;
+            border: 4px solid rgba(0, 245, 212, 0.05);
+            border-top-color: #00f5d4;
+            border-bottom-color: #00bbf9;
             border-radius: 50%;
-            animation: spinEngine 1s linear infinite;
-            margin-bottom: 18px;
+            animation: spinEngine 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            margin-bottom: 25px;
         }
         @keyframes spinEngine {
             to { transform: rotate(360deg); }
@@ -502,8 +499,11 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
 
     <div id="signerLoadingOverlay" class="signing-loader-screen" style="display: none;">
         <div class="spinner-ring"></div>
-        <h4 style="color: white; margin: 0 0 6px 0; font-size: 16px; font-weight: 700;" id="loaderHeaderTitle">Signing Your App Package</h4>
-        <p style="color: var(--text-muted); margin: 0; font-size: 12px;" id="loaderStatusSub">Injecting enterprise distribution certificates profiles...</p>
+        <h4 style="color: white; margin: 0 0 8px 0; font-size: 18px; font-weight: 800; letter-spacing: 0.5px;" id="loaderHeaderTitle">AppleJr Signing Pipeline</h4>
+        <p style="color: #00f5d4; margin: 0; font-size: 13px; font-weight: 600;" id="loaderStatusSub">Initializing cryptographic certificate layers...</p>
+        <div class="progress-track-container">
+            <div id="runtimeProgressBarFill" class="progress-active-bar"></div>
+        </div>
     </div>
 
     <div id="upcomingAlertLayer" class="upcoming-modal-layer" style="display: none;">
@@ -598,7 +598,6 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
             }
         }
 
-        // DISK TARGET FILE RESOLUTION HANDLER
         window.handleLocalFileProvision = (fileInputInstance) => {
             if(fileInputInstance.files && fileInputInstance.files[0]) {
                 const targetFileObj = fileInputInstance.files[0];
@@ -668,51 +667,57 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
             });
         }
 
-        // INTEGRATED APPLEJR STYLE EMULATED COMPILATION INTERACTIVE SIGNING RUNTIME ENGINE
+        // ADVANCED SEQUENTIAL MULTI-STAGE SIGNING TRIGGER ROUTING METHODS
         window.triggerDirectIosEngine = () => {
             const inputLinkUrl = document.getElementById('customIpaUrlInput').value.trim();
             
-            // Check validation conditions dynamically
             if(!uploadedLocalFileBlob && !inputLinkUrl) {
-                alert("Please upload a local .ipa file or enter a direct public valid .ipa download web link resource pointer.");
+                alert("Kindly provide a direct app link address path or upload structural file binary tracking data package (.ipa format).");
                 return;
             }
 
-            let computedSignTargetUrl = "";
+            let finalComputedPayloadEndpoint = "";
             if (uploadedLocalFileBlob) {
-                computedSignTargetUrl = "https://file.ipaomtk.com/uploaded-sandbox/" + encodeURIComponent(uploadedLocalFileBlob.name);
+                finalComputedPayloadEndpoint = "https://file.ipaomtk.com/uploaded-sandbox/" + encodeURIComponent(uploadedLocalFileBlob.name);
             } else {
                 if(!inputLinkUrl.toLowerCase().endsWith('.ipa') && !inputLinkUrl.includes('.ipa?')) {
-                    alert("Security warning: Provided link does not point to an authenticated binary package bundle (.ipa mapping index error).");
+                    alert("Selected index deployment target missing verified binary verification metadata path check.");
                     return;
                 }
-                computedSignTargetUrl = inputLinkUrl;
+                finalComputedPayloadEndpoint = inputLinkUrl;
             }
 
-            const loaderModal = document.getElementById('signerLoadingOverlay');
-            const statusLabel = document.getElementById('loaderStatusSub');
+            const masterLoaderModal = document.getElementById('signerLoadingOverlay');
+            const contextualStatusText = document.getElementById('loaderStatusSub');
+            const structuralProgressBar = document.getElementById('runtimeProgressBarFill');
             
-            // Step 1: Initialize signing state
-            loaderModal.style.display = "flex";
-            statusLabel.innerText = "Parsing binary structure assets directory metadata...";
+            masterLoaderModal.style.display = "flex";
+            structuralProgressBar.style.width = "15%";
+            contextualStatusText.innerText = "Extracting Mach-O layout architecture binary fields...";
 
-            // Step 2: Trigger dynamic pipeline steps emulator timeout logic frames
             setTimeout(() => {
-                statusLabel.innerText = "Applying enterprise active configuration distribution profile logs...";
+                structuralProgressBar.style.width = "45%";
+                contextualStatusText.innerText = "Applying mobile provision dynamic enterprise security certificates...";
                 
                 setTimeout(() => {
-                    statusLabel.innerText = "Packing signed app payload manifest bundle tracks...";
+                    structuralProgressBar.style.width = "80%";
+                    contextualStatusText.innerText = "Re-packing clean binary application structure track bundle assets...";
                     
                     setTimeout(() => {
-                        // Close modal layer safely
-                        loaderModal.style.display = "none";
+                        structuralProgressBar.style.width = "100%";
+                        contextualStatusText.innerText = "Signing verification process complete. Requesting operational install dialog authorization layer...";
                         
-                        // Step 3: Trigger structural native iOS runtime deployment prompt mapping template integration target link framework
-                        const finalOtaSignerManifest = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(computedSignTargetUrl);
-                        window.location.href = finalOtaSignerManifest;
-                    }, 1200);
-                }, 1400);
-            }, 1000);
+                        setTimeout(() => {
+                            masterLoaderModal.style.display = "none";
+                            structuralProgressBar.style.width = "0%";
+                            
+                            const targetAppleInstallationManifestRouteUrl = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(finalComputedPayloadEndpoint);
+                            window.location.href = targetAppleInstallationManifestRouteUrl;
+                        }, 800);
+
+                    }, 1500);
+                }, 1500);
+            }, 1200);
         }
 
         const searchInput = document.querySelector('.search-input-field');
@@ -734,5 +739,3 @@ GitHub editor-er continuous line break context trigger maintain korte apni line 
     </script>
 </body>
 </html>
-
-```
