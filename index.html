@@ -71,38 +71,53 @@
         
         #homeSection { padding: 40px 20px; text-align: center; }
 
-        /* AESTHETIC GRADIENT & SIDE ANIMATED GLOW COVERS BLACK SPACES */
+        /* ADVANCED ANIMATED BACKGROUND WITH GLASS EFFECT INDEED */
         .profile-container {
             position: relative;
             display: inline-block;
             margin-top: 20px;
-            padding: 15px;
+            padding: 30px;
         }
+        
+        /* THE ANIMATED APNG/GIF OVERLAY EXTENDED TO SIDES */
         .motion-bg-glow {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 160px;
-            height: 160px;
-            background: radial-gradient(circle, #00f5d4 0%, #2d00f7 40%, transparent 70%);
+            width: 190px;
+            height: 190px;
+            background-image: url('https://i.postimg.cc/0b2b66cd/image.gif'); /* Direct tracking user uploaded asset script */
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            z-index: -2;
+            filter: drop-shadow(0 0 15px rgba(0, 245, 212, 0.3));
+        }
+
+        /* AESTHETIC GLASS LAYER ON TOP OF THE ANIMATION */
+        .glass-blur-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             z-index: -1;
-            filter: blur(12px);
-            animation: aestheticWave 4s ease-in-out infinite alternate;
-            opacity: 0.85;
         }
-        @keyframes aestheticWave {
-            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; filter: blur(10px); }
-            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; filter: blur(16px); }
-        }
+
         .profile-img { 
             width: 115px; 
             height: 115px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 3px solid #00f5d4;
-            box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             display: block;
+            position: relative;
         }
 
         /* BRAND ARTIFACTS */
@@ -135,7 +150,7 @@
             font-weight: 500;
         }
         
-        /* ACTION ROW ELEMENTS - CLEAN NO WHITE BORDERS */
+        /* ACTION ROW ELEMENTS */
         .app-action-card { 
             background: var(--accent-gradient);
             border-radius: 20px;
@@ -156,7 +171,7 @@
         .card-meta { display: flex; align-items: center; gap: 15px; }
         .card-meta img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
         
-        /* PURE APP ICON TILE DESIGNS WITHOUT WHITE GLOW BLOCKS */
+        /* PURE SOCIAL TILES */
         .social-link-tile { 
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -191,7 +206,7 @@
         .cat-tab { background-color: var(--bg-card); color: var(--text-muted); padding: 11px 22px; border-radius: 50px; font-size: 14px; cursor: pointer; border: 1px solid transparent; font-weight: 600; display: flex; align-items: center; gap: 6px; }
         .cat-tab.active { background-color: #ffffff; color: #000000; font-weight: 700; }
 
-        /* RAW UNIQUE GRID SYSTEM PACKS */
+        /* APPS GRID SYSTEM */
         .apps-grid-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
         .app-item-card { background: var(--bg-card); border-radius: 22px; padding: 22px 16px; border: 1px solid rgba(255,255,255,0.02); text-align: center; display: flex; flex-direction: column; align-items: center; position: relative; }
         .app-item-avatar { width: 76px; height: 76px; border-radius: 18px; object-fit: cover; margin-bottom: 12px; }
@@ -243,7 +258,7 @@
         .nav-item-btn i { font-size: 16px; }
         .nav-item-btn.active { color: var(--accent-glow); }
 
-        /* UPCOMING / LOCK MODAL SYSTEM OVERLAY */
+        /* UPCOMING MODAL LAYOUT */
         .upcoming-modal-layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; }
         .upcoming-modal-box { background-color: var(--bg-card); padding: 32px 24px; border-radius: 24px; text-align: center; max-width: 290px; width: 80%; border: 1px solid rgba(0, 245, 212, 0.15); box-shadow: 0 10px 40px rgba(0,245,212,0.1); }
         .upcoming-modal-box i { font-size: 42px; color: #ffb703; margin-bottom: 16px; animation: pulseLock 2s infinite; }
@@ -252,7 +267,7 @@
         .upcoming-modal-box p { color: var(--text-muted); font-size: 14px; margin: 0 0 22px 0; line-height: 1.5; }
         .upcoming-close-btn { background-color: #ffffff; color: #000000; border: none; padding: 11px 28px; border-radius: 50px; font-weight: 700; font-size: 13px; cursor: pointer; }
 
-        /* TRANSACTION SHEET OVERLAY */
+        /* PAYMENTS SCREEN */
         .checkout-layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); justify-content: center; align-items: center; z-index: 1000; }
         .checkout-window { background: #13111c; padding: 32px 24px; border-radius: 28px; border: 1px solid rgba(0, 245, 212, 0.15); width: 85%; max-width: 330px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
         .provider-pill { color: #00f5d4; display: inline-block; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
@@ -276,6 +291,7 @@
         <div id="homeSection">
             <div class="profile-container">
                 <div class="motion-bg-glow"></div>
+                <div class="glass-blur-ring"></div>
                 <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" class="profile-img">
             </div>
             
