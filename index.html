@@ -153,7 +153,7 @@
             display: flex; flex-direction: column; align-items: center; text-align: center;
             border: 1px solid rgba(255,255,255,0.02);
         }
-        .app-item-avatar { width: 76px; height: 76px; border-radius: 18px; margin-bottom: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
+        .app-item-avatar { width: 76px; height: 76px; border-radius: 18px; margin-bottom: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); object-fit: cover; }
         .app-item-card h3 { margin: 0 0 4px 0; font-size: 15.5px; font-weight: 800; }
         .app-item-subtext { color: var(--text-muted); font-size: 12px; margin-bottom: 14px; }
         
@@ -165,7 +165,7 @@
         }
         .app-dl-trigger:active { transform: scale(0.95); }
 
-        /* ====== SIGN TOOLS / APPLEJR PREMIUM SIGNER LAYOUT ====== */
+        /* ====== SIGN TOOLS LAYOUT ====== */
         #signToolsView { display: none; }
         .tool-panel-card { 
             background: var(--bg-card); border-radius: 24px; padding: 22px;
@@ -261,7 +261,7 @@
         .checkout-cta-trigger { width: 100%; padding: 13px; background: white; color: black; border: none; border-radius: 12px; font-weight: 800; font-size: 13px; cursor: pointer; margin-top: 4px; }
         .flow-status-card { background: #05060a; padding: 14px; border-radius: 14px; text-align: left; font-size: 12px; margin-top: 10px; border-left: 3px solid #ffbc00; }
         .flow-status-card.approved { border-left-color: #00f5d4; }
-        .dynamic-dl-anchor { display: block; text-align: center; background: #00f5d4; color: black; padding: 10px; border-radius: 10px; text-decoration: none; font-weight: 800; margin-top: 10px; }
+        .dynamic-dl-anchor { display: block; text-align: center; background: #00f5d4; color: black; padding: 13px; border-radius: 14px; text-decoration: none; font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
@@ -340,29 +340,31 @@
             <div class="category-tab-scroller">
                 <button class="cat-tab active" onclick="switchStoreTab('all', this)"><i class="fa-solid fa-house-chimney" style="font-size:12px;"></i> All</button>
                 <button class="cat-tab" onclick="switchStoreTab('apps', this)">PRO APPS v2 ⚡</button>
-                <button class="cat-tab" onclick="switchStoreTab('cc', this)">CC PACK 💥</button>
+                <button class="cat-tab" onclick="switchStoreTab('games', this)">VIP GAMES 🎮</button>
                 <button class="cat-tab" style="color: #00f5d4; font-weight: 800;" onclick="switchStoreTab('signtools', this)">SIGN TOOLS ⚡</button>
             </div>
 
             <div class="apps-grid-box" id="storeAppsGridContainer">
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://file.ipaomtk.com/capcut-ipa/CapCut.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'https://file.ipaomtk.com/ipa/Wink.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/9M2kD6np/IMG-3597.jpg" class="app-item-avatar"><h3>Vasco Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vasco Pro', 'https://raw.githubusercontent.com/Gaucuto/ver2promax/refs/heads/main/ink')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'https://file.ipaomtk.com/ipa/NodeVideo.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'https://file.ipaomtk.com/Minecraft/Minecraft-IPAOMTK.COM.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', 'https://file.ipaomtk.com/ipa/Vmake-AI-Photo-Video-Editor.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/1XjMr2JT/IMG-3601.jpg" class="app-item-avatar"><h3>Roblox VIP</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox VIP', 'https://file.ipaomtk.com/Roblox/Delta-Roblox-IPAOMTK.COM.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'https://file.ipaomtk.com/Video%20Star/Videostar-Pro-IPAOMTK.com.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', 'https://file.ipaomtk.com/ipa/Shadow-rocket.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight', 'https://file.ipaomtk.com/Alight-Motion/Alight-Motion-IPAOMTK.com.ipa')">Purchase</button></div>
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Purchase</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'https://file.ipaomtk.com/Netflix/Netflix-3.0.ipa')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FCapCut-signed-8dac9574b883fb3e4a68.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FWink-signed-8de5d54b2f137de3b9d7.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/B6JhSx8W/IMG-3600.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVmake-AI-Photo-Video-Editor-signed-3a1e545e457a4d0da710.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNodeVideo-signed-2ae725facb66be56c7aa.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVideostar-Pro-IPAOMTK.com-signed-4eac50f477a4302cf7a8.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FShadowrocket-IPAOMTK.COM-signed-93c85abcd4d7001219d6.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight Motion</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight Motion', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FAlight-Motion-IPAOMTK.com-signed-24210f43134f707f0ec5.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Premium</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNetflix-3.0-signed-80749312bfb45f2e0952.plist')">Purchase</button></div>
+                
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/76ZPC4gm/IMG-4361.jpg" class="app-item-avatar"><h3>After Effects</h3><div class="app-item-subtext">Neon Video</div><button class="app-dl-trigger" onclick="triggerCheckout('After Effects', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNeonvideoeditor-signed-5fe7037206d1a1073d78.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FMinecraft-IPAOMTK.COM-signed-7d9ed081baf5841be645.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/5jdMmWFn/IMG-4362.jpg" class="app-item-avatar"><h3>GTA 3</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA 3', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-III-signed-115babb34696ac96d670.plist')">Purchase</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/TwKw7Gpv/IMG-4363.jpg" class="app-item-avatar"><h3>GTA SA</h3><div class="app-item-subtext">San Andreas</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA SA', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-San-Andreas-ipaomtk.com-signed-9beea497ea879d146cc5.plist')">Purchase</button></div>
             </div>
 
             <div id="signToolsView">
                 <div class="tool-panel-card">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
                         <i class="fa-solid fa-shield-halved" style="color: #00f5d4; font-size: 20px;"></i>
-                        <h4>AppleJr Style IPA Signer</h4>
+                        <h4>AppleJr Style OTA Installer</h4>
                     </div>
                     <p>Upload direct .ipa binary package file or paste direct public target URL route mapping link metadata.</p>
                     
@@ -371,7 +373,7 @@
                         <span id="uploadLabelTrack">Click here to Upload IPA</span>
                         <p>Supports files up to 2GB payload binary data</p>
                     </div>
-                    <input type="file" id="localDiskIpaChooser" accept=".ipa" style="display: none;" onchange="handleLocalFileProvision(this)">
+                    <input type="file" id="localDiskIpaChooser" accept=".ipa" style="display: none;">
 
                     <div style="text-align: center; color: var(--text-muted); font-size: 11px; margin-bottom: 14px; font-weight: 600;">— OR USE DIRECT DOWNLOAD LINK —</div>
 
@@ -380,7 +382,7 @@
                         <i class="fa-solid fa-link"></i>
                     </div>
                     
-                    <button onclick="triggerDirectIosEngine()" class="tool-action-btn">
+                    <button id="directInstallSubmitBtn" class="tool-action-btn">
                         <i class="fa-solid fa-rocket"></i> Sign &amp; Install IPA
                     </button>
                 </div>
@@ -443,7 +445,7 @@
                     <input type="text" id="billingTrxId" class="checkout-field-input" placeholder="Transaction ID (TrxID)">
                     <i class="fa-solid fa-fingerprint"></i>
                 </div>
-                <button onclick="processOrderPayload()" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
+                <button id="processOrderBtn" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
             </div>
             
             <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
@@ -470,6 +472,7 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
+        
         let activeProductPayload = ""; 
         let activeDownloadPayload = "";
         let uploadedLocalFileBlob = null; 
@@ -512,12 +515,14 @@
             }
         }
 
-        window.handleLocalFileProvision = (fileInputInstance) => {
-            if(fileInputInstance.files && fileInputInstance.files[0]) {
-                const targetFileObj = fileInputInstance.files[0];
-                uploadedLocalFileBlob = targetFileObj; 
-                document.getElementById('uploadLabelTrack').innerText = "Selected: " + targetFileObj.name;
-            }
+        const localFileInput = document.getElementById('localDiskIpaChooser');
+        if (localFileInput) {
+            localFileInput.addEventListener('change', function(event) {
+                if(event.target.files && event.target.files[0]) {
+                    uploadedLocalFileBlob = event.target.files[0];
+                    document.getElementById('uploadLabelTrack').innerText = "Selected: " + uploadedLocalFileBlob.name;
+                }
+            });
         }
 
         window.openUpcomingView = (tabName) => {
@@ -541,27 +546,34 @@
             document.getElementById('checkoutSystemModal').style.display = 'none'; 
         }
 
-        window.processOrderPayload = () => {
-            const clientPhone = document.getElementById('billingPhone').value;
-            const clientTrx = document.getElementById('billingTrxId').value;
-            if(!clientPhone || !clientTrx) return alert("Sothik tatthyo submit korun!");
-            
-            const generatedOrderId = "order_" + Date.now();
-            set(ref(db, 'orders/' + generatedOrderId), { 
-                product: activeProductPayload, 
-                number: clientPhone, 
-                trxid: clientTrx, 
-                status: "pending", 
-                downloadLink: activeDownloadPayload 
+        const processOrderBtn = document.getElementById('processOrderBtn');
+        if (processOrderBtn) {
+            processOrderBtn.addEventListener('click', () => {
+                const clientPhone = document.getElementById('billingPhone').value;
+                const clientTrx = document.getElementById('billingTrxId').value;
+                if(!clientPhone || !clientTrx) return alert("Sothik tatthyo submit korun!");
+                
+                const generatedOrderId = "order_" + Date.now();
+                set(ref(db, 'orders/' + generatedOrderId), { 
+                    product: activeProductPayload, 
+                    number: clientPhone, 
+                    trxid: clientTrx, 
+                    status: "pending", 
+                    downloadLink: activeDownloadPayload 
+                });
+                
+                document.getElementById('gatewayForm').style.display = 'none';
+                attachPayloadListener(generatedOrderId);
             });
-            
-            document.getElementById('gatewayForm').style.display = 'none';
-            attachPayloadListener(generatedOrderId);
         }
 
-        function executeOtaInstall(ipaUrl) {
-            // HIGH-PERFORMANCE BASE64 GENERATOR PIPELINE BINDING SYSTEM FOR APPLE OVER-THE-AIR NATIVE RUNTIME
-            const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
+        // REDIRECTS SHORASHORI TARGET DIRECT APPLE ITMS MANIFEST TRIGGER PROMPT
+        function executeOtaInstall(itmsUrl) {
+            if (itmsUrl && itmsUrl.startsWith('itms-services://')) {
+                window.location.href = itmsUrl;
+            } else if (itmsUrl) {
+                // If standard url passes, it wraps dynamically
+                const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -574,32 +586,33 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>${ipaUrl}</string>
+                    <string>${itmsUrl.replace(/&/g, '&amp;')}</string>
                 </dict>
             </array>
-            <metadata>
+            <key>metadata</key>
+            <dict>
                 <key>bundle-identifier</key>
-                <string>com.fu4d.runtime.signer</string>
+                <string>com.fu4d.store.runtime.${Math.floor(Math.random() * 10000)}</string>
                 <key>bundle-version</key>
                 <string>1.0.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
                 <string>FU4D Signed App</string>
-            </metadata>
+            </dict>
         </dict>
     </array>
 </dict>
 </plist>`;
-            
-            const dynamicBase64Manifest = btoa(unescape(encodeURIComponent(plistBlueprint)));
-            const deploymentGate = "itms-services://?action=download-manifest&url=data:text/xml;base64," + dynamicBase64Manifest;
-            window.location.href = deploymentGate;
+                const dynamicBase64Manifest = btoa(unescape(encodeURIComponent(plistBlueprint)));
+                window.location.href = "itms-services://?action=download-manifest&url=data:text/xml;base64," + dynamicBase64Manifest;
+            }
         }
 
         function attachPayloadListener(orderId) {
             const flowStatusPanel = document.getElementById('flowStatusPanel'); 
             const flowStatusText = document.getElementById('flowStatusText');
+            const containerBox = document.getElementById('flowDownloadContainer');
             flowStatusPanel.style.display = 'block';
             
             onValue(ref(db, 'orders/' + orderId), (snapshot) => {
@@ -609,68 +622,85 @@
                 if(data.status === "pending") {
                     flowStatusPanel.className = "flow-status-card pending";
                     flowStatusText.innerHTML = "<b>STATUS: PENDING</b><br>Payment validation running. Wait krun...";
+                    containerBox.innerHTML = "";
                 } else if(data.status === "approved") {
                     flowStatusPanel.className = "flow-status-card approved";
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
                     
-                    // ATTACH REAL-TIME DYNAMIC EXTRACTION CALLBACK LAYER FOR APPS SYSTEM
                     const targetLink = data.downloadLink;
-                    document.getElementById('flowDownloadContainer').innerHTML = `<button onclick="window.installFromApprovedOrder('${targetLink}')" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">INSTALL NOW ON IPHONE</button>`;
+                    // CHANGED FROM DOWNLOAD TO PURE NATIVE DIRECT INSTALL SIGNAL
+                    containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">INSTALL NOW ON IPHONE</button>`;
+                    
+                    document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
+                        executeOtaInstall(targetLink);
+                    });
                 }
             });
         }
 
-        window.installFromApprovedOrder = (url) => {
-            executeOtaInstall(url);
-        }
+        const directInstallSubmitBtn = document.getElementById('directInstallSubmitBtn');
+        if (directInstallSubmitBtn) {
+            directInstallSubmitBtn.addEventListener('click', () => {
+                const inputLinkUrl = document.getElementById('customIpaUrlInput').value.trim();
+                const masterLoaderModal = document.getElementById('signerLoadingOverlay');
+                const contextualStatusText = document.getElementById('loaderStatusSub');
+                const structuralProgressBar = document.getElementById('runtimeProgressBarFill');
 
-        // SCARLET REALTIME SIMULATION LOADER INJECTION GATEWAY PIPELINE EXECUTION MODULES
-        window.triggerDirectIosEngine = () => {
-            const inputLinkUrl = document.getElementById('customIpaUrlInput').value.trim();
-            
-            if(!uploadedLocalFileBlob && !inputLinkUrl) {
-                alert("Kindly provide a direct app link address path or upload file (.ipa format).");
-                return;
-            }
+                if(!uploadedLocalFileBlob && !inputLinkUrl) {
+                    alert("Kindly provide a direct app link address path or upload file (.ipa format).");
+                    return;
+                }
 
-            let finalComputedPayloadEndpoint = "";
-            if (uploadedLocalFileBlob) {
-                finalComputedPayloadEndpoint = "https://file.ipaomtk.com/uploaded-sandbox/" + encodeURIComponent(uploadedLocalFileBlob.name);
-            } else {
-                finalComputedPayloadEndpoint = inputLinkUrl;
-            }
+                masterLoaderModal.style.display = "flex";
+                structuralProgressBar.style.width = "20%";
+                contextualStatusText.innerText = "Connecting to Secure Signer Cloud Matrix Routing...";
 
-            const masterLoaderModal = document.getElementById('signerLoadingOverlay');
-            const contextualStatusText = document.getElementById('loaderStatusSub');
-            const structuralProgressBar = document.getElementById('runtimeProgressBarFill');
-            
-            masterLoaderModal.style.display = "flex";
-            structuralProgressBar.style.width = "15%";
-            contextualStatusText.innerText = "Extracting Mach-O layout architecture binary fields...";
+                if (uploadedLocalFileBlob) {
+                    structuralProgressBar.style.width = "40%";
+                    contextualStatusText.innerText = "Uploading binary stream chunks to secure storage bucket...";
 
-            setTimeout(() => {
-                structuralProgressBar.style.width = "45%";
-                contextualStatusText.innerText = "Applying mobile provision dynamic enterprise security certificates...";
-                
-                setTimeout(() => {
-                    structuralProgressBar.style.width = "80%";
-                    contextualStatusText.innerText = "Re-packing clean binary application structure track bundle assets...";
-                    
-                    setTimeout(() => {
-                        structuralProgressBar.style.width = "100%";
-                        contextualStatusText.innerText = "Signing verification process complete. Requesting operational install dialog authorization layer...";
-                        
-                        setTimeout(() => {
-                            masterLoaderModal.style.display = "none";
-                            structuralProgressBar.style.width = "0%";
+                    const dataForm = new FormData();
+                    dataForm.append('file', uploadedLocalFileBlob);
+
+                    fetch('https://tmpfiles.org/api/v1/upload', {
+                        method: 'POST',
+                        body: dataForm
+                    })
+                    .then(res => {
+                        if(!res.ok) throw new Error("HTTP Tunnel connection breakdown.");
+                        return res.json();
+                    })
+                    .then(response => {
+                        if(response.status === 'success' && response.data && response.data.url) {
+                            let rawRemoteUrl = response.data.url;
+                            let activeCloudDirectLink = rawRemoteUrl.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
                             
-                            // DISPATCH IN-MEMORY EMBEDDED PLIST STREAM ENGINE
-                            executeOtaInstall(finalComputedPayloadEndpoint);
-                        }, 800);
+                            structuralProgressBar.style.width = "80%";
+                            contextualStatusText.innerText = "Generating dynamic Apple Manifest Profiles...";
+                            
+                            setTimeout(() => {
+                                executeOtaInstall(activeCloudDirectLink);
+                                masterLoaderModal.style.display = "none";
+                            }, 1200);
+                        } else {
+                            throw new Error("Payload extraction channel refused data packet.");
+                        }
+                    })
+                    .catch(err => {
+                        masterLoaderModal.style.display = "none";
+                        alert("Network Error: Temporary remote storage bucket dropped connection.");
+                        console.error(err);
+                    });
 
-                    }, 1500);
-                }, 1500);
-            }, 1200);
+                } else if (inputLinkUrl) {
+                    structuralProgressBar.style.width = "70%";
+                    contextualStatusText.innerText = "Mapping static endpoint configurations...";
+                    setTimeout(() => {
+                        executeOtaInstall(inputLinkUrl);
+                        masterLoaderModal.style.display = "none";
+                    }, 1000);
+                }
+            });
         }
 
         const searchInput = document.querySelector('.search-input-field');
