@@ -576,7 +576,8 @@
                     flowStatusPanel.className = "flow-status-card approved";
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
                     
-                    const finalOtaSignerUrl = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(data.downloadLink);
+                    // USING STABLE FREE PUBLIC REALTIME PLIST GENERATION PROXY LINK FOR ORDERS TOO
+                    const finalOtaSignerUrl = "itms-services://?action=download-manifest&url=https://khoindwn.id.vn/api/plist.php?url=" + encodeURIComponent(data.downloadLink);
                     document.getElementById('flowDownloadContainer').innerHTML = `<a href="${finalOtaSignerUrl}" class="dynamic-dl-anchor">INSTALL NOW ON IPHONE</a>`;
                 }
             });
@@ -626,7 +627,8 @@
                             masterLoaderModal.style.display = "none";
                             structuralProgressBar.style.width = "0%";
                             
-                            const targetAppleInstallationManifestRouteUrl = "itms-services://?action=download-manifest&url=https://signtools.ipaomtk.com/?ipa=" + encodeURIComponent(finalComputedPayloadEndpoint);
+                            // FIXED DYNAMIC MANIFEST BYPASS PROXY CONVERTER
+                            const targetAppleInstallationManifestRouteUrl = "itms-services://?action=download-manifest&url=https://khoindwn.id.vn/api/plist.php?url=" + encodeURIComponent(finalComputedPayloadEndpoint);
                             window.location.href = targetAppleInstallationManifestRouteUrl;
                         }, 800);
 
