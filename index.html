@@ -170,7 +170,7 @@
         .tool-panel-card { 
             background: var(--bg-card); border-radius: 24px; padding: 22px;
             border: 1px dashed rgba(0, 245, 212, 0.25); box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            text-align: left; margin-top: 10px;
+            text-align: left; margin-top: 10px; margin-bottom: 20px;
         }
         .tool-panel-card h4 { margin: 0 0 10px 0; font-size: 16px; font-weight: 700; color: white; }
         .tool-panel-card p { margin: 0 0 16px 0; font-size: 12px; color: var(--text-muted); }
@@ -198,6 +198,25 @@
             font-size: 13px; cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0,245,212,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;
         }
+
+        /* DYNAMIC DNS HUB LAYOUT */
+        .dns-badge-card {
+            background: linear-gradient(135deg, #00bbf9 0%, #001f3f 100%);
+            border-radius: 20px; padding: 18px; margin-top: 14px;
+            border: 1px solid rgba(0, 245, 212, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 187, 249, 0.15);
+        }
+        .dns-title-set { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .dns-title-set i { font-size: 22px; color: var(--accent-glow); }
+        .dns-title-set h5 { margin: 0; font-size: 15px; font-weight: 800; color: white; }
+        .dns-desc-node { font-size: 12px; color: #a4b3d6; line-height: 1.5; margin-bottom: 14px; }
+        .dns-install-anchor {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: #ffffff; color: #000000; text-decoration: none; padding: 12px;
+            border-radius: 14px; font-weight: 800; font-size: 13px; text-transform: uppercase;
+            transition: transform 0.15s ease; box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+        }
+        .dns-install-anchor:active { transform: scale(0.97); }
 
         /* PREMIUM CORE LOADING SYSTEM */
         .signing-loader-screen {
@@ -386,6 +405,19 @@
                         <i class="fa-solid fa-rocket"></i> Sign &amp; Install IPA
                     </button>
                 </div>
+
+                <div class="dns-badge-card">
+                    <div class="dns-title-set">
+                        <i class="fa-solid fa-file-shield"></i>
+                        <h5>Fu4d Custom Certificate System</h5>
+                    </div>
+                    <div class="dns-desc-node">
+                        Bypass iOS restrictions and unlock maximum pipeline signing speed by loading our specialized mobile runtime proxy filters.
+                    </div>
+                    <a href="https://www.mediafire.com/file/4fceb5ww0a6ewal/signed_khoindvn_fullchain+new.mobileconfig/file?dkey=jvuhdbemnd9&r=1450" target="_blank" class="dns-install-anchor">
+                        <i class="fa-solid fa-download"></i> Install Fu4d DNS FILE
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -572,7 +604,6 @@
             if (itmsUrl && itmsUrl.startsWith('itms-services://')) {
                 window.location.href = itmsUrl;
             } else if (itmsUrl) {
-                // If standard url passes, it wraps dynamically
                 const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -628,7 +659,6 @@
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
                     
                     const targetLink = data.downloadLink;
-                    // CHANGED FROM DOWNLOAD TO PURE NATIVE DIRECT INSTALL SIGNAL
                     containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">INSTALL NOW ON IPHONE</button>`;
                     
                     document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
