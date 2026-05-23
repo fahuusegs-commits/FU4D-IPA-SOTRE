@@ -705,8 +705,11 @@
             });
         }
 
-        // ULTRA STABLE REMOTE PARSING CONSOLE BYPASSING (Fixes image_85.png null crash)
+        // NO-API ULTRA STABLE DIRECT PLIST INJECTOR (Fixed manifest generation error)
         function executeOtaInstall(originalIpaUrl, customName, customIcon) {
+            const cleanIpaUrl = originalIpaUrl.replace(/&/g, '&amp;');
+            const cleanIconUrl = customIcon.replace(/&/g, '&amp;');
+            
             const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -720,7 +723,7 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>${originalIpaUrl.replace(/&/g, '&amp;')}</string>
+                    <string>${cleanIpaUrl}</string>
                 </dict>
                 <dict>
                     <key>kind</key>
@@ -728,7 +731,7 @@
                     <key>needs-shine</key>
                     <true/>
                     <key>url</key>
-                    <string>${customIcon.replace(/&/g, '&amp;')}</string>
+                    <string>${cleanIconUrl}</string>
                 </dict>
                 <dict>
                     <key>kind</key>
@@ -736,7 +739,7 @@
                     <key>needs-shine</key>
                     <true/>
                     <key>url</key>
-                    <string>${customIcon.replace(/&/g, '&amp;')}</string>
+                    <string>${cleanIconUrl}</string>
                 </dict>
             </array>
             <key>metadata</key>
@@ -755,31 +758,16 @@
 </dict>
 </plist>`;
 
-            // External Clean Rendering Tunnel mapping (Direct delivery to Apple Core Service)
-            const proxyFormData = new FormData();
-            proxyFormData.append('content', plistBlueprint);
-            proxyFormData.append('extension', 'plist');
-
-            // Requesting dynamic raw server link instead of local base64 allocation
-            fetch('https://tmpfiles.org/api/v1/upload', {
-                method: 'POST',
-                body: proxyFormData
-            })
-            .then(res => res.json())
-            .then(resData => {
-                if(resData.status === 'success' && resData.data.url) {
-                    let externalPlistUrl = resData.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
-                    window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(externalPlistUrl)}`;
-                } else {
-                    alert("Manifest generation error. Try again!");
-                }
-            })
-            .catch(() => {
-                // Secure secondary tunnel option (Using backup rendering matrix)
-                const fallbackBlob = new Blob([plistBlueprint], { type: 'text/xml' });
-                const backupUrl = URL.createObjectURL(fallbackBlob);
-                window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(backupUrl)}`;
-            });
+            try {
+                // Client side dynamic blob compiling to instantly bypass server handshake errors
+                const dataBlob = new Blob([plistBlueprint], { type: 'text/xml' });
+                const runtimeManifestUrl = URL.createObjectURL(dataBlob);
+                
+                // Native Safari over-the-air protocol dispatcher 
+                window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(runtimeManifestUrl)}`;
+            } catch (err) {
+                alert("Installation compilation failed locally. Try again!");
+            }
         }
 
         function attachPayloadListener(orderId) {
