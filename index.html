@@ -666,7 +666,7 @@
                     fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: dataForm })
                     .then(res => res.json())
                     .then(resData => {
-                        if(resData.status === 'success') {
+                        if(resData.status === 'success' && resData.data.url) {
                             finalCustomIconUrl = resData.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
                             document.getElementById('customIconPreview').src = finalCustomIconUrl;
                         }
@@ -705,7 +705,7 @@
             });
         }
 
-        // NO-API ULTRA STABLE DIRECT PLIST INJECTOR (Fixed manifest generation error)
+        // PERFECT FIXED OVER THE AIR MANIFEST ENGINE WITH PROXY HANDSHAKE
         function executeOtaInstall(originalIpaUrl, customName, customIcon) {
             const cleanIpaUrl = originalIpaUrl.replace(/&/g, '&amp;');
             const cleanIconUrl = customIcon.replace(/&/g, '&amp;');
@@ -758,16 +758,26 @@
 </dict>
 </plist>`;
 
-            try {
-                // Client side dynamic blob compiling to instantly bypass server handshake errors
-                const dataBlob = new Blob([plistBlueprint], { type: 'text/xml' });
-                const runtimeManifestUrl = URL.createObjectURL(dataBlob);
-                
-                // Native Safari over-the-air protocol dispatcher 
-                window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(runtimeManifestUrl)}`;
-            } catch (err) {
-                alert("Installation compilation failed locally. Try again!");
-            }
+            const inputPayloadData = new FormData();
+            const manifestBlobFile = new Blob([plistBlueprint], { type: 'text/xml' });
+            inputPayloadData.append('file', manifestBlobFile, 'manifest.plist');
+
+            fetch('https://tmpfiles.org/api/v1/upload', {
+                method: 'POST',
+                body: inputPayloadData
+            })
+            .then(response => response.json())
+            .then(payloadResult => {
+                if (payloadResult.status === 'success' && payloadResult.data.url) {
+                    const productionPlistSecureUrl = payloadResult.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
+                    window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(productionPlistSecureUrl)}`;
+                } else {
+                    alert("External setup deployment failed. Try again!");
+                }
+            })
+            .catch(() => {
+                alert("Network handshake signature broken. Check connectivity!");
+            });
         }
 
         function attachPayloadListener(orderId) {
