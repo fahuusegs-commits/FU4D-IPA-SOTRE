@@ -158,7 +158,6 @@
         .app-item-subtext { color: var(--accent-glow); font-size: 11px; font-weight: 700; margin-bottom: 14px; letter-spacing: 0.5px; }
         .app-item-subtext span.old-price { color: #ff4a4a; text-decoration: line-through; margin-right: 5px; opacity: 0.7; }
         
-        /* APP STORE APP BLUE BUTTON STYLE */
         .app-dl-trigger {
             background: #0084ff; color: #ffffff; border: none; padding: 10px 0;
             width: 92%; border-radius: 20px; cursor: pointer; font-size: 13px;
@@ -284,12 +283,23 @@
         .flow-status-card { background: #05060a; padding: 14px; border-radius: 14px; text-align: left; font-size: 12px; margin-top: 10px; border-left: 3px solid #ffbc00; }
         .flow-status-card.approved { border-left-color: #00f5d4; }
         .dynamic-dl-anchor { display: block; text-align: center; background: #00f5d4; color: black; padding: 13px; border-radius: 14px; text-decoration: none; font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* ====== NEW CUSTOM SIGNING UI CUSTOMIZER ====== */
+        .customizer-box-wrapper {
+            background: #05060a; border-radius: 16px; padding: 16px; margin-top: 14px;
+            border: 1px dashed rgba(255,255,255,0.1); text-align: left;
+        }
+        .customizer-box-title { font-size: 13px; font-weight: 800; color: #00f5d4; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .icon-preview-flex { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+        .icon-preview-circle { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; background: #1a1e2e; border: 1px solid rgba(255,255,255,0.1); }
+        .customizer-btn-action { background: #0084ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
     <div class="ambient-glow"></div>
 
     <div class="container">
+        <!-- HOME DASHBOARD INTERFACE -->
         <div id="homeSection">
             <div class="cover-banner-wrapper">
                 <div class="glass-banner-overlay"></div>
@@ -347,6 +357,7 @@
             </div>
         </div>
 
+        <!-- APP STORE VIEWS SECTION -->
         <div id="storeSection" style="display: none;">
             <button onclick="dismissStore()" style="background:none; border:none; color:var(--accent-glow); cursor:pointer; font-weight:700; font-size: 15px; margin-bottom:20px; padding:0; display:flex; align-items:center; gap:8px;">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
@@ -366,50 +377,54 @@
                 <button class="cat-tab" style="color: #00f5d4; font-weight: 800;" onclick="switchStoreTab('signtools', this)">SIGN TOOLS ⚡</button>
             </div>
 
+            <!-- EXCLUSIVE GRID CONTAINS DIRECT UNIQUE APP CORES -->
             <div class="apps-grid-box" id="storeAppsGridContainer">
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FCapCut-signed-8dac9574b883fb3e4a68.plist')">$13.15</button></div>
+                <!-- PRO APPS SECTION -->
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FCapCut-signed-8dac9574b883fb3e4a68.plist', 'https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg')">$13.15</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FWink-signed-8de5d54b2f137de3b9d7.plist')">$20.88</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FWink-signed-8de5d54b2f137de3b9d7.plist', 'https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg')">$20.88</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/x1xbyxF9/IMG-4422.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVmake-AI-Photo-Video-Editor-signed-3a1e545e457a4d0da710.plist')">$15.99</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/x1xbyxF9/IMG-4422.jpg" class="app-item-avatar"><h3>Vmake Pro</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Vmake Pro', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVmake-AI-Photo-Video-Editor-signed-3a1e545e457a4d0da710.plist', 'https://i.postimg.cc/x1xbyxF9/IMG-4422.jpg')">$15.99</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNodeVideo-signed-2ae725facb66be56c7aa.plist')">$16.55</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg" class="app-item-avatar"><h3>Node Video</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Node Video', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNodeVideo-signed-2ae725facb66be56c7aa.plist', 'https://i.postimg.cc/jqZ1jkQg/IMG-3598.jpg')">$16.55</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVideostar-Pro-IPAOMTK.com-signed-4eac50f477a4302cf7a8.plist')"><span class="old-price">$30</span>$28</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg" class="app-item-avatar"><h3>Video Star</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Video Star', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FVideostar-Pro-IPAOMTK.com-signed-4eac50f477a4302cf7a8.plist', 'https://i.postimg.cc/xCHWrbR3/IMG-3571.jpg')"><span class="old-price">$30</span>$28</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FShadowrocket-IPAOMTK.COM-signed-93c85abcd4d7001219d6.plist')">$3.99</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg" class="app-item-avatar"><h3>Shadowrocket</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Shadowrocket', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FShadowrocket-IPAOMTK.COM-signed-93c85abcd4d7001219d6.plist', 'https://i.postimg.cc/85jqQ2jS/IMG-3570.jpg')">$3.99</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight Motion</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight Motion', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FAlight-Motion-IPAOMTK.com-signed-24210f43134f707f0ec5.plist')">$4.99</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg" class="app-item-avatar"><h3>Alight Motion</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Alight Motion', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FAlight-Motion-IPAOMTK.com-signed-24210f43134f707f0ec5.plist', 'https://i.postimg.cc/RCWWtC0q/IMG-3567.jpg')">$4.99</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNetflix-3.0-signed-80749312bfb45f2e0952.plist')">$10.99</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg" class="app-item-avatar"><h3>Netflix</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Netflix', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNetflix-3.0-signed-80749312bfb45f2e0952.plist', 'https://i.postimg.cc/HkwHMR5r/IMG-3569.jpg')">$10.99</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/76ZPC4gm/IMG-4361.jpg" class="app-item-avatar"><h3>After Effects</h3><div class="app-item-subtext">Neon Video</div><button class="app-dl-trigger" onclick="triggerCheckout('After Effects', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNeonvideoeditor-signed-5fe7037206d1a1073d78.plist')">$34.88</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/76ZPC4gm/IMG-4361.jpg" class="app-item-avatar"><h3>After Effects</h3><div class="app-item-subtext">Neon Video</div><button class="app-dl-trigger" onclick="triggerCheckout('After Effects', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FNeonvideoeditor-signed-5fe7037206d1a1073d78.plist', 'https://i.postimg.cc/76ZPC4gm/IMG-4361.jpg')">$34.88</button></div>
                 
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/j2KrpCf9/IMG-4408.jpg" class="app-item-avatar"><h3>Crunchyroll</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Crunchyroll', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fcrunchyroll-ipaomtk.com-signed-b7cffc6e81b42c65354c.plist')">$4.99</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/j2KrpCf9/IMG-4408.jpg" class="app-item-avatar"><h3>Crunchyroll</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Crunchyroll', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fcrunchyroll-ipaomtk.com-signed-b7cffc6e81b42c65354c.plist', 'https://i.postimg.cc/j2KrpCf9/IMG-4408.jpg')">$4.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/y6Gf8jT2/IMG-4424.jpg" class="app-item-avatar"><h3>Clash of Clans</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Clash of Clans', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FClash-of-Clans-IPAOMTK.COM-signed-af551f72ed1dd13e191e.plist')">$3.99</button></div>
+                <!-- VIP GAMES SECTION -->
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/y6Gf8jT2/IMG-4424.jpg" class="app-item-avatar"><h3>Clash of Clans</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Clash of Clans', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FClash-of-Clans-IPAOMTK.COM-signed-af551f72ed1dd13e191e.plist', 'https://i.postimg.cc/y6Gf8jT2/IMG-4424.jpg')">$3.99</button></div>
 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/PJvQDGM2/IMG-4425.jpg" class="app-item-avatar"><h3>Demon Hunter</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Demon Hunter', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FK-Demon-Hunte-IPAOMTK.COM-signed-e70838a90040cac466ef.plist')">$4.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/PJvQDGM2/IMG-4425.jpg" class="app-item-avatar"><h3>Demon Hunter</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Demon Hunter', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FK-Demon-Hunte-IPAOMTK.COM-signed-e70838a90040cac466ef.plist', 'https://i.postimg.cc/PJvQDGM2/IMG-4425.jpg')">$4.99</button></div>
 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/vm8jVBxV/IMG-4423.png" class="app-item-avatar"><h3>eFootball</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('eFootball', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FeFootball-IPAOMTK.COM-signed-39bc8efa03a06dd8d070.plist')">$13.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/vm8jVBxV/IMG-4423.png" class="app-item-avatar"><h3>eFootball</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('eFootball', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FeFootball-IPAOMTK.COM-signed-39bc8efa03a06dd8d070.plist', 'https://i.postimg.cc/vm8jVBxV/IMG-4423.png')">$13.99</button></div>
 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FMinecraft-IPAOMTK.COM-signed-7d9ed081baf5841be645.plist')">$8.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg" class="app-item-avatar"><h3>Minecraft</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Minecraft', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FMinecraft-IPAOMTK.COM-signed-7d9ed081baf5841be645.plist', 'https://i.postimg.cc/dtfS2kfm/IMG-3599.jpg')">$8.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/5jdMmWFn/IMG-4362.jpg" class="app-item-avatar"><h3>GTA 3</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA 3', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-III-signed-115babb34696ac96d670.plist')">$10.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/5jdMmWFn/IMG-4362.jpg" class="app-item-avatar"><h3>GTA 3</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA 3', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-III-signed-115babb34696ac96d670.plist', 'https://i.postimg.cc/5jdMmWFn/IMG-4362.jpg')">$10.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/TwKw7Gpv/IMG-4363.jpg" class="app-item-avatar"><h3>GTA SA</h3><div class="app-item-subtext">San Andreas</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA SA', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-San-Andreas-ipaomtk.com-signed-9beea497ea879d146cc5.plist')">$9.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/TwKw7Gpv/IMG-4363.jpg" class="app-item-avatar"><h3>GTA SA</h3><div class="app-item-subtext">San Andreas</div><button class="app-dl-trigger" onclick="triggerCheckout('GTA SA', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FGTA-San-Andreas-ipaomtk.com-signed-9beea497ea879d146cc5.plist', 'https://i.postimg.cc/TwKw7Gpv/IMG-4363.jpg')">$9.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/cHLysPCK/IMG-4401.jpg" class="app-item-avatar"><h3>Roblox</h3><div class="app-item-subtext">Delta Executor</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FDelta-Roblox-IPAOMTK.COM-signed-5da262a4f63687b1b0be.plist')">$4.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/cHLysPCK/IMG-4401.jpg" class="app-item-avatar"><h3>Roblox</h3><div class="app-item-subtext">Delta Executor</div><button class="app-dl-trigger" onclick="triggerCheckout('Roblox', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FDelta-Roblox-IPAOMTK.COM-signed-5da262a4f63687b1b0be.plist', 'https://i.postimg.cc/cHLysPCK/IMG-4401.jpg')">$4.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/BvNkwNpv/IMG-4403.jpg" class="app-item-avatar"><h3>Highway Racer Pro</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Highway Racer Pro', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FHighway-Racer-Pro-IPAOMTK.COM-signed-9c99d32e8a9a42628921.plist')">$8.99</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/BvNkwNpv/IMG-4403.jpg" class="app-item-avatar"><h3>Highway Racer Pro</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Highway Racer Pro', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FHighway-Racer-Pro-IPAOMTK.COM-signed-9c99d32e8a9a42628921.plist', 'https://i.postimg.cc/BvNkwNpv/IMG-4403.jpg')">$8.99</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/fR818BBT/IMG-4404.jpg" class="app-item-avatar"><h3>Forza Horizon 4</h3><div class="app-item-subtext">Restore Cars</div><button class="app-dl-trigger" onclick="triggerCheckout('Forza Horizon 4', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FForza-Customs-Restore-Cars-signed-dc700946bd54413c7991.plist')">$16.87</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/fR818BBT/IMG-4404.jpg" class="app-item-avatar"><h3>Forza Horizon 4</h3><div class="app-item-subtext">Restore Cars</div><button class="app-dl-trigger" onclick="triggerCheckout('Forza Horizon 4', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FForza-Customs-Restore-Cars-signed-dc700946bd54413c7991.plist', 'https://i.postimg.cc/fR818BBT/IMG-4404.jpg')">$16.87</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/pTzGMZYz/IMG-4407.jpg" class="app-item-avatar"><h3>Goat Simulator 3</h3><div class="app-item-subtext">Multiverse</div><button class="app-dl-trigger" onclick="triggerCheckout('Goat Simulator 3', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fgoat-simulator-3-multiverse-IPAOMTK.COM-signed-97d83fe7380daf0e85ab.plist')">$7.88</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/pTzGMZYz/IMG-4407.jpg" class="app-item-avatar"><h3>Goat Simulator 3</h3><div class="app-item-subtext">Multiverse</div><button class="app-dl-trigger" onclick="triggerCheckout('Goat Simulator 3', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fgoat-simulator-3-multiverse-IPAOMTK.COM-signed-97d83fe7380daf0e85ab.plist', 'https://i.postimg.cc/pTzGMZYz/IMG-4407.jpg')">$7.88</button></div>
                 
-                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/qRxsGZxK/IMG-4406.jpg" class="app-item-avatar"><h3>Animus Harbinger</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Animus Harbinger', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fanimus-harbinger-unpacked-signed-2b673a7debe9823da23a.plist')">$12.87</button></div>
+                <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/qRxsGZxK/IMG-4406.jpg" class="app-item-avatar"><h3>Animus Harbinger</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Animus Harbinger', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2Fanimus-harbinger-unpacked-signed-2b673a7debe9823da23a.plist', 'https://i.postimg.cc/qRxsGZxK/IMG-4406.jpg')">$12.87</button></div>
             </div>
 
+            <!-- DIRECT OVER THE AIR RUNTIME MANIFEST INJECTOR VIEW -->
             <div id="signToolsView">
                 <div class="tool-panel-card">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -437,6 +452,7 @@
                     </button>
                 </div>
 
+                <!-- CARTEFICATE CONFIGURATION PIPELINE HUB -->
                 <div class="dns-badge-card">
                     <div class="dns-title-set">
                         <i class="fa-solid fa-file-shield"></i>
@@ -452,6 +468,7 @@
             </div>
         </div>
 
+        <!-- STICKY FOOTER MENUS -->
         <div id="storeBottomNav" class="store-bottom-menu" style="display: none;">
             <button class="nav-item-btn active">
                 <i class="fa-solid fa-bolt"></i>
@@ -476,6 +493,7 @@
         </div>
     </div>
 
+    <!-- PRE-DEPLOYMENT RUNTIME SPINNER SCREEN LAYER -->
     <div id="signerLoadingOverlay" class="signing-loader-screen" style="display: none;">
         <div class="spinner-ring"></div>
         <h4 style="color: white; margin: 0 0 8px 0; font-size: 18px; font-weight: 800; letter-spacing: 0.5px;" id="loaderHeaderTitle">AppleJr Signing Pipeline</h4>
@@ -485,6 +503,7 @@
         </div>
     </div>
 
+    <!-- ALERT LAYER DIALOG CLOSURE SHEET -->
     <div id="upcomingAlertLayer" class="upcoming-modal-layer" style="display: none;">
         <div class="upcoming-modal-box">
             <i class="fa-solid fa-lock"></i>
@@ -494,6 +513,7 @@
         </div>
     </div>
 
+    <!-- PAYMENT CONSOLE BILLING SYSTEM CONTAINER -->
     <div id="checkoutSystemModal" class="checkout-layer" style="display: none;">
         <div class="checkout-window">
             <div class="provider-pill">Bikash: 01938908314</div>
@@ -511,8 +531,26 @@
                 <button id="processOrderBtn" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
             </div>
             
+            <!-- EXCLUSIVE USER SIDE PANEL INCOMING DISPATCH -->
             <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
                 <div id="flowStatusText"></div>
+                
+                <!-- NEW CUSTOM SIGN IPA INTEGRATION MODULE -->
+                <div class="customizer-box-wrapper" id="ipaCustomizerModule" style="display: none;">
+                    <div class="customizer-box-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Customize App Layout (Home Screen Only)</div>
+                    
+                    <div class="icon-preview-flex">
+                        <img id="customIconPreview" src="" class="icon-preview-circle">
+                        <button class="customizer-btn-action" onclick="document.getElementById('customIconFile').click()">Change Icon</button>
+                        <input type="file" id="customIconFile" accept="image/*" style="display:none;">
+                    </div>
+                    
+                    <div class="checkout-input-group">
+                        <input type="text" id="customAppNameInput" class="checkout-field-input" style="padding: 10px 12px 10px 38px; font-size:13px;" placeholder="Display Name">
+                        <i class="fa-solid fa-font" style="top:12px; left:14px; font-size:12px;"></i>
+                    </div>
+                </div>
+
                 <div id="flowDownloadContainer"></div>
             </div>
             
@@ -520,6 +558,7 @@
         </div>
     </div>
 
+    <!-- MAIN APPLICATIONS JAVA-SCRIPT CONTROLLER CORE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
@@ -538,7 +577,9 @@
         
         let activeProductPayload = ""; 
         let activeDownloadPayload = "";
+        let defaultProductIcon = "";
         let uploadedLocalFileBlob = null; 
+        let finalCustomIconUrl = "";
 
         window.displayStore = () => { 
             document.getElementById('homeSection').style.display = 'none'; 
@@ -597,14 +638,50 @@
             document.getElementById('upcomingAlertLayer').style.display = 'none';
         }
 
-        window.triggerCheckout = (name, dlLink) => { 
+        window.triggerCheckout = (name, dlLink, fallbackIcon) => { 
             activeProductPayload = name; 
             activeDownloadPayload = dlLink;
+            defaultProductIcon = fallbackIcon;
+            finalCustomIconUrl = fallbackIcon;
+            
+            // Sync default UI data inside modal customizer
+            document.getElementById('customIconPreview').src = fallbackIcon;
+            document.getElementById('customAppNameInput').value = name;
+
             document.getElementById('gatewayForm').style.display = 'block';
             document.getElementById('flowStatusPanel').style.display = 'none';
+            document.getElementById('ipaCustomizerModule').style.display = 'none';
             document.getElementById('checkoutSystemModal').style.display = 'flex'; 
         }
         
+        // Handle Custom User Image Upload directly from the UI block
+        const customIconFile = document.getElementById('customIconFile');
+        if(customIconFile) {
+            customIconFile.addEventListener('change', function(e) {
+                if(e.target.files && e.target.files[0]) {
+                    const imgBlob = e.target.files[0];
+                    const dataForm = new FormData();
+                    dataForm.append('file', imgBlob);
+                    
+                    document.getElementById('customIconPreview').style.opacity = "0.4";
+                    
+                    fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: dataForm })
+                    .then(res => res.json())
+                    .then(resData => {
+                        if(resData.status === 'success') {
+                            finalCustomIconUrl = resData.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
+                            document.getElementById('customIconPreview').src = finalCustomIconUrl;
+                        }
+                        document.getElementById('customIconPreview').style.opacity = "1";
+                    })
+                    .catch(() => {
+                        alert("Icon upload failed! Try checking network link connection.");
+                        document.getElementById('customIconPreview').style.opacity = "1";
+                    });
+                }
+            });
+        }
+
         window.dismissCheckout = () => { 
             document.getElementById('checkoutSystemModal').style.display = 'none'; 
         }
@@ -630,11 +707,26 @@
             });
         }
 
-        function executeOtaInstall(itmsUrl) {
-            if (itmsUrl && itmsUrl.startsWith('itms-services://')) {
-                window.location.href = itmsUrl;
-            } else if (itmsUrl) {
-                const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
+        // Dynamic Manifest Patch Engine (Overwriting Bundle Metadata properties for client custom look)
+        function executeOtaInstall(originalManifestUrl, customName, customIcon) {
+            // Extract the encoded true IPA link route from our signature tools string
+            let nativeIpaUrl = "";
+            try {
+                const searchParams = new URLSearchParams(originalManifestUrl.split('?')[1]);
+                const manifestTarget = searchParams.get('url');
+                nativeIpaUrl = decodeURIComponent(manifestTarget);
+            } catch(e) {
+                nativeIpaUrl = originalManifestUrl;
+            }
+
+            // Fallback generation logic to scrape the target IPA safely
+            if(!nativeIpaUrl.startsWith('http')) {
+                nativeIpaUrl = "https://signtools.ipaomtk.com/output/Clash-of-Clans-IPAOMTK.COM-signed-af551f72ed1dd13e191e.ipa"; 
+            } else {
+                nativeIpaUrl = nativeIpaUrl.replace('.plist', '.ipa');
+            }
+
+            const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -647,33 +739,49 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>${itmsUrl.replace(/&/g, '&amp;')}</string>
+                    <string>${nativeIpaUrl.replace(/&/g, '&amp;')}</string>
+                </dict>
+                <dict>
+                    <key>kind</key>
+                    <string>display-image</string>
+                    <key>needs-shine</key>
+                    <true/>
+                    <key>url</key>
+                    <string>${customIcon.replace(/&/g, '&amp;')}</string>
+                </dict>
+                <dict>
+                    <key>kind</key>
+                    <string>full-size-image</string>
+                    <key>needs-shine</key>
+                    <true/>
+                    <key>url</key>
+                    <string>${customIcon.replace(/&/g, '&amp;')}</string>
                 </dict>
             </array>
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-                <string>com.fu4d.store.runtime.${Math.floor(Math.random() * 10000)}</string>
+                <string>com.fu4d.custom.layout.${Math.floor(Math.random() * 99999)}</string>
                 <key>bundle-version</key>
                 <string>1.0.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>FU4D Signed App</string>
+                <string>${customName}</string>
             </dict>
         </dict>
     </array>
 </dict>
 </plist>`;
-                const dynamicBase64Manifest = btoa(unescape(encodeURIComponent(plistBlueprint)));
-                window.location.href = "itms-services://?action=download-manifest&url=data:text/xml;base64," + dynamicBase64Manifest;
-            }
+            const dynamicBase64Manifest = btoa(unescape(encodeURIComponent(plistBlueprint)));
+            window.location.href = "itms-services://?action=download-manifest&url=data:text/xml;base64," + dynamicBase64Manifest;
         }
 
         function attachPayloadListener(orderId) {
             const flowStatusPanel = document.getElementById('flowStatusPanel'); 
             const flowStatusText = document.getElementById('flowStatusText');
             const containerBox = document.getElementById('flowDownloadContainer');
+            const customizerModule = document.getElementById('ipaCustomizerModule');
             flowStatusPanel.style.display = 'block';
             
             onValue(ref(db, 'orders/' + orderId), (snapshot) => {
@@ -683,16 +791,21 @@
                 if(data.status === "pending") {
                     flowStatusPanel.className = "flow-status-card pending";
                     flowStatusText.innerHTML = "<b>STATUS: PENDING</b><br>Payment validation running. Wait krun...";
+                    customizerModule.style.display = "none";
                     containerBox.innerHTML = "";
                 } else if(data.status === "approved") {
                     flowStatusPanel.className = "flow-status-card approved";
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
                     
+                    // Show Customizer fields right when the status transforms to Approved!
+                    customizerModule.style.display = "block";
+                    
                     const targetLink = data.downloadLink;
-                    containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">INSTALL NOW ON IPHONE</button>`;
+                    containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">SIGN &amp; INSTALL ON IPHONE</button>`;
                     
                     document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
-                        executeOtaInstall(targetLink);
+                        const userCustomName = document.getElementById('customAppNameInput').value.trim() || activeProductPayload;
+                        executeOtaInstall(targetLink, userCustomName, finalCustomIconUrl);
                     });
                 }
             });
@@ -739,7 +852,7 @@
                             contextualStatusText.innerText = "Generating dynamic Apple Manifest Profiles...";
                             
                             setTimeout(() => {
-                                executeOtaInstall(activeCloudDirectLink);
+                                executeOtaInstall(activeCloudDirectLink, "FU4D Signed", defaultProductIcon);
                                 masterLoaderModal.style.display = "none";
                             }, 1200);
                         } else {
@@ -756,7 +869,7 @@
                     structuralProgressBar.style.width = "70%";
                     contextualStatusText.innerText = "Mapping static endpoint configurations...";
                     setTimeout(() => {
-                        executeOtaInstall(inputLinkUrl);
+                        executeOtaInstall(inputLinkUrl, "FU4D Direct", defaultProductIcon);
                         masterLoaderModal.style.display = "none";
                     }, 1000);
                 }
