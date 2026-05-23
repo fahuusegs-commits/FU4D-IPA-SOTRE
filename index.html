@@ -243,11 +243,6 @@
             width: 0%; height: 100%; background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%);
             box-shadow: 0 0 15px #00f5d4; transition: width 0.3s ease;
         }
-        .spinner-ring {
-            width: 60px; height: 60px; border: 4px solid rgba(0, 245, 212, 0.05);
-            border-top-color: #00f5d4; border-bottom-color: #00bbf9; border-radius: 50%;
-            animation: spinEngine 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite; margin-bottom: 25px;
-        }
         @keyframes spinEngine { to { transform: rotate(360deg); } }
 
         /* NAV MENU BOTTOM BAR */
@@ -268,39 +263,99 @@
         .nav-item-btn.active { color: var(--accent-glow); }
 
         /* SCREEN OVERLAYS */
-        .upcoming-modal-layer, .checkout-layer {
+        .upcoming-modal-layer {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
             z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box;
         }
-        .upcoming-modal-box, .checkout-window {
+        .upcoming-modal-box {
             background: var(--bg-card); border-radius: 24px; padding: 24px;
             max-width: 360px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.05);
         }
         .upcoming-modal-box i { font-size: 40px; color: #ffbc00; margin-bottom: 14px; }
-        .upcoming-close-btn, .checkout-dismiss-lbl {
+        .upcoming-close-btn {
             background: rgba(255,255,255,0.05); color: white; border: none;
             padding: 11px 24px; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 13px; margin-top: 15px;
         }
-        .provider-pill { background: #e2125d; color: white; padding: 8px 14px; border-radius: 30px; display: inline-block; font-weight: 800; font-size: 13px; margin-bottom: 10px; }
-        .checkout-hint-msg { font-size: 12px; color: var(--text-muted); margin: 0 0 16px 0; }
-        .checkout-input-group { position: relative; margin-bottom: 12px; }
-        .checkout-input-group i { position: absolute; left: 14px; top: 14px; color: var(--text-muted); }
-        .checkout-field-input { width: 100%; padding: 12px 12px 12px 38px; background: #05060a; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; color: white; outline: none; box-sizing: border-box; }
-        .checkout-cta-trigger { width: 100%; padding: 13px; background: white; color: black; border: none; border-radius: 12px; font-weight: 800; font-size: 13px; cursor: pointer; margin-top: 4px; }
-        .flow-status-card { background: #05060a; padding: 14px; border-radius: 14px; text-align: left; font-size: 12px; margin-top: 10px; border-left: 3px solid #ffbc00; }
-        .flow-status-card.approved { border-left-color: #00f5d4; }
-        .dynamic-dl-anchor { display: block; text-align: center; background: #00f5d4; color: black; padding: 13px; border-radius: 14px; text-decoration: none; font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* ====== NEW CUSTOM SIGNING UI CUSTOMIZER ====== */
-        .customizer-box-wrapper {
-            background: #05060a; border-radius: 16px; padding: 16px; margin-top: 14px;
-            border: 1px dashed rgba(255,255,255,0.1); text-align: left;
+        /* ====== UNCOMMON UNIFIED GLASSMORPHISM PAYMENT OVERLAY ====== */
+        .checkout-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(4, 5, 10, 0.6); 
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box;
         }
-        .customizer-box-title { font-size: 13px; font-weight: 800; color: #00f5d4; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-        .icon-preview-flex { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-        .icon-preview-circle { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; background: #1a1e2e; border: 1px solid rgba(255,255,255,0.1); }
-        .customizer-btn-action { background: #0084ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; }
+        .checkout-window {
+            background: linear-gradient(145deg, rgba(15, 19, 39, 0.8) 0%, rgba(26, 31, 58, 0.6) 100%);
+            border-radius: 28px; padding: 26px; max-width: 380px; width: 100%; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative; overflow: hidden;
+        }
+        .checkout-window::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none; z-index: 0;
+        }
+        .checkout-window > * { position: relative; z-index: 1; }
+        
+        .provider-pill { 
+            background: linear-gradient(90deg, #ff007f 0%, #e2125d 100%); 
+            color: white; padding: 10px 20px; border-radius: 30px; 
+            display: inline-block; font-weight: 800; font-size: 14px; margin-bottom: 8px;
+            box-shadow: 0 5px 15px rgba(226, 18, 93, 0.3); letter-spacing: 0.5px;
+        }
+        .checkout-hint-msg { font-size: 12px; color: var(--text-muted); margin: 0 0 22px 0; font-weight: 600; }
+        
+        .checkout-input-group { position: relative; margin-bottom: 14px; }
+        .checkout-input-group i { position: absolute; left: 16px; top: 15px; color: var(--accent-glow); font-size: 14px; }
+        .checkout-field-input { 
+            width: 100%; padding: 14px 14px 14px 44px; 
+            background: rgba(5, 6, 10, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 14px; color: white; outline: none; box-sizing: border-box; font-size: 13px;
+            transition: all 0.2s;
+        }
+        .checkout-field-input:focus { border-color: var(--accent-glow); background: rgba(5, 6, 10, 0.8); box-shadow: 0 0 10px rgba(0, 245, 212, 0.1); }
+        
+        .checkout-cta-trigger { 
+            width: 100%; padding: 14px; 
+            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
+            color: black; border: none; border-radius: 14px; font-weight: 900; 
+            font-size: 13px; cursor: pointer; margin-top: 6px; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 245, 212, 0.25); transition: transform 0.1s;
+        }
+        .checkout-cta-trigger:active { transform: scale(0.98); }
+        
+        /* CYBER VERIFICATION SHEET INNER layout */
+        .flow-status-card { 
+            background: rgba(5, 6, 10, 0.4); padding: 16px; border-radius: 18px; 
+            text-align: left; font-size: 13px; margin-top: 10px; 
+            border: 1px solid rgba(255, 188, 0, 0.2); border-left: 4px solid #ffbc00; 
+        }
+        .flow-status-card.approved { border: 1px solid rgba(0, 245, 212, 0.2); border-left-color: #00f5d4; }
+        
+        .customizer-box-wrapper {
+            background: rgba(255, 255, 255, 0.02); border-radius: 16px; padding: 16px; margin-top: 14px;
+            border: 1px dashed rgba(255,255,255,0.08); text-align: left;
+        }
+        .customizer-box-title { font-size: 12.5px; font-weight: 800; color: #00f5d4; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+        .icon-preview-flex { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .icon-preview-circle { width: 54px; height: 54px; border-radius: 14px; object-fit: cover; background: #1a1e2e; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .customizer-btn-action { background: #0084ff; color: white; border: none; padding: 9px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(0,132,255,0.2); }
+        
+        .dynamic-dl-anchor { 
+            display: block; text-align: center; 
+            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
+            color: black; padding: 14px; border-radius: 14px; text-decoration: none; 
+            font-weight: 900; margin-top: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 245, 212, 0.3);
+        }
+        .checkout-dismiss-lbl {
+            background: rgba(255,255,255,0.05); color: #a4b3d6; border: 1px solid rgba(255,255,255,0.03);
+            padding: 11px 28px; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 13px; margin-top: 18px;
+            transition: all 0.2s;
+        }
+        .checkout-dismiss-lbl:hover { background: rgba(255,255,255,0.1); color: white; }
     </style>
 </head>
 <body>
