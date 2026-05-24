@@ -224,17 +224,20 @@
             box-shadow: 0 12px 24px rgba(0,0,0,0.4), var(--neon-shadow);
         }
         
-        /* Premium Live Status Badge */
+        /* Premium PRO Status Badge With Glowing Effect */
         .app-item-card::after {
-            content: 'LIVE';
+            content: 'PRO';
             position: absolute;
             top: 12px; right: 12px;
-            background: rgba(0, 245, 212, 0.15);
+            background: rgba(0, 245, 212, 0.1);
             color: var(--accent-glow);
-            font-size: 9px; font-weight: 900;
+            font-size: 10px; font-weight: 900;
             padding: 3px 8px; border-radius: 20px;
-            border: 1px solid rgba(0, 245, 212, 0.3);
+            border: 1px solid var(--accent-glow);
             letter-spacing: 0.5px;
+            box-shadow: 0 0 8px var(--accent-glow), inset 0 0 4px rgba(0, 245, 212, 0.3);
+            text-shadow: 0 0 5px var(--accent-glow);
+            z-index: 10;
         }
         
         .app-item-avatar { width: 84px; height: 84px; border-radius: 20px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); object-fit: cover; border: 1px solid rgba(255,255,255,0.05); }
