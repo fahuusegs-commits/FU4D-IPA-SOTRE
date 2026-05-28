@@ -108,6 +108,7 @@
             border: 4px solid var(--bg-dark);
             object-fit: cover;
             box-shadow: 0 8px 32px rgba(0, 245, 212, 0.3);
+            background-color: #1a1e2e; /* Fallback */
         }
         
         .glass-avatar-shield {
@@ -458,19 +459,20 @@
 
             <div class="profile-container">
                 <div class="glass-avatar-shield"></div>
-                <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=FU4D';" class="profile-img">
+                <!-- লোগো লোড হওয়ার জন্য আপডেট করা হয়েছে -->
+                <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" class="profile-img" alt="FU4D Logo" loading="lazy">
             </div>
             
             <div class="brand-title">FU4D</div>
             <div class="brand-subtitle">MASTER YOUR MOTION</div>
             
             <div class="store-desc">
-                Wellcome to my store you can purchuse your own premium apps for life time and enjoy the premium & vip benefits 🔥.
+                Welcome to my store. You can purchase your own premium apps for lifetime and enjoy the premium & vip benefits 🔥.
             </div>
             
             <a href="#" onclick="displayStore()" class="app-action-card">
                 <div class="card-meta">
-                    <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=FU4D';">
+                    <img src="https://i.postimg.cc/L4TsgnGt/Project-Name-109.png" alt="Store Icon">
                     <span>Online Store</span>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="font-size: 14px; opacity: 0.7;"></i>
@@ -479,28 +481,28 @@
             <div class="social-link-tiles-wrapper">
                 <a href="https://www.tiktok.com/@furd_f4huu4" class="social-link-tile">
                     <div class="social-info">
-                        <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg">
+                        <img src="https://i.postimg.cc/4NBHjS3z/IMG-4187.jpg" alt="TikTok">
                         <span>TikTok</span>
                     </div>
                     <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
                 </a>
                 <a href="https://t.me/f4huu_xzzz" class="social-link-tile">
                     <div class="social-info">
-                        <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg">
+                        <img src="https://i.postimg.cc/7LTCGPnm/IMG-4192.jpg" alt="Telegram">
                         <span>Telegram</span>
                     </div>
                     <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
                 </a>
                 <a href="https://v_ortx" class="social-link-tile">
                     <div class="social-info">
-                        <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg">
+                        <img src="https://i.postimg.cc/MHtX2nzq/IMG-4188.jpg" alt="Instagram">
                         <span>Instagram</span>
                     </div>
                     <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
                 </a>
                 <a href="https://www.facebook.com/fah.huu.2025" class="social-link-tile">
                     <div class="social-info">
-                        <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg">
+                        <img src="https://i.postimg.cc/9QD0KXKy/IMG-4190.jpg" alt="Facebook">
                         <span>Facebook</span>
                     </div>
                     <i class="fa-solid fa-chevron-right arrow-right-icon"></i>
@@ -528,7 +530,6 @@
                 <button class="cat-tab" style="color: #00f5d4; font-weight: 800;" onclick="switchStoreTab('signtools', this)">SIGN TOOLS ⚡</button>
             </div>
 
-            <!-- EXCLUSIVE GRID CONTAINS DIRECT UNIQUE APP CORES -->
             <div class="apps-grid-box" id="storeAppsGridContainer">
                 <!-- PRO APPS SECTION -->
                 <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'https://signtools.ipaomtk.com/output/CapCut-signed-8dac9574b883fb3e4a68.ipa', 'https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg')">$13.15</button></div>
@@ -575,7 +576,6 @@
                 <div class="app-item-card" data-category="games"><img src="https://i.postimg.cc/qRxsGZxK/IMG-4406.jpg" class="app-item-avatar"><h3>Animus Harbinger</h3><div class="app-item-subtext">VIP Game</div><button class="app-dl-trigger" onclick="triggerCheckout('Animus Harbinger', 'https://signtools.ipaomtk.com/output/animus-harbinger-unpacked-signed-2b673a7debe9823da23a.ipa', 'https://i.postimg.cc/qRxsGZxK/IMG-4406.jpg')">$12.87</button></div>
             </div>
 
-            <!-- DIRECT OVER THE AIR RUNTIME MANIFEST INJECTOR VIEW -->
             <div id="signToolsView">
                 <div class="tool-panel-card">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -603,7 +603,6 @@
                     </button>
                 </div>
 
-                <!-- CARTEFICATE CONFIGURATION PIPELINE HUB -->
                 <div class="dns-badge-card">
                     <div class="dns-title-set">
                         <i class="fa-solid fa-file-shield"></i>
@@ -619,7 +618,6 @@
             </div>
         </div>
 
-        <!-- STICKY FOOTER MENUS -->
         <div id="storeBottomNav" class="store-bottom-menu" style="display: none;">
             <button class="nav-item-btn active">
                 <i class="fa-solid fa-bolt"></i>
@@ -644,7 +642,6 @@
         </div>
     </div>
 
-    <!-- PRE-DEPLOYMENT RUNTIME SPINNER SCREEN LAYER -->
     <div id="signerLoadingOverlay" class="signing-loader-screen" style="display: none;">
         <div class="spinner-ring"></div>
         <h4 style="color: white; margin: 0 0 8px 0; font-size: 18px; font-weight: 800; letter-spacing: 0.5px;" id="loaderHeaderTitle">AppleJr Signing Pipeline</h4>
@@ -654,7 +651,6 @@
         </div>
     </div>
 
-    <!-- ALERT LAYER DIALOG CLOSURE SHEET -->
     <div id="upcomingAlertLayer" class="upcoming-modal-layer" style="display: none;">
         <div class="upcoming-modal-box">
             <i class="fa-solid fa-lock"></i>
@@ -664,7 +660,6 @@
         </div>
     </div>
 
-    <!-- PAYMENT CONSOLE BILLING SYSTEM CONTAINER -->
     <div id="checkoutSystemModal" class="checkout-layer" style="display: none;">
         <div class="checkout-window">
             <div class="provider-pill">Bikash: 01310442750</div>
@@ -682,11 +677,9 @@
                 <button id="processOrderBtn" class="checkout-cta-trigger">SUBMIT FOR VERIFY</button>
             </div>
             
-            <!-- EXCLUSIVE USER SIDE PANEL INCOMING DISPATCH -->
             <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
                 <div id="flowStatusText"></div>
                 
-                <!-- NEW CUSTOM SIGN IPA INTEGRATION MODULE -->
                 <div class="customizer-box-wrapper" id="ipaCustomizerModule" style="display: none;">
                     <div class="customizer-box-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Customize App Layout (Home Screen Only)</div>
                     
@@ -709,8 +702,8 @@
         </div>
     </div>
 
-    <!-- MAIN APPLICATIONS JAVA-SCRIPT CONTROLLER CORE -->
     <script type="module">
+        // (JavaScript কোড অপরিবর্তিত রাখা হয়েছে, শুধু লোগো ইস্যুর জন্য HTML-এর img ট্যাগ আপডেট করা হয়েছে)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
@@ -856,7 +849,6 @@
             });
         }
 
-        // PERFECT FIXED OVER THE AIR MANIFEST ENGINE WITH PROXY HANDSHAKE
         function executeOtaInstall(originalIpaUrl, customName, customIcon) {
             const cleanIpaUrl = originalIpaUrl.replace(/&/g, '&amp;');
             const cleanIconUrl = customIcon.replace(/&/g, '&amp;');
