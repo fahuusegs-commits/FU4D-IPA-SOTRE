@@ -106,7 +106,7 @@
             border: 4px solid var(--bg-dark);
             object-fit: cover;
             box-shadow: 0 8px 32px rgba(0, 245, 212, 0.3);
-            background-color: #1a1e2e; /* Fallback */
+            background-color: #1a1e2e;
         }
         
         .glass-avatar-shield {
@@ -223,7 +223,6 @@
             box-shadow: 0 12px 24px rgba(0,0,0,0.4), var(--neon-shadow);
         }
         
-        /* Premium PRO Status Badge With Glowing Effect */
         .app-item-card::after {
             content: 'PRO';
             position: absolute;
@@ -364,7 +363,6 @@
             position: relative; overflow: hidden;
         }
         
-        /* Bkash Premium Pill */
         .provider-pill { 
             background: linear-gradient(90deg, #b6195e 0%, #e2125d 100%); 
             color: white; padding: 12px 24px; border-radius: 30px; 
@@ -426,15 +424,6 @@
             border: 1px solid rgba(255, 188, 0, 0.3); border-left: 5px solid #ffbc00; 
         }
         .flow-status-card.approved { border: 1px solid rgba(0, 245, 212, 0.3); border-left-color: #00f5d4; }
-        
-        .customizer-box-wrapper {
-            background: rgba(255, 255, 255, 0.01); border-radius: 18px; padding: 18px; margin-top: 16px;
-            border: 1px dashed rgba(255,255,255,0.1); text-align: left;
-        }
-        .customizer-box-title { font-size: 13px; font-weight: 800; color: #00f5d4; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-        .icon-preview-flex { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .icon-preview-circle { width: 60px; height: 60px; border-radius: 16px; object-fit: cover; background: #1a1e2e; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .customizer-btn-action { background: #0084ff; color: white; border: none; padding: 10px 16px; border-radius: 12px; font-size: 12.5px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,132,255,0.25); }
         
         .dynamic-dl-anchor { 
             display: block; text-align: center; 
@@ -575,24 +564,15 @@
                         <i class="fa-solid fa-shield-halved" style="color: #00f5d4; font-size: 20px;"></i>
                         <h4>AppleJr Style OTA Installer</h4>
                     </div>
-                    <p>Upload direct .ipa binary package file or paste direct public target URL route mapping link metadata.</p>
+                    <p>Paste direct public target URL mapping link to bypass network restrictions.</p>
                     
-                    <div class="upload-dashed-zone" onclick="document.getElementById('localDiskIpaChooser').click()">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <span id="uploadLabelTrack">Click here to Upload IPA</span>
-                        <p>Supports files up to 2GB payload binary data</p>
-                    </div>
-                    <input type="file" id="localDiskIpaChooser" accept=".ipa" style="display: none;">
-
-                    <div style="text-align: center; color: var(--text-muted); font-size: 11px; margin-bottom: 14px; font-weight: 600;">— OR USE DIRECT DOWNLOAD LINK —</div>
-
                     <div class="input-icon-wrap">
                         <input type="text" id="customIpaUrlInput" class="tool-input-field" placeholder="https://domain.com/your-app.ipa">
                         <i class="fa-solid fa-link"></i>
                     </div>
                     
                     <button id="directInstallSubmitBtn" class="tool-action-btn">
-                        <i class="fa-solid fa-rocket"></i> Sign &amp; Install IPA
+                        <i class="fa-solid fa-rocket"></i> Sign &amp; Install URL
                     </button>
                 </div>
 
@@ -635,15 +615,6 @@
         </div>
     </div>
 
-    <div id="signerLoadingOverlay" class="signing-loader-screen" style="display: none;">
-        <div class="spinner-ring"></div>
-        <h4 style="color: white; margin: 0 0 8px 0; font-size: 18px; font-weight: 800; letter-spacing: 0.5px;" id="loaderHeaderTitle">AppleJr Signing Pipeline</h4>
-        <p style="color: #00f5d4; margin: 0; font-size: 13px; font-weight: 600;" id="loaderStatusSub">Initializing cryptographic certificate layers...</p>
-        <div class="progress-track-container">
-            <div id="runtimeProgressBarFill" class="progress-active-bar"></div>
-        </div>
-    </div>
-
     <div id="upcomingAlertLayer" class="upcoming-modal-layer" style="display: none;">
         <div class="upcoming-modal-box">
             <i class="fa-solid fa-lock"></i>
@@ -672,22 +643,6 @@
             
             <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
                 <div id="flowStatusText"></div>
-                
-                <div class="customizer-box-wrapper" id="ipaCustomizerModule" style="display: none;">
-                    <div class="customizer-box-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Customize App Layout (Home Screen Only)</div>
-                    
-                    <div class="icon-preview-flex">
-                        <img id="customIconPreview" src="" class="icon-preview-circle">
-                        <button class="customizer-btn-action" onclick="document.getElementById('customIconFile').click()">Change Icon</button>
-                        <input type="file" id="customIconFile" accept="image/*" style="display:none;">
-                    </div>
-                    
-                    <div class="checkout-input-group">
-                        <input type="text" id="customAppNameInput" class="checkout-field-input" style="padding: 10px 12px 10px 38px; font-size:13px;" placeholder="Display Name">
-                        <i class="fa-solid fa-font" style="top:12px; left:14px; font-size:12px;"></i>
-                    </div>
-                </div>
-
                 <div id="flowDownloadContainer"></div>
             </div>
             
@@ -713,9 +668,6 @@
         
         let activeProductPayload = ""; 
         let activeDownloadPayload = "";
-        let defaultProductIcon = "";
-        let uploadedLocalFileBlob = null; 
-        let finalCustomIconUrl = "";
 
         window.displayStore = () => { 
             document.getElementById('homeSection').style.display = 'none'; 
@@ -755,16 +707,6 @@
             }
         }
 
-        const localFileInput = document.getElementById('localDiskIpaChooser');
-        if (localFileInput) {
-            localFileInput.addEventListener('change', function(event) {
-                if(event.target.files && event.target.files[0]) {
-                    uploadedLocalFileBlob = event.target.files[0];
-                    document.getElementById('uploadLabelTrack').innerText = "Selected: " + uploadedLocalFileBlob.name;
-                }
-            });
-        }
-
         window.openUpcomingView = (tabName) => {
             document.getElementById('upcomingTitle').innerText = tabName + " Locked";
             document.getElementById('upcomingAlertLayer').style.display = 'flex';
@@ -777,43 +719,10 @@
         window.triggerCheckout = (name, dlLink, fallbackIcon) => { 
             activeProductPayload = name; 
             activeDownloadPayload = dlLink;
-            defaultProductIcon = fallbackIcon;
-            finalCustomIconUrl = fallbackIcon;
-            
-            document.getElementById('customIconPreview').src = fallbackIcon;
-            document.getElementById('customAppNameInput').value = name;
 
             document.getElementById('gatewayForm').style.display = 'block';
             document.getElementById('flowStatusPanel').style.display = 'none';
-            document.getElementById('ipaCustomizerModule').style.display = 'none';
             document.getElementById('checkoutSystemModal').style.display = 'flex'; 
-        }
-        
-        const customIconFile = document.getElementById('customIconFile');
-        if(customIconFile) {
-            customIconFile.addEventListener('change', function(e) {
-                if(e.target.files && e.target.files[0]) {
-                    const imgBlob = e.target.files[0];
-                    const dataForm = new FormData();
-                    dataForm.append('file', imgBlob);
-                    
-                    document.getElementById('customIconPreview').style.opacity = "0.4";
-                    
-                    fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: dataForm })
-                    .then(res => res.json())
-                    .then(resData => {
-                        if(resData.status === 'success' && resData.data.url) {
-                            finalCustomIconUrl = resData.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
-                            document.getElementById('customIconPreview').src = finalCustomIconUrl;
-                        }
-                        document.getElementById('customIconPreview').style.opacity = "1";
-                    })
-                    .catch(() => {
-                        alert("Icon upload failed!");
-                        document.getElementById('customIconPreview').style.opacity = "1";
-                    });
-                }
-            });
         }
 
         window.dismissCheckout = () => { 
@@ -841,85 +750,10 @@
             });
         }
 
-        function executeOtaInstall(originalIpaUrl, customName, customIcon) {
-            const cleanIpaUrl = originalIpaUrl.replace(/&/g, '&amp;');
-            const cleanIconUrl = customIcon.replace(/&/g, '&amp;');
-            
-            const plistBlueprint = `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>items</key>
-    <array>
-        <dict>
-            <key>assets</key>
-            <array>
-                <dict>
-                    <key>kind</key>
-                    <string>software-package</string>
-                    <key>url</key>
-                    <string>${cleanIpaUrl}</string>
-                </dict>
-                <dict>
-                    <key>kind</key>
-                    <string>display-image</string>
-                    <key>needs-shine</key>
-                    <true/>
-                    <key>url</key>
-                    <string>${cleanIconUrl}</string>
-                </dict>
-                <dict>
-                    <key>kind</key>
-                    <string>full-size-image</string>
-                    <key>needs-shine</key>
-                    <true/>
-                    <key>url</key>
-                    <string>${cleanIconUrl}</string>
-                </dict>
-            </array>
-            <key>metadata</key>
-            <dict>
-                <key>bundle-identifier</key>
-                <string>com.fu4d.custom.layout.${Math.floor(Math.random() * 99999)}</string>
-                <key>bundle-version</key>
-                <string>1.0.0</string>
-                <key>kind</key>
-                <string>software</string>
-                <key>title</key>
-                <string>${customName}</string>
-            </dict>
-        </dict>
-    </array>
-</dict>
-</plist>`;
-
-            const inputPayloadData = new FormData();
-            const manifestBlobFile = new Blob([plistBlueprint], { type: 'text/xml' });
-            inputPayloadData.append('file', manifestBlobFile, 'manifest.plist');
-
-            fetch('https://tmpfiles.org/api/v1/upload', {
-                method: 'POST',
-                body: inputPayloadData
-            })
-            .then(response => response.json())
-            .then(payloadResult => {
-                if (payloadResult.status === 'success' && payloadResult.data.url) {
-                    const productionPlistSecureUrl = payloadResult.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
-                    window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(productionPlistSecureUrl)}`;
-                } else {
-                    alert("External setup deployment failed. Try again!");
-                }
-            })
-            .catch(() => {
-                alert("Network handshake signature broken. Check connectivity!");
-            });
-        }
-
         function attachPayloadListener(orderId) {
             const flowStatusPanel = document.getElementById('flowStatusPanel'); 
             const flowStatusText = document.getElementById('flowStatusText');
             const containerBox = document.getElementById('flowDownloadContainer');
-            const customizerModule = document.getElementById('ipaCustomizerModule');
             flowStatusPanel.style.display = 'block';
             
             onValue(ref(db, 'orders/' + orderId), (snapshot) => {
@@ -929,19 +763,16 @@
                 if(data.status === "pending") {
                     flowStatusPanel.className = "flow-status-card pending";
                     flowStatusText.innerHTML = "<b>STATUS: PENDING</b><br>Payment validation running. Wait krun...";
-                    customizerModule.style.display = "none";
                     containerBox.innerHTML = "";
                 } else if(data.status === "approved") {
                     flowStatusPanel.className = "flow-status-card approved";
                     flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
-                    customizerModule.style.display = "block";
                     
                     const targetLink = data.downloadLink;
                     containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">SIGN &amp; INSTALL ON IPHONE</button>`;
                     
                     document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
-                        const userCustomName = document.getElementById('customAppNameInput').value.trim() || activeProductPayload;
-                        executeOtaInstall(targetLink, userCustomName, finalCustomIconUrl);
+                        window.location.href = targetLink;
                     });
                 }
             });
@@ -951,52 +782,16 @@
         if (directInstallSubmitBtn) {
             directInstallSubmitBtn.addEventListener('click', () => {
                 const inputLinkUrl = document.getElementById('customIpaUrlInput').value.trim();
-                const masterLoaderModal = document.getElementById('signerLoadingOverlay');
-                const contextualStatusText = document.getElementById('loaderStatusSub');
-                const structuralProgressBar = document.getElementById('runtimeProgressBarFill');
-
-                if(!uploadedLocalFileBlob && !inputLinkUrl) {
-                    alert("Kindly provide a direct app link address path or upload file (.ipa format).");
+                if(!inputLinkUrl) {
+                    alert("Kindly provide a direct app link address path.");
                     return;
                 }
-
-                masterLoaderModal.style.display = "flex";
-                structuralProgressBar.style.width = "20%";
-                contextualStatusText.innerText = "Connecting to Secure Signer Cloud Matrix Routing...";
-
-                if (uploadedLocalFileBlob) {
-                    structuralProgressBar.style.width = "40%";
-                    contextualStatusText.innerText = "Uploading binary stream chunks...";
-
-                    const dataForm = new FormData();
-                    dataForm.append('file', uploadedLocalFileBlob);
-
-                    fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: dataForm })
-                    .then(res => res.json())
-                    .then(response => {
-                        if(response.status === 'success' && response.data.url) {
-                            let activeCloudDirectLink = response.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
-                            structuralProgressBar.style.width = "80%";
-                            contextualStatusText.innerText = "Generating live distribution configs...";
-                            
-                            setTimeout(() => {
-                                executeOtaInstall(activeCloudDirectLink, "FU4D Signed", defaultProductIcon);
-                                masterLoaderModal.style.display = "none";
-                            }, 1200);
-                        }
-                    })
-                    .catch(() => {
-                        masterLoaderModal.style.display = "none";
-                        alert("Upload failed.");
-                    });
-
-                } else if (inputLinkUrl) {
-                    structuralProgressBar.style.width = "70%";
-                    contextualStatusText.innerText = "Mapping static endpoint configurations...";
-                    setTimeout(() => {
-                        executeOtaInstall(inputLinkUrl, "FU4D Direct", defaultProductIcon);
-                        masterLoaderModal.style.display = "none";
-                    }, 1000);
+                
+                // If it's not a manifest URL, wrap it in itms-services.
+                if (!inputLinkUrl.startsWith("itms-services://")) {
+                    window.location.href = 'itms-services://?action=download-manifest&url=' + encodeURIComponent(inputLinkUrl);
+                } else {
+                    window.location.href = inputLinkUrl;
                 }
             });
         }
