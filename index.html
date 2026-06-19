@@ -21,6 +21,7 @@
             --text-muted: #8fa0c4;
             --glass-border: rgba(255, 255, 255, 0.08);
             --neon-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+            --premium-pink: #e2125d;
         }
 
         body {
@@ -348,57 +349,96 @@
         .nav-item-btn i { font-size: 18px; }
         .nav-item-btn.active { color: var(--accent-glow); text-shadow: 0 0 10px rgba(0,245,212,0.4); }
 
-        /* ULTRA GLASSMORPHISM PAYMENT OVERLAY */
+        /* ULTRA ULTRA GLASSMORPHISM PAYMENT OVERLAY */
         .checkout-layer {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 3, 7, 0.7); 
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(2, 3, 7, 0.4); 
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
             z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box;
         }
         .checkout-window {
-            background: linear-gradient(145deg, rgba(15, 22, 42, 0.9) 0%, rgba(22, 30, 59, 0.7) 100%);
-            border-radius: 32px; padding: 28px; max-width: 390px; width: 100%; text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255,255,255,0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 32px; padding: 30px 24px; max-width: 390px; width: 100%; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.2);
             position: relative; overflow: hidden;
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+        }
+        .checkout-window::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.08) 0%, transparent 60%);
+            pointer-events: none; z-index: 0;
         }
         
-        /* Bkash Premium Pill */
+        /* Bkash Premium Pill Upgraded */
         .provider-pill { 
             background: linear-gradient(90deg, #b6195e 0%, #e2125d 100%); 
-            color: white; padding: 12px 24px; border-radius: 30px; 
-            display: inline-block; font-weight: 900; font-size: 15px; margin-bottom: 12px;
-            box-shadow: 0 6px 20px rgba(226, 18, 93, 0.4), inset 0 1px 0 rgba(255,255,255,0.2); 
-            letter-spacing: 0.5px;
+            color: white; padding: 14px 28px; border-radius: 50px; 
+            display: inline-flex; align-items: center; gap: 8px; font-weight: 900; font-size: 16px; margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(226, 18, 93, 0.4), inset 0 1px 0 rgba(255,255,255,0.3); 
+            letter-spacing: 0.5px; position: relative; z-index: 1;
         }
-        .checkout-hint-msg { font-size: 13px; color: #a4b3d6; margin: 0 0 24px 0; font-weight: 600; }
+        .checkout-hint-msg { font-size: 13.5px; color: #a4b3d6; margin: 0 0 24px 0; font-weight: 600; position: relative; z-index: 1; }
         
-        .checkout-input-group { position: relative; margin-bottom: 16px; }
-        .checkout-input-group i { position: absolute; left: 16px; top: 16px; color: var(--accent-glow); font-size: 15px; }
+        .checkout-input-group { position: relative; margin-bottom: 16px; z-index: 1; }
+        .checkout-input-group i { position: absolute; left: 18px; top: 18px; color: var(--accent-glow); font-size: 16px; transition: color 0.3s; }
         .checkout-field-input { 
-            width: 100%; padding: 16px 14px 16px 48px; 
-            background: rgba(4, 6, 10, 0.5); border: 1px solid var(--glass-border); 
-            border-radius: 16px; color: white; outline: none; box-sizing: border-box; font-size: 14px;
-            transition: all 0.3s;
+            width: 100%; padding: 16px 14px 16px 50px; 
+            background: rgba(4, 6, 10, 0.4); border: 1px solid var(--glass-border); 
+            border-radius: 18px; color: white; outline: none; box-sizing: border-box; font-size: 14.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
         }
-        .checkout-field-input:focus { border-color: var(--accent-glow); background: rgba(4, 6, 10, 0.8); box-shadow: var(--neon-shadow); }
+        .checkout-field-input:focus { border-color: var(--accent-glow); background: rgba(4, 6, 10, 0.7); box-shadow: var(--neon-shadow); }
+        .checkout-field-input:focus + i { color: white; }
         
         .checkout-cta-trigger { 
             width: 100%; padding: 16px; 
             background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
-            color: black; border: none; border-radius: 16px; font-weight: 900; 
-            font-size: 14px; cursor: pointer; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 6px 20px rgba(0, 245, 212, 0.3); transition: all 0.2s;
+            color: black; border: none; border-radius: 18px; font-weight: 900; 
+            font-size: 14px; cursor: pointer; margin-top: 8px; text-transform: uppercase; letter-spacing: 1.5px;
+            box-shadow: 0 8px 25px rgba(0, 245, 212, 0.35); transition: all 0.3s ease;
+            position: relative; z-index: 1;
         }
-        .checkout-cta-trigger:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(0, 245, 212, 0.45); }
-        .checkout-cta-trigger:active { transform: scale(0.98); }
+        .checkout-cta-trigger:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0, 245, 212, 0.5); }
+        .checkout-cta-trigger:active { transform: scale(0.97); }
         
         .checkout-dismiss-lbl {
-            background: rgba(255,255,255,0.04); color: #a4b3d6; border: 1px solid var(--glass-border);
-            padding: 12px 32px; border-radius: 14px; cursor: pointer; font-weight: 700; font-size: 13.5px; margin-top: 20px;
-            transition: all 0.2s;
+            background: rgba(255,255,255,0.03); color: #a4b3d6; border: 1px solid var(--glass-border);
+            padding: 12px 36px; border-radius: 16px; cursor: pointer; font-weight: 700; font-size: 13.5px; margin-top: 24px;
+            transition: all 0.2s; position: relative; z-index: 1; display: inline-block;
         }
         .checkout-dismiss-lbl:hover { background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.2); }
+
+        /* Premium Flow Status Card Upgraded */
+        .flow-status-card { 
+            background: rgba(5, 7, 12, 0.5); padding: 20px; border-radius: 22px; 
+            text-align: center; font-size: 14.5px; margin-top: 12px; position: relative; z-index: 1;
+            border: 1px solid rgba(255, 188, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        .flow-status-card.pending {
+            border-top: 4px solid #ffbc00;
+        }
+        .flow-status-card.pending i { font-size: 32px; color: #ffbc00; margin-bottom: 12px; display: block; animation: pulseGlow 1.5s infinite alternate; }
+        .flow-status-card.approved { 
+            border: 1px solid rgba(0, 245, 212, 0.25); 
+            border-top: 4px solid #00f5d4;
+            box-shadow: var(--neon-shadow);
+        }
+        .flow-status-card.approved i { font-size: 36px; color: #00f5d4; margin-bottom: 12px; display: block; text-shadow: 0 0 10px var(--accent-glow); }
+        
+        @keyframes pulseGlow { from { opacity: 0.6; transform: scale(0.95); } to { opacity: 1; transform: scale(1.05); } }
+        
+        .dynamic-dl-anchor { 
+            display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; 
+            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
+            color: black; padding: 16px; border-radius: 18px; text-decoration: none; 
+            font-weight: 900; margin-top: 16px; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 8px 24px rgba(0, 245, 212, 0.4); transition: all 0.3s;
+        }
+        .dynamic-dl-anchor:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 245, 212, 0.55); }
 
         /* Upcoming Locked Modal */
         .upcoming-modal-layer {
@@ -418,30 +458,6 @@
             transition: all 0.2s;
         }
         .upcoming-close-btn:hover { background: rgba(255,255,255,0.1); }
-
-        .flow-status-card { 
-            background: rgba(5, 7, 12, 0.4); padding: 18px; border-radius: 20px; 
-            text-align: left; font-size: 14px; margin-top: 12px; 
-            border: 1px solid rgba(255, 188, 0, 0.3); border-left: 5px solid #ffbc00; 
-        }
-        .flow-status-card.approved { border: 1px solid rgba(0, 245, 212, 0.3); border-left-color: #00f5d4; }
-        
-        .customizer-box-wrapper {
-            background: rgba(255, 255, 255, 0.01); border-radius: 18px; padding: 18px; margin-top: 16px;
-            border: 1px dashed rgba(255,255,255,0.1); text-align: left;
-        }
-        .customizer-box-title { font-size: 13px; font-weight: 800; color: #00f5d4; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-        .icon-preview-flex { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .icon-preview-circle { width: 60px; height: 60px; border-radius: 16px; object-fit: cover; background: #1a1e2e; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .customizer-btn-action { background: #0084ff; color: white; border: none; padding: 10px 16px; border-radius: 12px; font-size: 12.5px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,132,255,0.25); }
-        
-        .dynamic-dl-anchor { 
-            display: block; text-align: center; 
-            background: linear-gradient(90deg, #00f5d4 0%, #00bbf9 100%); 
-            color: black; padding: 15px; border-radius: 16px; text-decoration: none; 
-            font-weight: 900; margin-top: 14px; text-transform: uppercase; letter-spacing: 0.5px;
-            box-shadow: 0 6px 20px rgba(0, 245, 212, 0.35);
-        }
     </style>
 </head>
 <body>
@@ -525,7 +541,7 @@
             </div>
 
             <div class="apps-grid-box" id="storeAppsGridContainer">
-                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fcloudsigner.me%2Fdownloads%2F1c84d77b-4b3%2Fmanifest.plist', 'https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg')">$13.15</button></div>
+                <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg" class="app-item-avatar"><h3>CapCut</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('CapCut', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fcloudsigner.me%2Fdownloads%2F085f3d12-2f4%2Fmanifest.plist', 'https://i.postimg.cc/LsF5KjkY/IMG-3568.jpg')">$13.15</button></div>
                 
                 <div class="app-item-card" data-category="apps"><img src="https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg" class="app-item-avatar"><h3>Wink</h3><div class="app-item-subtext">Premium App</div><button class="app-dl-trigger" onclick="triggerCheckout('Wink', 'itms-services://?action=download-manifest&url=https%3A%2F%2Fsigntools.ipaomtk.com%2Foutput%2FWink-signed-8de5d54b2f137de3b9d7.plist', 'https://i.postimg.cc/N0BsCpDj/IMG-1494.jpg')">$20.88</button></div>
                 
@@ -654,7 +670,7 @@
 
     <div id="checkoutSystemModal" class="checkout-layer" style="display: none;">
         <div class="checkout-window">
-            <div class="provider-pill">Bikash: 01310442750</div>
+            <div class="provider-pill"><i class="fa-solid fa-wallet"></i> bKash: 01310442750</div>
             <p class="checkout-hint-msg">Send Money kore TrxID Details din</p>
             
             <div id="gatewayForm">
@@ -670,23 +686,7 @@
             </div>
             
             <div id="flowStatusPanel" class="flow-status-card" style="display: none;">
-                <div id="flowStatusText"></div>
-                
-                <div class="customizer-box-wrapper" id="ipaCustomizerModule" style="display: none;">
-                    <div class="customizer-box-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Customize App Layout (Home Screen Only)</div>
-                    
-                    <div class="icon-preview-flex">
-                        <img id="customIconPreview" src="" class="icon-preview-circle">
-                        <button class="customizer-btn-action" onclick="document.getElementById('customIconFile').click()">Change Icon</button>
-                        <input type="file" id="customIconFile" accept="image/*" style="display:none;">
-                    </div>
-                    
-                    <div class="checkout-input-group">
-                        <input type="text" id="customAppNameInput" class="checkout-field-input" style="padding: 10px 12px 10px 38px; font-size:13px;" placeholder="Display Name">
-                        <i class="fa-solid fa-font" style="top:12px; left:14px; font-size:12px;"></i>
-                    </div>
-                </div>
-
+                <div id="flowStatusContent"></div>
                 <div id="flowDownloadContainer"></div>
             </div>
             
@@ -714,7 +714,6 @@
         let activeDownloadPayload = "";
         let defaultProductIcon = "";
         let uploadedLocalFileBlob = null; 
-        let finalCustomIconUrl = "";
 
         window.displayStore = () => { 
             document.getElementById('homeSection').style.display = 'none'; 
@@ -777,42 +776,10 @@
             activeProductPayload = name; 
             activeDownloadPayload = dlLink;
             defaultProductIcon = fallbackIcon;
-            finalCustomIconUrl = fallbackIcon;
-            
-            document.getElementById('customIconPreview').src = fallbackIcon;
-            document.getElementById('customAppNameInput').value = name;
 
             document.getElementById('gatewayForm').style.display = 'block';
             document.getElementById('flowStatusPanel').style.display = 'none';
-            document.getElementById('ipaCustomizerModule').style.display = 'none';
             document.getElementById('checkoutSystemModal').style.display = 'flex'; 
-        }
-        
-        const customIconFile = document.getElementById('customIconFile');
-        if(customIconFile) {
-            customIconFile.addEventListener('change', function(e) {
-                if(e.target.files && e.target.files[0]) {
-                    const imgBlob = e.target.files[0];
-                    const dataForm = new FormData();
-                    dataForm.append('file', imgBlob);
-                    
-                    document.getElementById('customIconPreview').style.opacity = "0.4";
-                    
-                    fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: dataForm })
-                    .then(res => res.json())
-                    .then(resData => {
-                        if(resData.status === 'success' && resData.data.url) {
-                            finalCustomIconUrl = resData.data.url.replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/');
-                            document.getElementById('customIconPreview').src = finalCustomIconUrl;
-                        }
-                        document.getElementById('customIconPreview').style.opacity = "1";
-                    })
-                    .catch(() => {
-                        alert("Icon upload failed!");
-                        document.getElementById('customIconPreview').style.opacity = "1";
-                    });
-                }
-            });
         }
 
         window.dismissCheckout = () => { 
@@ -822,8 +789,8 @@
         const processOrderBtn = document.getElementById('processOrderBtn');
         if (processOrderBtn) {
             processOrderBtn.addEventListener('click', () => {
-                const clientPhone = document.getElementById('billingPhone').value;
-                const clientTrx = document.getElementById('billingTrxId').value;
+                const clientPhone = document.getElementById('billingPhone').value.trim();
+                const clientTrx = document.getElementById('billingTrxId').value.trim();
                 if(!clientPhone || !clientTrx) return alert("Sothik tatthyo submit korun!");
                 
                 const generatedOrderId = "order_" + Date.now();
@@ -840,7 +807,42 @@
             });
         }
 
-        // PERFECT FIXED OVER THE AIR MANIFEST ENGINE WITH PROXY HANDSHAKE
+        // REMOVED MANIFEST CUSTOMIZER ENGINES FOR STABLE DEPLOYMENT
+        function attachPayloadListener(orderId) {
+            const flowStatusPanel = document.getElementById('flowStatusPanel'); 
+            const flowStatusContent = document.getElementById('flowStatusContent');
+            const containerBox = document.getElementById('flowDownloadContainer');
+            flowStatusPanel.style.display = 'block';
+            
+            onValue(ref(db, 'orders/' + orderId), (snapshot) => {
+                const data = snapshot.val();
+                if(!data) return;
+                
+                if(data.status === "pending") {
+                    flowStatusPanel.className = "flow-status-card pending";
+                    flowStatusContent.innerHTML = `<i class="fa-solid fa-hourglass-half"></i><b>STATUS: PENDING</b><br><span style="color:#a4b3d6; font-size:13px;">Payment validation running. Wait krun...</span>`;
+                    containerBox.innerHTML = "";
+                } else if(data.status === "approved") {
+                    flowStatusPanel.className = "flow-status-card approved";
+                    flowStatusContent.innerHTML = `<i class="fa-solid fa-circle-check"></i><b>STATUS: VERIFIED SUCCESS!</b><br><span style="color:#00f5d4; font-size:13px;">Your application package is signed and ready!</span>`;
+                    
+                    const targetLink = data.downloadLink;
+                    containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;"><i class="fa-solid fa-download"></i> INSTALL ON IPHONE</button>`;
+                    
+                    document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
+                        // Directly trigger manifest route URL for optimal pipeline rendering
+                        if (targetLink.startsWith('itms-services:')) {
+                            window.location.href = targetLink;
+                        } else {
+                            // Secondary fallback blueprint trigger
+                            window.location.href = `itms-services://?action=download-manifest&url=${encodeURIComponent(targetLink)}`;
+                        }
+                    });
+                }
+            });
+        }
+
+        // PERFECT FIXED OVER THE AIR MANIFEST ENGINE WITH PROXY HANDSHAKE FOR DIRECT SIGN TOOLS
         function executeOtaInstall(originalIpaUrl, customName, customIcon) {
             const cleanIpaUrl = originalIpaUrl.replace(/&/g, '&amp;');
             const cleanIconUrl = customIcon.replace(/&/g, '&amp;');
@@ -912,38 +914,6 @@
             })
             .catch(() => {
                 alert("Network handshake signature broken. Check connectivity!");
-            });
-        }
-
-        function attachPayloadListener(orderId) {
-            const flowStatusPanel = document.getElementById('flowStatusPanel'); 
-            const flowStatusText = document.getElementById('flowStatusText');
-            const containerBox = document.getElementById('flowDownloadContainer');
-            const customizerModule = document.getElementById('ipaCustomizerModule');
-            flowStatusPanel.style.display = 'block';
-            
-            onValue(ref(db, 'orders/' + orderId), (snapshot) => {
-                const data = snapshot.val();
-                if(!data) return;
-                
-                if(data.status === "pending") {
-                    flowStatusPanel.className = "flow-status-card pending";
-                    flowStatusText.innerHTML = "<b>STATUS: PENDING</b><br>Payment validation running. Wait krun...";
-                    customizerModule.style.display = "none";
-                    containerBox.innerHTML = "";
-                } else if(data.status === "approved") {
-                    flowStatusPanel.className = "flow-status-card approved";
-                    flowStatusText.innerHTML = "<b>STATUS: VERIFIED SUCCESS!</b>";
-                    customizerModule.style.display = "block";
-                    
-                    const targetLink = data.downloadLink;
-                    containerBox.innerHTML = `<button id="approvedOrderInstallTriggerBtn" class="dynamic-dl-anchor" style="width:100%; border:none; cursor:pointer;">SIGN &amp; INSTALL ON IPHONE</button>`;
-                    
-                    document.getElementById('approvedOrderInstallTriggerBtn').addEventListener('click', () => {
-                        const userCustomName = document.getElementById('customAppNameInput').value.trim() || activeProductPayload;
-                        executeOtaInstall(targetLink, userCustomName, finalCustomIconUrl);
-                    });
-                }
             });
         }
 
